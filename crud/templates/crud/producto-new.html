@@ -1,0 +1,59 @@
+{% extends 'crud/base.html' %}
+
+{% load static %}
+
+{% block title %}Nuevo Producto{% endblock %}
+
+{% block welcome %}
+<div class="container my-4 py-4 bg-dark text-white text-center">
+    <h1>Agregar nuevo producto<br>Completa los datos del formulario</h1>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="container my-4">
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            <label for="id" class="fw-bold">ID</label>
+            <div class="input-group">
+                {{form.id}}
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="descripcion" class="fw-bold">Descripción</label>
+            <div class="input-group">
+                {{form.descripcion}}
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="marca" class="fw-bold">Marca</label>
+            <div class="input-group">
+                {{form.marca}}
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="precio" class="fw-bold">Precio Unitario</label>
+            <div class="input-group">
+                {{form.precio}}
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="stock" class="fw-bold">Stock</label>
+            <div class="input-group">
+                {{form.stock}}
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="imagen" class="fw-bold">Imagen</label>
+            <div class="input-group">
+                {{form.imagen}}
+            </div>
+        </div>
+        <div class="text-center mb-3">
+            <input type="submit" value="Registrar" class="btn btn-outline-primary btn-block py-2" >
+            <input type="reset" value="Limpiar" class="btn btn-outline-primary btn-block py-2" >
+        </div>
+    </form>
+</div>
+{% endblock %}  

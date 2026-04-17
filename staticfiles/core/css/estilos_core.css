@@ -1,0 +1,2041 @@
+/* =====================================================
+   🔰 ESTILOS PRINCIPALES - ZEEZTON STORE
+   ===================================================== */
+
+/* Reset de espacios entre secciones */
+section,
+main {
+  margin-bottom: 0 ;
+  padding-bottom: 0 ;
+}
+main section.seccion-metalica {
+  margin: 0 !important;
+  padding-bottom: 120px !important;
+}
+
+body{
+    background-color: #ffffff !important;
+}
+
+
+/* ------------------ LOGO ------------------ */
+
+/*:root{
+  --zeezton-cyan: #6014c9;
+  --zeezton-cyan-soft: #6f269f;
+}
+*/
+
+.logo-text{
+  font-family: "BBH Sans Bartle", sans-serif !important;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #000;
+  line-height: 1;
+  margin: 0;
+  margin-left: 20px;
+}
+
+.header-mejora{
+  margin-top: 50px;
+}
+
+
+/* ===== Zeezton Lightning Intro (Navbar) =====
+.zeezton-intro{
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 160px;
+  height: 44px;
+  overflow: visible;
+}
+
+/* Estado inicial solo cuando está en .play
+.zeezton-intro.play .zeezton-logo-text{
+  opacity: 0;
+  transform: translateY(8px) scale(.99);
+  animation: zeeztonLogoReveal 1200ms ease-out forwards;
+}
+
+/* FLASH (turquesa)
+.zeezton-flash{
+  position: absolute;
+  inset: -30px;
+  background: radial-gradient(
+    circle at 50% 40%,
+    rgb(73 47 255 / 85%),
+    rgb(214 11 223 / 47%),
+    rgb(255 255 255 / 0%) 60%
+  );
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.zeezton-intro.play .zeezton-flash{
+  animation: zeeztonFlash 1200ms ease-out forwards;
+}
+
+/* RAYO (centrado + más arriba + glow turquesa)
+.zeezton-bolt{
+  position: absolute;
+  top: -160px;
+  left: 50%;
+  width: 32px;
+  height: 90px;
+  opacity: 0;
+  z-index: 1;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 6px #6c2fff) drop-shadow(0 0 14px rgb(118 47 255 / 65%)) drop-shadow(0 0 28px rgb(141 47 255 / 35%));
+}
+
+.zeezton-bolt path{
+  fill: var(--zeezton-cyan);
+}
+
+.zeezton-intro.play .zeezton-bolt{
+  animation: boltDrop 1200ms cubic-bezier(.2,.9,.2,1) forwards;
+}
+
+/* ===== KEYFRAMES =====
+@keyframes boltDrop{
+  0%{
+    opacity: 0;
+    transform: translateX(-50%) translateY(0);
+  }
+  30%{
+    opacity: 1;
+  }
+  45%{
+    /* impacto alineado con el texto
+    transform: translateX(-50%) translateY(120px);
+    opacity: 1;
+  }
+  55%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+@keyframes zeeztonFlash{
+  0%,30% { opacity: 0; }
+  38%    { opacity: 1; }
+  52%    { opacity: .10; }
+  100%   { opacity: 0; }
+}
+
+@keyframes zeeztonLogoReveal{
+  0%,40%{
+    opacity: 0;
+    transform: translateY(8px) scale(.98);
+    filter: drop-shadow(0 0 0 rgba(47,255,220,0));
+  }
+  46%{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter:
+      drop-shadow(0 0 10px rgb(100 47 255 / 60%))
+      drop-shadow(0 0 20px rgb(54 0 255 / 35%));
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+/* Accesibilidad
+@media (prefers-reduced-motion: reduce){
+  .zeezton-intro.play .zeezton-bolt,
+  .zeezton-intro.play .zeezton-flash,
+  .zeezton-intro.play .zeezton-logo-text{
+    animation: none;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+*/
+
+/* ------------------ NAVBAR ------------------ */
+.navbar {
+  background-color: #ffffff !important;
+  margin-bottom: 0 !important;
+}
+
+/* por si algún contenedor agrega margen arriba */
+.body {
+  margin: 0;
+}
+
+.navbar .nav-link {
+  font-family: 'Michroma';
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #868686 !important;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #7300ff !important;
+  transform: translateY(-1px);
+}
+
+.navbar .nav-link.active {
+  color: #000 !important;
+  font-weight: 800;
+}
+
+/* ================= NAVBAR MOBILE ================= */
+
+@media (max-width: 992px){
+
+    .navbar-brand{
+        transform: scale(.95);
+    }
+
+    .logo-text{
+        font-size: 1.0rem; /* evita saltos raros */
+    }
+
+    .navbar .nav-link {
+    font-size: 0.8rem;
+    padding: 5px;
+    text-align: center;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .logo-icon { width: 38px; }
+  .logo-text {
+      font-size: 0.9rem;
+      margin-left: 10px; /* microajuste */
+  }
+
+  .navbar-nav { padding-top: 10px; }
+
+  .navbar .nav-link {
+    font-size: 1.15rem;
+    padding: 10px 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px){
+
+    .navbar-brand{
+        transform: scale(.95);
+    }
+
+    .logo-text{
+        font-size: 1.0rem; /* evita saltos raros */
+    }
+
+}
+
+
+/* =========================
+   NAVBAR SEARCH
+   ========================= */
+
+.navbar-search-form{
+    flex: 1;
+    max-width: 420px;
+    margin: 0 20px;
+}
+
+.navbar-search-wrap{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    background: linear-gradient(135deg,#111,#1d1d1d);
+    border-radius: 10px;
+    padding: 5px 8px;
+}
+
+.navbar-search-input{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    flex: 1;
+    font-size: .75rem;
+}
+
+.navbar-search-btn{
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: #fff;
+    font-size: .7rem;
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   1. SECCIÓN METÁLICA (BLOQUE NEGRO SUPERIOR E INFERIOR)
+   ============================================================ */
+
+.seccion-metalica,
+.seccion-metalica_2 {
+    background: url("/media/recursos/fondo_metal_black.png") center / cover no-repeat !important;
+    background-color: transparent !important;
+    min-height: 300px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    position: relative !important;
+    z-index: 5 !important;
+}
+
+/* Tipografía y Color para el bloque NEGRO */
+.seccion-metalica .hero-titulo,
+.seccion-metalica .hero-subtitle {
+    font-family: "Michroma", sans-serif !important;
+    color: #ffffff !important; /* Blanco */
+    opacity: 1 !important;
+}
+
+.hero-titulo, .hero-subtitle {
+    /* Usamos Orbitron que es idéntica en estilo pero con soporte total de ñ e í */
+    font-family: 'Orbitron', sans-serif !important;
+    font-weight: 900 !important; /* Grosor máximo para que se vea deportiva */
+    letter-spacing: 1px !important;
+    text-transform: uppercase;
+}
+
+.hero-titulo {
+    font-size: 1.8rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 15px !important;
+}
+
+.hero-subtitle {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
+}
+.seccion-metalica .hero-titulo { font-size: 1.5rem !important; text-transform: uppercase; }
+.seccion-metalica .hero-subtitle { font-size: 18px !important; }
+
+
+
+/* ===== MÓVIL ===== */
+
+
+@media (max-width: 768px){
+
+    .seccion-metalica,
+    .seccion-metalica_2{
+        min-height: 160px !important;   /* 🔥 Más compacto aún */
+        padding: 25px 10px !important;  /* 🔥 Reduce aire vertical */
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .seccion-metalica .hero-titulo{
+        font-size: 0.55rem !important;   /* 🔥 Bien pequeño */
+        line-height: 1.15 !important;
+        letter-spacing: 0.6px;           /* 🔥 Ajuste óptico clave */
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 6px;                  /* 🔥 Evita tocar bordes */
+    }
+
+}
+
+    /*.seccion-metalica .hero-subtitle {
+        font-size: 0.9rem !important;
+        margin-top: 10px;
+    }*/
+
+
+
+/* =========================
+   FOOTER GENERAL
+========================= */
+
+.seccion-metalica_2{
+    background: #0b0b0b;
+    padding: 35px 0;
+    text-align: center;
+    color: white;
+}
+
+.footer-container{
+    padding-left: 40px;
+    padding-right: 40px;
+    font-family: 'BBH Sans Bartle';
+}
+
+.footer-row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 2rem;
+}
+
+.footer-block{
+    flex: 0 0 auto;
+}
+
+.footer-title{
+    font-size: 1rem;
+    margin-bottom: .8rem;
+}
+
+.footer-input-group{
+    font-family: 'Michroma';
+    /*display: flex;*/
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-input{
+    width: 200px;
+    height: 32px;
+    background: linear-gradient(135deg, #101010, #1a1a1a);
+    border: 1px solid rgba(15, 207, 217, 0.25);
+    border-radius: 8px;
+    color: #fff;
+    padding: 0 20px;
+    font-size: 0.5rem;
+    outline: none;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+    transition: all .25s ease;
+}
+
+.footer-input::placeholder{
+    color: #8a8a8a;
+}
+
+.footer-input:focus{
+    border-color: #0fcfd9;
+    box-shadow: 0 0 0 3px rgba(15, 207, 217, 0.12);
+    background: linear-gradient(135deg, #111, #202020);
+}
+
+.footer-btn{
+    height: 32px;
+    padding: 0 20px;
+    border: 1px solid rgba(15, 207, 217, 0.28);
+    border-radius: 8px;
+    background: linear-gradient(135deg, #111, #1d1d1d);
+    color: #fff;
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: .3px;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.footer-btn:hover{
+    color: #0fcfd9;
+    border-color: #0fcfd9;
+    box-shadow: 0 0 14px rgba(15, 207, 217, 0.18);
+    transform: translateY(-1px);
+}
+
+.footer-btn:active{
+    transform: translateY(0);
+}
+
+
+.footer-links{
+    list-style: none !important;
+    padding-left: 0 !important;
+    margin: 0 !important;
+}
+
+.footer-links li{
+    margin: 0;
+    padding: 0;
+}
+
+.footer-link{
+    font-size: .95rem;
+    text-decoration: none !important;
+    color: #ccc;
+    transition: 0.25s;
+}
+
+.footer-link:hover{
+    color: #0fcfd9;
+}
+
+.footer-copy{
+    font-size: .9rem;
+    margin: 0;
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 992px){
+
+    .footer-container{
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .footer-row{
+        gap: 1.2rem;
+        align-items: flex-start;
+    }
+
+    .footer-title{
+        font-size: .88rem;
+    }
+
+    .footer-link{
+        font-size: .82rem;
+    }
+
+    .footer-copy{
+        font-size: .78rem;
+    }
+
+    .footer-input{
+        width: 180px;
+        font-size: .5rem;
+        padding: 6px 8px;
+    }
+
+    .footer-btn{
+        font-size: .75rem;
+        padding: 6px 10px;
+    }
+}
+
+/* =========================
+   MÓVIL
+========================= */
+@media (max-width: 768px){
+
+    .footer-container{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .footer-row{
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: .5rem;
+        text-align: center;
+    }
+
+    .footer-block{
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .footer-title{
+        font-size: .62rem;
+        line-height: 1.1;
+        margin-bottom: .45rem;
+    }
+
+    .footer-links{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .footer-link{
+        font-size: .60rem;
+        line-height: 1.1;
+    }
+
+    .footer-copy{
+        font-size: .56rem;
+        line-height: 1.1;
+        margin: 0;
+        word-break: break-word;
+    }
+
+    .footer-icon{
+        font-size: .8rem;
+        margin-bottom: .2rem;
+    }
+
+    .footer-input-group{
+        display: flex;
+        justify-content: center;
+        gap: 4px;
+        flex-wrap: nowrap;
+        margin-left: 20px;
+    }
+
+    .footer-input{
+        width: 140px;
+        font-size: .4rem;
+        padding: 4px 20px;
+    }
+
+    .footer-btn{
+        font-size: .4rem;
+        padding: 4px 10px;
+        white-space: nowrap;
+    }
+}
+
+/* =========================
+   MÓVIL MUY PEQUEÑO
+========================= */
+@media (max-width: 480px){
+
+    .footer-row{
+        gap: .35rem;
+    }
+
+    .footer-title{
+        font-size: .4rem;
+    }
+
+    .footer-link{
+        font-size: .4rem;
+    }
+
+    .footer-copy{
+        font-size: .4rem;
+    }
+
+    .footer-input{
+        width: 90px;
+        font-size: .4rem;
+        padding: 3px 5px;
+        height: 22px;
+    }
+
+    .footer-btn{
+        font-size: .4rem;
+        padding: 3px 5px;
+        height: 22px;
+    }
+
+    .footer-icon{
+        font-size: .7rem;
+    }
+}
+
+
+/* =====================================================
+   📦 CARRUSEL - CENTRADO Y ADAPTABLE
+   ===================================================== */
+#carouselExampleIndicators{
+  position: relative;
+}
+
+#carouselExampleIndicators .carousel-indicators{
+  bottom: 12px;
+  z-index: 10;
+}
+
+/* evita que el carrusel se monte */
+#carouselExampleIndicators{
+  position: relative !important;
+  z-index: 1 !important;
+  margin-top: 0 !important;
+}
+
+
+/* =====================================================
+   📱 RESPONSIVE
+   ===================================================== */
+@media (max-width: 1400px) {
+  .productos-grid {
+    transform: none;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .productos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (max-width: 768px){
+  .destacados-container .carousel-item .row > [class*="col-"]{
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+
+  .carousel-item .row{
+    padding: 0 14px; /* menos padding para que quepan 2 */
+  }
+}
+
+
+/* ==============================
+   DESTACADOS WRAPPER
+   ============================== */
+
+.destacados-wrapper {
+  background: #f5f5f5;
+  margin: 35px 0;
+  padding: 100px 22px 110px; /* ✅ FIX: faltaba px */
+}
+
+/* Contenedor visual (El fondo negro y glow) */
+.destacados-container {
+ background: linear-gradient(0deg, #7318ff, #000000, #000000);
+  /* border: 1px solid rgba(15,207,217,.25); */
+  padding: 20px;
+  margin: 35px 0;
+  /* border-radius: 18px; */
+  /*padding: 20px 20px 20px;*/
+  box-shadow: 0 14px 40px rgba(0,0,0,.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.destacados-container::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  /*background: radial-gradient(circle at 10% 0%, rgba(15,207,217,.28), transparent 45%);*/
+  pointer-events:none;
+}
+
+/* ==============================
+   CARD (hover único)
+   ============================== */
+
+.destacados-container .card-small {
+  background: transparent;
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+
+  padding: 12px 10px 16px;
+
+  transition: transform .25s ease, box-shadow .25s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+}
+
+.destacados-container .card-small:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(15, 207, 217, 0.35);
+}
+
+/* ==============================
+   IMAGEN (SIN borde blanco)
+   ============================== */
+
+.destacados-container .card-img-top3 {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;   /* 🔥 SIN ZOOM */
+  background: transparent;
+  padding: 0;
+  display: block;
+}
+
+
+
+/* ==============================
+   HEADER
+   ============================== */
+
+.destacados-header {
+  text-align: center;
+  margin-bottom: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+.destacados-title {
+  font-family: "Michroma", sans-serif;
+  font-weight: 900;
+  font-size: 1.0rem;
+  /* color: #ffffff; */
+background: linear-gradient(359deg, #6700ff, #221f29);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.6px;
+}
+
+.destacados-sub {
+  color: rgba(255,255,255,.6);
+  font-size: .95rem;
+}
+
+/* ==============================
+   TEXTOS
+   ============================== */
+
+.destacados-container .producto-titulo {
+  color: rgba(255,255,255,.92) !important;
+  /* font-weight: 800; */
+  font-size: 0.9rem;
+  /* margin: 15px 10px 5px; */
+  /* text-align: center; */
+}
+
+.destacados-container .producto-precio {
+  color: #0fcfd9 !important;
+  font-size: 1.4rem;
+  font-weight: 900;
+}
+
+
+
+/*MOVIL */
+
+.destacados-container .producto-precio {
+    font-size: 0.9rem;
+}
+
+
+/* ==============================================
+   AJUSTES PARA EL CARRUSEL (NUEVO)
+   ============================================== */
+
+/* Centrar las filas dentro del carrusel */
+.carousel-item .row {
+  margin: 0;
+  padding: 0 40px; /* Espacio para que las flechas no tapen el producto */
+}
+
+/* Estilo de las flechas */
+.carousel-control-prev, .carousel-control-next {
+  width: 50px;
+  opacity: 0.8;
+}
+
+.carousel-control-prev:hover, .carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* Cards dentro de destacados (Mantenemos tu estilo) */
+.destacados-container .card-small {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff00;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.destacados-container .card-small:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 35px rgb(199 0 255 / 25%);
+}
+
+.destacados-container .producto-precio {
+  color: #0fcfd9 !important;
+}
+
+/* Ajuste de imagen para que no se deforme en el carrusel */
+.destacados-container .card-img-top3 {
+  height: 250px;
+
+}
+
+/* ==============================
+   GRID (BASE - DESKTOP GRANDE)
+   ============================== */
+
+.productos-grid{
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  width: min(1400px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+/* ==============================
+   CARD (BASE)
+   ============================== */
+
+.producto-card{ height: 100%; }
+
+.card-small{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #fff;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card-small:hover{
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+  transform: translateY(-4px);
+}
+
+/* ✅ Imagen fija */
+.card-img-top3{
+  width: 100%;
+  aspect-ratio: 1 / 1;     /* 🔥 siempre cuadrada */
+  object-fit: cover;
+  display: block;
+}
+
+/* Body */
+.card-small .card-body{
+  flex: 1;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Título 2 líneas */
+.producto-titulo{
+    font-family: 'Michroma', sans-serif;
+    margin: 0 0 6px;
+    /* font-weight: 800; */
+    /* line-height: 1.2; */
+    height: calc(1.2em * 1);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+/* Marca */
+.producto-marca{
+  font-family: 'Michroma', sans-serif;
+  font-size: .6rem;
+  margin: 0 0 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Descripción 2 líneas */
+.producto-desc{
+  font-family: 'Michroma', sans-serif;
+  font-size: .9rem;
+  line-height: 1.25;
+  height: calc(1.25em * 2);
+  overflow: hidden;
+  margin: 0 0 8px;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Meta abajo */
+.producto-meta{
+  margin-top: auto;
+  font-size: .9rem;
+}
+
+/* Precio */
+.producto-precio{
+  font-family: "Michroma", sans-serif;
+  font-size: 1.3rem;
+  color: #0fcfd9;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: block;
+}
+
+.producto-precio span.moneda{
+  font-size: .5rem;
+  color: #555;
+  font-weight: 400;
+}
+
+/* Footer */
+.card-small .card-footer{
+  flex: 0 0 56px;
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-top: 1px solid #eee;
+  background: #fff;
+}
+
+.card-small .card-footer .btn{
+  width: 100%;
+  background-color: #787d7d;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, color .25s ease;
+}
+
+.card-small .card-footer .btn:hover{
+  background-color: #0fcfd9;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 207, 217, 0.4);
+}
+
+/* =====================================================
+   NOTEBOOK (<=1600px): 4 columnas + más compacto
+   ===================================================== */
+@media (max-width: 1600px){
+
+  /* Grid: 4 columnas reales y compacto */
+  .productos-grid{
+    display: grid; /* por si algún estilo lo pisa */
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+    max-width: 1200px;     /* ✅ controla “aire” en notebook */
+    margin: 0 auto;
+    padding: 0 12px;
+    align-items: stretch;
+  }
+
+  /* Card: NO limites con max-width (rompe el grid) */
+  .producto-card{
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* Más compacto por dentro */
+  .card-small .card-body{
+    padding: 8px 10px;
+  }
+
+  /* Mantén la imagen consistente también en notebook */
+  .card-img-top3{
+    height: 190px;        /* ajusta 170–200 según gusto */
+    flex: 0 0 190px;
+    object-fit: cover;
+  }
+
+  .producto-precio{
+    font-size: 1.0rem;
+  }
+
+  /* Opcional: reduce un poco texto para que no se vea “relleno” */
+  .producto-desc{
+    font-size: .6rem;
+  }
+}
+
+/* =====================================================
+   TABLET/MÓVIL (<=768px): 2 columnas
+   ===================================================== */
+@media (max-width: 768px){
+  .productos-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  .card-img-top3{
+    height: 160px;
+    flex: 0 0 160px;
+    object-fit: cover;
+  }
+
+  .card-small .card-body{
+    /*padding: 10px;*/
+    display: flex;
+    width:100%;
+    min-height: 120px;
+    padding: 14px 10px;
+  }
+
+  .producto-titulo{
+    font-size: .9rem;
+    margin: 6px 0 10px !important;
+
+  }
+  .producto-desc{ font-size: .82rem; }
+  .producto-precio{ font-size: 1.0rem; }
+
+  .card-small .card-footer{
+    flex: 0 0 48px;
+    padding: 8px 10px;
+  }
+}
+
+/* =====================================================
+   MÓVIL CHICO (<=480px): 1 columna
+   ===================================================== */
+
+@media (max-width: 480px){
+
+  .productos-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 8px;
+  }
+
+  .card-img-top3{
+    height: 180px;
+    flex: 0 0 180px;
+    object-fit: cover;
+  }
+
+  .card-small .card-body{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: auto;
+    padding: 0px;
+  }
+
+  .producto-titulo{
+    font-size: .95rem;
+    margin: 6px 0 8px;
+  }
+
+  .producto-desc{
+    font-size: .7rem;
+    text-align: left;
+  }
+
+  .producto-precio{
+    font-size: 0.9rem;
+  }
+
+  .card-small .card-footer{
+    padding: 8px 10px;
+  }
+
+
+  #carouselDestacadosMobile .row{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  #carouselDestacadosMobile .col-6{
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+
+  #carouselDestacadosMobile .card-small{
+    width: 100%;
+  }
+
+  #carouselDestacadosMobile .card-img-top3{
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+
+  #carouselDestacadosMobile .producto-titulo{
+    font-size: 0.95rem;
+    line-height: 1.2;
+  }
+
+  #carouselDestacadosMobile .card-body{
+    padding: 10px;
+  }
+}
+
+
+
+/* ===============================
+   Zeezton Filter Bar (Premium)
+   =============================== */
+.zfiltro-wrap{
+  padding: 18px 12px;
+  font-family: 'Michroma', sans-serif;
+}
+
+.zfiltro{
+  max-width: 1180px;
+  margin: 0 auto 10px;
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr 160px;
+  gap: 8px;
+  align-items: center;
+
+  background: linear-gradient(135deg, rgba(10,10,10,.92), rgba(24,24,24,.92));
+  border: 1px solid rgba(15,207,217,.22);
+  border-radius: 5px;
+  padding: 12px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.35);
+  backdrop-filter: blur(8px);
+}
+
+.zfiltro-field{
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 4px;
+  padding: 10px 12px;
+  min-height: 46px;
+}
+
+.zfiltro-ico{
+  opacity: .9;
+  font-size: .95rem;
+  color: rgba(255,255,255,.78);
+}
+
+.zfiltro-input{
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font-size: .95rem;
+  line-height: 1;
+}
+
+.zfiltro-input::placeholder{
+  color: rgba(255,255,255,.55);
+}
+
+.zfiltro-field:focus-within{
+  border-color: rgba(15,207,217,.55);
+  box-shadow: 0 0 0 3px rgba(15,207,217,.12);
+}
+
+.zfiltro-select-input{
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  color: #fff !important;
+}
+
+/* Evita “focus ring”/rectángulo al hacer click */
+.zfiltro-select-input:focus,
+.zfiltro-select-input:active,
+.zfiltro-select-input:focus-visible{
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* En algunos casos el navegador dibuja borde con background-clip */
+.zfiltro-select-input{
+  background-clip: padding-box !important;
+}
+
+/* Para Edge/IE antiguo (no molesta aunque no aplique) */
+.zfiltro-select-input::-ms-expand{
+  display: none;
+}
+
+/* Opciones del desplegable (lista) */
+.zfiltro select option{
+  background: #0f0f0f;           /* fondo oscuro */
+  color: #ffffff;               /* texto blanco */
+}
+
+/* (Opcional) opción placeholder */
+.zfiltro select option[value=""]{
+  color: rgba(255,255,255,.65);
+}
+
+.zfiltro-caret{
+  position: absolute;
+  right: 12px;
+  opacity: .75;
+  pointer-events: none;
+  color: rgba(255,255,255,.75);
+  font-size: .85rem;
+}
+
+.zfiltro-btn{
+  height: 46px;
+  border: 0;
+  border-radius: 4px;
+  /* font-weight: 800; */
+  /* letter-spacing: .2px; */
+  /* display: inline-flex; */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(2deg, rgb(0 0 0 / 92%), rgb(255 255 255));
+  color: #ffffff;
+  /* box-shadow: 0 12px 26px rgb(255 0 0 / 18%); */
+  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+}
+
+.zfiltro-btn:hover{
+  filter: brightness(1.04);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgb(255 255 255 / 22%);
+}
+
+.zfiltro-btn:active{
+  transform: translateY(0px);
+}
+
+/* Botón para limpiar búsqueda */
+.zfiltro-clear{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  color: rgba(255,255,255,.75);
+  text-decoration: none;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.zfiltro-clear:hover{
+  color: #fff;
+  border-color: rgba(15,207,217,.35);
+  box-shadow: 0 0 0 3px rgba(15,207,217,.10);
+}
+
+/* Responsive */
+@media (max-width: 992px){
+  .zfiltro{
+    grid-template-columns: 1fr;
+  }
+  .zfiltro-btn{
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+    .zfiltro-input {
+        font-size: 0.6rem;
+    }
+    .zfiltro-btn{
+        font-size: 0.6rem;
+    }
+}
+
+
+/* ================================
+   DETALLE PRODUCTO
+================================ */
+.product-detail-page {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
+
+
+.product-detail-image {
+  width: 100%;
+  max-height: 460px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Caja info */
+.product-detail-info-box {
+  background: #ffffff;
+  border: 1px solid rgba(80, 110, 140, 0.12);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-detail-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: linear-gradient(135deg, #7300ff, #a855f7);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  letter-spacing: 0.4px;
+}
+
+.product-detail-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1.7rem, 2vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: #1b2c42;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.product-detail-brand {
+  font-size: 1.05rem;
+  color: #6c7a89;
+  margin-bottom: 1rem;
+}
+
+.product-detail-brand span {
+  color: #24364a;
+  font-weight: 700;
+}
+
+.product-detail-price {
+  font-size: clamp(1.8rem, 2vw, 2.4rem);
+  font-weight: 900;
+  color: #09b3d6;
+  margin-bottom: 1rem;
+}
+
+.product-detail-stock {
+  font-size: 1.05rem;
+  color: #2d4055;
+  margin-bottom: 1.5rem;
+}
+
+/* Botones */
+.product-detail-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.product-detail-btn {
+  min-height: 52px;
+  border-radius: 14px;
+  padding: 0.85rem 1.3rem;
+  font-weight: 700;
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.product-detail-btn-primary {
+  background: linear-gradient(135deg, #5f1b8f, #7b2cbf);
+  border: none;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(95, 27, 143, 0.25);
+}
+
+.product-detail-btn-primary:hover {
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.product-detail-btn-secondary {
+  background: #fff;
+  border: 1px solid rgba(80, 110, 140, 0.2);
+  color: #2d4055;
+}
+
+.product-detail-btn-secondary:hover {
+  background: #f7f9fc;
+  color: #1b2c42;
+  transform: translateY(-2px);
+}
+
+/* Descripción */
+.product-detail-description-box {
+  background: #ffffff;
+  border: 1px solid rgba(80, 110, 140, 0.12);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+  /*margin-bottom: 4rem;
+  margin-left: 2rem;
+  margin-right: 2rem;*/
+}
+
+.product-detail-section-title {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1.25rem, 1.8vw, 1.8rem);
+  font-weight: 800;
+  color: #1b2c42;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.product-detail-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  letter-spacing: 0.2px;
+  color: rgba(0, 0, 0, 0.72);
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .product-detail-image-box,
+  .product-detail-info-box,
+  .product-detail-description-box {
+    padding: 1.4rem;
+    border-radius: 18px;
+  }
+
+  .product-detail-image-box {
+    min-height: auto;
+  }
+
+  .product-detail-image {
+    max-height: 340px;
+  }
+
+  .product-detail-actions {
+    flex-direction: column;
+  }
+
+  .product-detail-btn {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+/* ======================================================
+   2. BLOQUE PRESENTACIÓN
+====================================================== */
+
+.contenedor-maestro-presentacion {
+    background-color: #dcdcdc !important;
+    padding: 100px 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+
+/* Título del bloque presentación */
+/*
+.contenedor-maestro-presentacion .hero-titulo {
+    font-family: "BBH Sans Bartle", sans-serif !important;
+    font-size: 33.4px !important;
+    max-width: 900px !important;
+    margin: 0 auto 25px auto !important;
+    line-height: 1.2 !important;
+}
+*/
+
+/* Subtítulo del bloque presentación */
+.contenedor-maestro-presentacion .hero-subtitle {
+    font-family: "Michroma", sans-serif !important;
+    font-size: 1.3rem !important;
+    max-width: 1500px !important;
+    margin: 0 auto !important;
+    color: #000000 !important;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+
+/* Limpieza total del logo y textos del footer */
+.seccion-metalica_2 .fa-js,
+.seccion-metalica_2 i {
+    font-size: 38px;
+    color: #ffffff !important; /* Blanco puro */
+    opacity: 1 !important;    /* Quita la "capa" gris */
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.2));
+
+}
+
+.seccion-metalica_2 p,
+.seccion-metalica_2 .small,
+.seccion-metalica_2 a,
+.seccion-metalica_2 h6 {
+    font-family: "BBH Sans Bartle", sans-serif !important;
+    color: #ffffff !important;
+    text-transform: uppercase;
+    /*font-size: 0.75rem;*/
+}
+
+
+/* --- 📱 FUERZA TOTAL PARA MÓVIL (PRESENTACIÓN Y FOOTER) --- */
+
+@media (max-width: 768px) {
+
+    /* 1. Bloque de Presentación Blanco */
+    .contenedor-maestro-presentacion {
+        min-height: 160px !important;   /* 🔥 Más compacto aún */
+        padding: 25px 10px !important;  /* 🔥 Reduce aire vertical */
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Usamos los selectores que ya tienes en el HTML
+    .contenedor-maestro-presentacion .hero-titulo,
+    .bloque-presentacion-compacto h2 {
+        font-family: "BBH Sans Bartle", sans-serif !important;
+        font-size: 1.4rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 15px !important;
+        color: #000000 !important;
+        max-width: 100% !important;
+    }*/
+
+    .contenedor-maestro-presentacion .hero-subtitle,
+    .bloque-presentacion-compacto p {
+        font-family: "Michroma", sans-serif !important;
+        font-size: 0.5rem !important;   /* 🔥 Bien pequeño */
+        /* line-height: 1.15 !important; */
+        letter-spacing: 0.4px;           /* 🔥 Ajuste óptico clave */
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px;                  /* 🔥 Evita tocar bordes */
+    }
+
+    /* 2. Ajuste del Footer Metálico en Móvil */
+    .seccion-metalica_2 {
+        display: block !important; /* Apila las columnas (Copyright, Mapa, Club) */
+        padding: 40px 10px !important;
+    }
+
+    .seccion-metalica_2 .col-md-4 {
+        margin-bottom: 25px !important; /* Separa los bloques del footer */
+    }
+
+    /* 3. El Logo JS y Iconos en Blanco Puro */
+    .seccion-metalica_2 .fa-js,
+    .seccion-metalica_2 i {
+        font-size: 1.8rem !important;
+        color: #ffffff !important;
+        opacity: 1 !important; /* Adiós a la capa gris */
+    }
+}
+
+
+/* ============================================================
+   PAG DETALLE PRODUCTO
+   ============================================================ */
+
+
+.product-detail-title{
+  font-family: "Michroma", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  line-height: 1.15;
+  text-transform: uppercase; /* si NO lo quieres en mayúsculas, borra esta línea */
+
+  font-size: 1.0rem;        /* desktop */
+  margin: 0;
+}
+
+/* Tablet */
+@media (max-width: 992px){
+  .product-detail-title{
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+}
+
+/* Móvil */
+@media (max-width: 768px){
+  .product-detail-title{
+    font-size: 1.05rem;
+    line-height: 1.25;
+    text-wrap: balance;      /* mejora los saltos de línea */
+  }
+}
+
+@media (max-width: 768px){
+  .product-detail-title{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+
+/* ===== DETALLE PRODUCTO: descripción ===== */
+
+.product-detail-section-title{
+      font-family: "Michroma", sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+
+    font-size: 1.0rem;    /* 🔥 EXACTO como quieres */
+    line-height: 1.2;
+    margin-bottom: 10px;
+}
+
+.product-detail-description{
+    font-size: 1.0rem;        /* 🔥 EXACTO como quieres */
+    line-height: 1.6;         /* 🔥 Esto es lo que la hace verse premium */
+    letter-spacing: 0.2px;
+
+    color: rgba(0,0,0,.65);   /* Más elegante que text-secondary */
+    max-width: 900px;         /* Evita bloque demasiado ancho */
+}
+
+@media (max-width: 768px){
+
+    .product-detail-section-title{
+        font-size: 0.9rem;
+    }
+
+}
+
+@media (max-width: 768px){
+
+    .product-detail-description{
+        font-size: 0.95rem;   /* 🔥 Ligera reducción visual */
+        line-height: 1.55;
+    }
+
+}
+
+
+/*ABOUT*/
+
+.about-container{
+    width: 100%;
+}
+
+.about-text{
+
+    font-family: 'Michroma', sans-serif;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px){
+
+    .about-container{
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .fuente-titulo{
+        font-size: 1.0rem;
+        line-height: 1.2;
+    }
+
+    .about-text{
+        font-size: 0.6rem !important;
+        line-height: 1.45;
+        letter-spacing: 0.2px;
+    }
+}
+
+/* =====================================================
+   📞 BOTÓN FLOTANTE WHATSAPP (Desktop)
+   ===================================================== */
+.whatsapp-float{
+    position: fixed;
+    bottom: 80px;
+    right: 80px;
+    z-index: 99999;
+    width: 80px;
+    height: 80px;
+
+    border-radius: 50%;
+    background: #25D366;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,.35);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.whatsapp-float:hover{
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,.45);
+}
+
+.whatsapp-float img{
+    width: 95%;
+    height: auto;
+}
+
+/* =====================================================
+   📱 TABLET
+   ===================================================== */
+@media (max-width: 992px){
+
+    .whatsapp-float{
+        width: 70px;
+        height: 70px;
+        bottom: 30px;
+        right: 30px;
+    }
+
+}
+
+/* =====================================================
+   📱 MÓVIL
+   ===================================================== */
+@media (max-width: 768px){
+
+    .whatsapp-float{
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 18px;
+    }
+
+    .whatsapp-float img{
+        width: 95%;
+    }
+
+}
+
+/* =====================================================
+   📱 MÓVIL PEQUEÑO
+   ===================================================== */
+@media (max-width: 480px){
+
+    .whatsapp-float{
+        width: 50px;
+        height: 50px;
+        bottom: 38px;
+        right: 34px;
+    }
+
+}
+
+/* ==============================
+   PAGINACIÓN – Estilo Zeezton
+   ============================== */
+
+.z-pagination{
+  gap: 8px;                 /* separación entre botones */
+}
+
+.z-pagination .page-item{
+  margin: 0;                /* evita espacios raros */
+}
+
+.z-pagination .page-link{
+  font-family: "BBH Sans Bartle", sans-serif;
+  font-weight: 800;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+
+  border-radius: 14px;
+  padding: 10px 14px;
+
+  background: linear-gradient(135deg, #0b0b0b, #1b1b1b);
+  color: rgba(255,255,255,.85);
+
+  border: 1px solid rgba(15,207,217,.28);
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.z-pagination .page-link:hover{
+  color: #fff;
+  border-color: rgba(15,207,217,.65);
+  box-shadow: 0 14px 34px rgba(0,0,0,.45), 0 0 18px rgba(15,207,217,.20);
+  transform: translateY(-1px);
+}
+
+.z-pagination .page-link:focus{
+  box-shadow: 0 0 0 3px rgba(15,207,217,.20);
+}
+
+/* Página activa */
+.z-pagination .page-item.active .page-link{
+  color: #0b0b0b;
+  background: linear-gradient(135deg, rgba(15,207,217,.95), rgba(15,207,217,.55));
+  border-color: rgba(15,207,217,.90);
+  box-shadow: 0 14px 34px rgba(0,0,0,.45), 0 0 22px rgba(15,207,217,.28);
+}
+
+/* Deshabilitados (si algún día los usas) */
+.z-pagination .page-item.disabled .page-link{
+  opacity: .45;
+  pointer-events: none;
+  filter: grayscale(20%);
+}
+
+/* Flechas un poquito más “botón” */
+.z-pagination .page-link{
+  min-width: 44px;
+  text-align: center;
+}
+
+/* Móvil: más compacto */
+@media (max-width: 768px){
+  .z-pagination{
+    gap: 6px;
+  }
+  .z-pagination .page-link{
+    padding: 8px 11px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    min-width: 40px;
+  }
+}
+
+/* ============================
+   ABOUT – Zeezton
+============================ */
+
+.fuente-titulo{
+    font-family: 'Michroma', sans-serif;
+    margin-bottom: 2rem;
+}
+
+.about-text{
+    font-family: 'Michroma', sans-serif;
+    letter-spacing: 1px;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+}
+
+
+
+/* =========================
+   FORMULARIO – Zeezton UI
+   ========================= */
+
+.zf-form{
+  max-width: 820px;
+  margin: 0 auto 40px;
+  background: linear-gradient(135deg, #fff844, #000000);
+  /* border: 1px solid rgba(15,207,217,.22); */
+  /* box-shadow: 0 16px 46px rgba(0,0,0,.45); */
+  border-radius: 8px;
+  padding: 22px;
+  /* color: rgba(255,255,255,.92); */
+  position: relative;
+  overflow: hidden;
+}
+
+/* glow sutil */
+.zf-form::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: radial-gradient(circle at 20% 10%, rgba(15,207,217,.12), transparent 45%);
+  pointer-events:none;
+}
+
+.zf-form__title{
+  font-family: "BBH Sans Bartle", sans-serif;
+  font-weight: 900;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 16px;
+  font-size: 1.05rem;
+  color: rgb(8 8 3);
+}
+
+/* Campo */
+.zf-field{
+  margin-bottom: 14px;
+}
+
+/* Labels (Django label_tag) */
+.zf-form label{
+  display:block;
+  margin-bottom: 6px;
+  font-family: "BBH Sans Bartle", sans-serif;
+  font-weight: 800;
+  letter-spacing: .35px;
+  text-transform: uppercase;
+  font-size: .78rem;
+  color: rgb(8 8 3);
+}
+
+/* Inputs del form Django (input, select, textarea) */
+.zf-form input,
+.zf-form select,
+.zf-form textarea{
+  width: 100%;
+  background: rgba(255,255,255,.06);
+  color: rgb(0 0 0 / 92%);
+  font-family: 'Michroma';
+  border: 1px solid rgb(0 0 0 / 46%);
+  border-radius: 14px;
+  padding: 12px 12px;
+  outline: none;
+  box-shadow: none;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+
+.zf-form textarea{
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* Focus premium */
+.zf-form input:focus,
+.zf-form select:focus,
+.zf-form textarea:focus{
+  border-color: rgba(15,207,217,.60);
+  box-shadow: 0 0 0 3px rgba(15,207,217,.18), 0 14px 34px rgba(0,0,0,.35);
+}
+
+/* Botón Zeezton */
+.zf-btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 6px;
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, #ffffff, #000000);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 14px 34px rgba(0,0,0,.45);
+  font-family: "BBH Sans Bartle", sans-serif;
+  font-weight: 900;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+}
+
+.zf-btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 18px 44px rgba(0,0,0,.55), 0 0 18px rgba(15,207,217,.18);
+  filter: brightness(1.05);
+}
+
+/* Móvil */
+@media (max-width: 768px){
+  .zf-form{
+    padding: 18px;
+    border-radius: 16px;
+  }
+  .zf-form__title{
+    font-size: .95rem;
+  }
+}

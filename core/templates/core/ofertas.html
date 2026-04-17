@@ -1,0 +1,157 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% load currency_filters %}
+
+{% block title %}Ofertas{% endblock %}
+
+{% block contenido_metalico %}
+<section class="seccion-metalica">
+  <div class="container-fluid text-center text-white">
+    <h1 class="hero-titulo">Ofertas Especiales</h1>
+  </div>
+</section>
+{% endblock %}
+
+{% block main_content %}
+
+{% if productos_super_ofertas %}
+<section class="destacados">
+  <div class="destacados-container">
+    <div class="destacados-header">
+      <h1 class="destacados-title">Ofertas Destacadas 🤖</h1>
+    </div>
+
+    <!-- ===== DESKTOP: 4 por slide ===== -->
+    <div class="d-none d-md-block">
+      <div id="carouselSuperOfertas" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          {% for p in productos_super_ofertas %}
+            {% if forloop.first or forloop.counter0|divisibleby:4 %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="row px-5">
+            {% endif %}
+
+                  <div class="col-md-3 mb-3">
+                    <a href="{% url 'detalle_producto' p.pk %}" class="text-decoration-none">
+                      <div class="card-small">
+                        {% if p.imagen %}
+                          <img src="{{ p.imagen.url }}" class="card-img-top3" alt="{{ p.nombre }}">
+                        {% else %}
+                          <img src="{% static 'core/img/image_not_found.jpg' %}" class="card-img-top3" alt="Sin imagen">
+                        {% endif %}
+
+                        <div class="card-body text-center">
+                          <h5 class="producto-titulo">{{ p.nombre }}</h5>
+                          <div class="producto-precio">
+                            <span class="moneda">$</span>{{ p.precio|clp }} <span class="moneda">CLP</span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+            {% if forloop.counter|divisibleby:4 or forloop.last %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSuperOfertas" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselSuperOfertas" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== MOBILE: 2 por slide ===== -->
+    <div class="d-block d-md-none">
+      <div id="carouselSuperOfertasMobile"
+           class="carousel slide"
+           data-bs-ride="carousel"
+           data-bs-interval="3500"
+           data-bs-pause="false"
+           data-bs-touch="true">
+        <div class="carousel-inner">
+
+          {% for p in productos_super_ofertas %}
+            {% if forloop.first or forloop.counter0|divisibleby:2 %}
+              <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <div class="row g-2 px-3">
+            {% endif %}
+
+                  <div class="col-6">
+                    <a href="{% url 'detalle_producto' p.pk %}" class="text-decoration-none">
+                      <div class="card-small">
+                        {% if p.imagen %}
+                          <img src="{{ p.imagen.url }}" class="card-img-top3" alt="{{ p.nombre }}">
+                        {% else %}
+                          <img src="{% static 'core/img/image_not_found.jpg' %}" class="card-img-top3" alt="Sin imagen">
+                        {% endif %}
+
+                        <div class="card-body text-center">
+                          <h6 class="producto-titulo">{{ p.nombre }}</h6>
+                          <div class="producto-precio">
+                            <span class="moneda">$</span>{{ p.precio|clp }} <span class="moneda">CLP</span>
+                          </div>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+
+            {% if forloop.counter|divisibleby:2 or forloop.last %}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endif %}
+
+{# ✅ GRILLA NORMAL DE OFERTAS #}
+<div class="container-fluid my-4">
+  <div class="productos-grid catalogo-grid">
+    {% for p in productos %}
+      <div class="producto-card">
+        <a href="{% url 'detalle_producto' p.pk %}" class="text-decoration-none text-dark">
+          <div class="card-small">
+            {% if p.imagen %}
+              <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}" class="card-img-top3">
+            {% else %}
+              <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen" class="card-img-top3">
+            {% endif %}
+
+            <div class="card-body">
+              <p class="producto-titulo">{{ p.nombre }}</p>
+              <p class="producto-marca text-muted">{{ p.marca.nombre }}</p>
+              <p class="producto-desc">{{ p.descripcion|truncatewords:15 }}</p>
+
+              <div class="producto-meta">
+                <div class="producto-precio">
+                  <span class="moneda">$</span>{{ p.precio|clp }} <span class="moneda">CLP</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% empty %}
+      <div class="text-center py-5 w-100">
+        <h4 style="font-family:'BBH Sans Bartle', sans-serif;">No hay productos en oferta por ahora 🥺</h4>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

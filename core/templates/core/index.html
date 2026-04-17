@@ -1,0 +1,113 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block main_content %}
+
+<!-- 🖼️ Carrusel principal -->
+<div id="carouselExampleIndicators"
+     class="carousel slide"
+     data-bs-ride="carousel"
+     data-bs-interval="2500">
+
+    <!-- Indicadores -->
+    <div class="carousel-indicators">
+        <!--<button type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"></button>-->
+
+        <button type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="0"
+                class="active"
+                aria-current="true"
+                aria-label="Slide 1"></button>
+
+        <button type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+
+        <button type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+
+        <!--<button type="button"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="4"
+                aria-label="Slide 5"></button>-->
+    </div>
+
+    <!-- Imágenes -->
+    <div class="carousel-inner shadow-lg">
+        <!--<div class="carousel-item active">
+            <img src="/media/recursos/imagen1.jpg"
+                 class="d-block w-100 img-fluid"
+                 alt="Imagen 1">
+        </div>-->
+
+        <div class="carousel-item active">
+            <img src="/media/recursos/BMW-M2C.jpg"
+                 class="d-block w-100 img-fluid"
+                 alt="Imagen 2">
+        </div>
+
+        <div class="carousel-item">
+            <img src="/media/recursos/imagen3.jpg"
+                 class="d-block w-100 img-fluid"
+                 alt="Imagen 3">
+        </div>
+
+        <div class="carousel-item">
+            <img src="/media/recursos/imagen4.jpg"
+                 class="d-block w-100 img-fluid"
+                 alt="Imagen 4">
+        </div>
+
+        <!--<div class="carousel-item">
+            <img src="/media/recursos/imagen5.jpg"
+                 class="d-block w-100 img-fluid"
+                 alt="Imagen 5">
+        </div>-->
+    </div>
+
+    <!-- Controles -->
+    <button class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"
+              aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+    </button>
+
+    <button class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon"
+              aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+    </button>
+</div>
+
+<!-- 🏎️ Bloque de presentación -->
+<div class="contenedor-maestro-presentacion">
+    <section class="bloque-presentacion-compacto">
+        <!--<h2 class="hero-titulo" style="color: #000000 !important;">
+            Rendimiento y diseño que marcan la diferencia
+        </h2>-->
+
+        <p class="hero-subtitle" style="color: #000000 !important;">
+            En Zeezton creemos que cada detalle cuenta. Potencia, elegancia y calidad se unen para ofrecerte los mejores
+            repuestos y accesorios para tu vehículo.
+        </p>
+    </section>
+</div>
+
+{% endblock %}

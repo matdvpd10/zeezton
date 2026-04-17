@@ -1,0 +1,76 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Contact{% endblock %}
+
+{% block contenido_metalico %}
+<section class="seccion-metalica">
+  <div class="container-fluid text-center text-white">
+
+    <h1 class="hero-titulo">
+      Ayúdanos a mejorar
+    </h1>
+
+    <!--<p class="hero-subtitle">
+      Cuéntanos tu experiencia y ayúdanos a crecer con tu opinión 💬
+    </p>-->
+
+  </div>
+</section>
+{% endblock %}
+
+{% block main_content %}
+<div class="container my-5">
+
+    <!-- 📩 Formulario de reseña -->
+<form method="POST" class="zf-form">
+  {% csrf_token %}
+
+  <h3 class="zf-form__title">
+    Envíanos tu opinión
+  </h3>
+
+  <div class="zf-field">
+      {{ form.nombre.label_tag }}
+      {{ form.nombre }}
+  </div>
+
+  <div class="zf-field">
+      {{ form.email.label_tag }}
+      {{ form.email }}
+  </div>
+
+  <div class="zf-field">
+      {{ form.calificacion.label_tag }}
+      {{ form.calificacion }}
+  </div>
+
+  <div class="zf-field">
+      {{ form.comentario.label_tag }}
+      {{ form.comentario }}
+  </div>
+
+  <button type="submit" class="zf-btn">
+      <i class="fa fa-paper-plane"></i> Enviar Reseña
+  </button>
+</form>
+
+    <!-- ⭐ Reseñas existentes -->
+    <div class="mt-5">
+        <h3 class="fw-bold mb-4 text-center fuente-titulo">
+    Últimas reseñas
+</h3>
+        <ul class="list-group">
+            {% for r in reseñas %}
+                <li class="list-group-item shadow-sm mb-2">
+                    <strong>{{ r.nombre }}</strong> ({{ r.email }})
+                    - {{ r.calificacion }}★ <br>
+                    {{ r.comentario }}
+                </li>
+            {% empty %}
+                <p class="text-center text-muted">No hay reseñas todavía.</p>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

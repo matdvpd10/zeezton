@@ -1,0 +1,86 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% load currency_filters %}
+
+{% block title %}{{ producto.descripcion }}{% endblock %}
+
+{% block contenido_metalico %}
+<section class="seccion-metalica">
+  <div class="container-fluid text-center text-white">
+    <h1 class="hero-titulo">Detalle del Producto</h1>
+    {# si quieres subtítulo, descomenta #}
+    {# <p class="hero-subtitle">Descubre más sobre este artículo</p> #}
+  </div>
+</section>
+{% endblock %}
+
+{% block main_content %}
+<div class="container my-5 product-detail-page">
+  <div class="row g-4 align-items-stretch">
+
+    <!-- Imagen -->
+    <div class="col-lg-6">
+      <div class="product-detail-image-box">
+        {% if producto.imagen %}
+          <img src="{{ producto.imagen.url }}"
+               alt="{{ producto.descripcion }}"
+               class="product-detail-image">
+        {% else %}
+          <img src="{% static 'core/img/image_not_found.jpg' %}"
+               alt="Sin imagen"
+               class="product-detail-image">
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="col-lg-6">
+      <div class="product-detail-info-box">
+
+        <span class="product-detail-badge">Disponible</span>
+
+        <h1 class="product-detail-title">{{ producto.nombre }}</h1>
+
+        <p class="product-detail-brand">
+          Marca: <span>{{ producto.marca }}</span>
+        </p>
+
+        <h2 class="product-detail-price">
+          ${{ producto.precio|clp }} CLP
+        </h2>
+
+        <p class="product-detail-stock">
+          <strong>Stock disponible:</strong> {{ producto.stock }}
+        </p>
+
+        <div class="product-detail-actions">
+          {% comment %}
+          <a href="#" class="btn product-detail-btn product-detail-btn-primary">
+            <i class="fa fa-cart-plus"></i> Añadir al carrito
+          </a>
+          {% endcomment %}
+
+          <a href="{% url 'product' %}" class="btn product-detail-btn product-detail-btn-secondary">
+            <i class="fa fa-arrow-left"></i> Volver a productos
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Descripción -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="product-detail-description-box">
+        <h3 class="product-detail-section-title">Descripción del producto</h3>
+        <p class="product-detail-description">
+          {{ producto.descripcion }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

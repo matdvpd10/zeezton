@@ -1,0 +1,79 @@
+{% extends 'crud/base.html' %}
+
+{% load static %}
+
+{% block title %}{{producto.id}}{% endblock %}
+
+{% block welcome %}
+<div class="container my-4 py-4 bg-dark text-white text-center">
+    <h1>Detalles de Productos</h1>
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="container my-4">
+    <div class="row mb-3">
+        <h1>Producto: {{producto.id}}</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            {% if producto.imagen %}
+            <img class="img-detail" src="{{producto.imagen.url}}" alt="">
+            {% else %}
+            <img class="img-detail" src="{% static 'crud/img/image_not_found.jpg' %}" alt="">
+            {% endif %}
+        </div>
+        <div class="col md-8">
+            <ul class="list-unstyled">
+                <li>Descripción: <p class="fw-bold">{{producto.descripcion}}</p></li>
+                <li>Marca: <p class="fw-bold">{{producto.marca}}</li>
+                <li>Precio Unitario: <p class="fw-bold">${{producto.precio}}</li>
+                <li>Stock: <p class="fw-bold">{{producto.stock}}</li>
+                <hr>
+                <li>Fecha Creación: <p class="text-muted">{{producto.creado}}</p></li>
+                <li>Última actualización: <p class="text-muted">{{producto.actualizado}}</p></li>
+            </ul>
+            <div class="row">
+                <div class="col-2">
+                    <a class="btn btn-outline-success" href="{% url 'product-list' %}">Volver</a>
+                </div>
+                <div class="col-2">
+                    <a class="btn btn-outline-warning" href="/crud/products/{{producto.id}}/edit">Editar</a>
+                </div>
+                <div class="col-2">
+                    <a class="btn btn-outline-danger modal-borrar" data-bs-toggle="modal" data-bs-target="#deleteModal" data-href="/crud/products/{{producto.id}}/delete">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" >Mensajes</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <h6 class="modal-title">Estas seguro que deseas eliminar el elemento seleccionado.<br>Esta acción es irreversible.</h5>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <a class="btn btn-danger" id="confirmar-borrado" href="#">Si</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
+
+{% block extra_js %}
+<script>
+    $('.modal-borrar').on('click',function(){
+        const href = $(this).attr('data-href')
+        $('#confirmar-borrado').attr('href',href)
+    }) ;   
+</script>
+{% endblock %}
