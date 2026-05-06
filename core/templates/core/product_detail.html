@@ -59,6 +59,9 @@
             <i class="fa fa-cart-plus"></i> Añadir al carrito
           </a>
           {% endcomment %}
+          <a href="{% url 'pagar_producto' producto.id %}" class="btn btn-comprar">
+           <i class="fa fa-bolt"></i> Comprar ahora
+          </a>
 
           <a href="{% url 'product' %}" class="btn product-detail-btn product-detail-btn-secondary">
             <i class="fa fa-arrow-left"></i> Volver a productos

@@ -25,13 +25,13 @@
       <div id="carouselDestacados" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           {% for p in productos_destacados %}
-            {% if forloop.first or forloop.counter0|divisibleby:4 %}
+            {% if forloop.first or forloop.counter0|divisibleby:5 %}
               <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                <div class="row px-5">
+                <div class="row g-4 justify-content-center px-4">
             {% endif %}
 
-            <div class="col-md-3 mb-3">
-              <a href="{% url 'detalle_producto' p.pk %}" class="text-decoration-none">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-6 mb-3 d-flex">
+              <a href="{% url 'detalle_producto' p.pk %}" class="text-decoration-none w-100">
                 <div class="card-small h-100">
                   {% if p.imagen %}
                     <img src="{{ p.imagen.url }}" class="card-img-top3" alt="{{ p.nombre }}">
@@ -48,10 +48,13 @@
               </a>
             </div>
 
-            {% if forloop.counter|divisibleby:4 or forloop.last %}
-                </div> </div> {% endif %}
+            {% if forloop.counter|divisibleby:5 or forloop.last %}
+                </div>
+              </div>
+            {% endif %}
           {% endfor %}
         </div>
+
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestacados" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Anterior</span>

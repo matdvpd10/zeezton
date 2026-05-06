@@ -17,6 +17,7 @@ Including another URLconf
 from django.urls import path
 from django.shortcuts import redirect
 from . import views
+from .views import api_productos, vender_producto
 
 urlpatterns = [
     path('', lambda request: redirect('home')),  # 👈 redirige "/" a "/home/"
@@ -25,6 +26,11 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('product/', views.product, name='product'),
 
+
     path('product/<int:pk>/', views.product_detail, name='detalle_producto'),
     path('offers/', views.offers, name='offers'),
+    path("api/productos/<int:pk>/", views.api_producto_detalle, name="api_producto_detalle"),
+    path("api/productos/", api_productos, name="api_productos"),
+    path("api/vender/", vender_producto),
+
 ]

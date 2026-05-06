@@ -1,30 +1,21 @@
-"""
-URL configuration for sitio_django project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/5.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
 from django.urls import path
-from .views import *
+from . import views
 
 urlpatterns = [
-    path('',root),
-    path('products/',products_list,name='product-list'),
-    path('products/new/',product_new,name='product-new'),
-    path('products/<str:product_id>/',product_detail,name='product-detail'),
-    path('products/<str:product_id>/edit',product_edit,name='product-edit'),
-    path('products/<str:product_id>/delete',product_delete,name='product-delete'),
-    path('products/marca/<str:marca>',product_by_marca,name='products-marca')
-    
+
+    # 🔥 API
+path('api/productos/', views.api_productos, name='api_productos'),
+path('api/ventas/', views.crear_venta, name='api_ventas'),
+path('api/clientes/crear/', views.crear_cliente, name='api_clientes_crear'),
+path('api/clientes/buscar/', views.buscar_cliente_rut, name='api_clientes_buscar'),
+path('api/detalle-ventas/', views.api_detalle_ventas, name='api_detalle_ventas'),
+# API informes
+path('api/informes/', views.crear_informe, name='api_crear_informe'),
+path('api/informes/listar/', views.listar_informes, name='api_listar_informes'),
+
+    # 🌐 Web normal (frontend)
+    path('', views.root),
+    path('products/', views.products_list),
+    path('products/<str:product_id>/', views.product_detail),
+    path('pagar/<int:producto_id>/', views.pagar_producto),
 ]

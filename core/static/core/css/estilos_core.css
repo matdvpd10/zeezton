@@ -17,14 +17,209 @@ body{
     background-color: #ffffff !important;
 }
 
+/* =========================
+   POPUP ZEEZTON
+   ========================= */
 
-/* ------------------ LOGO ------------------ */
-
-/*:root{
-  --zeezton-cyan: #6014c9;
-  --zeezton-cyan-soft: #6f269f;
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 99999;
+    display: none;
+    align-items: center;
+    justify-content: center;
 }
-*/
+
+.popup-box {
+    width: 850px;
+    max-width: 95%;
+    min-height: 600px;
+    display: flex;
+    background: #0a0a0a;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0,0,0,0.8);
+}
+
+/* Imagen izquierda */
+.popup-image {
+    width: 45%;
+    background: linear-gradient(135deg, #ffc400, #ff8800);
+    padding: 6px;
+}
+
+.popup-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Contenido derecha */
+.popup-content {
+    width: 55%;
+    padding: 30px;
+    color: white;
+    font-family: 'Michroma', sans-serif;
+}
+
+/* Botón cerrar */
+.popup-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Títulos */
+.popup-content h4 {
+    text-align: center;
+    font-size: 14px;
+    color: #00eaff;
+}
+
+.popup-content h1 {
+    text-align: center;
+    font-size: 48px;
+    margin: 10px 0;
+    color: #ffffff;
+}
+
+.popup-content p {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Inputs */
+.popup-row {
+    display: flex;
+    gap: 10px;
+}
+
+.popup-content input,
+.popup-content select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #333;
+    background: #111;
+    color: white;
+    margin-bottom: 12px;
+}
+
+/* Sección */
+.popup-content h3 {
+    font-size: 14px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+    margin-top: 15px;
+}
+
+/* Botón */
+.popup-btn {
+    width: 100%;
+    background: linear-gradient(90deg, #00eaff, #007bff);
+    border: none;
+    padding: 12px;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* No gracias */
+.popup-no {
+    display: block;
+    margin: 10px auto;
+    background: none;
+    border: none;
+    color: #aaa;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .popup-box {
+        flex-direction: column;
+        width: 92%;
+        max-width: 360px;
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    /* 📸 Imagen más pequeña */
+    .popup-image {
+        width: 100%;
+        height: 140px;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
+    .popup-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* 📦 Contenido */
+    .popup-content {
+        width: 100%;
+    }
+
+    /* 🔤 Textos más compactos */
+    .popup-content h4 {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .popup-content h1 {
+        font-size: 26px;
+        margin-bottom: 5px;
+    }
+
+    .popup-content p {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    /* 🧾 Inputs */
+    .popup-content input,
+    .popup-content select {
+        padding: 8px;
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    /* 🔘 Botón */
+    .popup-btn {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    /* ❌ Botón cerrar */
+    .popup-close {
+        font-size: 18px;
+        top: 8px;
+        right: 10px;
+    }
+
+}
+
+/* =====================================================
+   🔰 LOGO
+   ===================================================== */
+
+.logo-wrap{
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
 .logo-text{
   font-family: "BBH Sans Bartle", sans-serif !important;
@@ -37,10 +232,55 @@ body{
   margin-left: 20px;
 }
 
+.logo-barras{
+  display: flex;
+  gap: 3px;
+  margin-left: 20px;
+  /* margin-top: 4px; */
+  width: calc(100% - 20px);   /* en vez de 195px */
+  max-width: 195px;           /* no crece demasiado */
+  height: 4px;
+}
+
+.barra{
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.barra-celeste{
+  background-color: #6db8ff;
+  flex: 1.1;
+}
+
+.barra-azul{
+  background-color: #0047b3;
+  flex: 1.1;
+}
+
+.barra-roja{
+  background-color: #e10600;
+  flex: 1.1;
+}
+
 .header-mejora{
   margin-top: 50px;
 }
 
+@media (max-width: 768px){
+  .logo-text{
+    font-size: 1.05rem;
+    margin-left: 12px;
+  }
+
+  .logo-barras{
+    margin-left: 10px;
+    width: calc(100% - 0px);
+    max-width: 147px;
+    height: 3px;
+    gap: 2px;
+  }
+}
 
 /* ===== Zeezton Lightning Intro (Navbar) =====
 .zeezton-intro{
@@ -276,6 +516,17 @@ body{
     cursor: pointer;
 }
 
+/* ============================================================
+   Carrusel
+   ============================================================ */
+
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23780e6a' viewBox='0 0 16 16'%3E%3Cpath d='M6 12.5a.5.5 0 0 1 0-.707L9.793 8 6 4.207a.5.5 0 1 1 .707-.707l4.147 4.146a.5.5 0 0 1 0 .708L6.707 12.5a.5.5 0 0 1-.707 0z'/%3E%3C/svg%3E");
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23780e6a' viewBox='0 0 16 16'%3E%3Cpath d='M10 12.5a.5.5 0 0 0 0-.707L6.207 8 10 4.207a.5.5 0 1 0-.707-.707L5.146 7.646a.5.5 0 0 0 0 .708l4.147 4.146a.5.5 0 0 0 .707 0z'/%3E%3C/svg%3E");
+}
 
 /* ============================================================
    1. SECCIÓN METÁLICA (BLOQUE NEGRO SUPERIOR E INFERIOR)
@@ -283,9 +534,8 @@ body{
 
 .seccion-metalica,
 .seccion-metalica_2 {
-    background: url("/media/recursos/fondo_metal_black.png") center / cover no-repeat !important;
-    background-color: transparent !important;
-    min-height: 300px !important;
+    background-color: #000000 !important;
+    min-height: 200px !important;
     width: 100% !important;
     display: flex !important;
     align-items: center !important;
@@ -295,47 +545,82 @@ body{
     z-index: 5 !important;
 }
 
-/* Tipografía y Color para el bloque NEGRO */
-.seccion-metalica .hero-titulo,
-.seccion-metalica .hero-subtitle {
+
+@media (max-width: 768px) {
+    .seccion-metalica,
+    .seccion-metalica_2 {
+        min-height: 140px !important;   /* 🔥 más compacto */
+        padding: 20px 10px !important;  /* 🔥 aire lateral */
+        flex-direction: column !important;
+    }
+}
+
+.seccion-metalica .hero-titulo {
     font-family: "Michroma", sans-serif !important;
     color: #ffffff !important; /* Blanco */
     opacity: 1 !important;
-}
-
-.hero-titulo, .hero-subtitle {
-    /* Usamos Orbitron que es idéntica en estilo pero con soporte total de ñ e í */
-    font-family: 'Orbitron', sans-serif !important;
-    font-weight: 900 !important; /* Grosor máximo para que se vea deportiva */
-    letter-spacing: 1px !important;
+    font-size: 1.5rem !important;
     text-transform: uppercase;
+    margin: 0 !important;   /* 🔥 quita margen */
+    padding: 0 !important;  /* 🔥 quita padding */
 }
 
-.hero-titulo {
-    font-size: 1.8rem !important;
-    line-height: 1.2 !important;
-    margin-bottom: 15px !important;
+@media (max-width: 768px) {
+    .seccion-metalica .hero-titulo {
+        font-size: 0.62rem !important;
+        line-height: 1.45 !important;
+        letter-spacing: 0.3px !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 10px !important;
+        text-align: center !important;
+    }
 }
 
-.hero-subtitle {
-    font-size: 1rem !important;
-    font-weight: 700 !important;
-    line-height: 1.5 !important;
-}
-.seccion-metalica .hero-titulo { font-size: 1.5rem !important; text-transform: uppercase; }
+
 .seccion-metalica .hero-subtitle { font-size: 18px !important; }
+/* Limpieza total del logo y textos del footer */
+.seccion-metalica_2 .fa-js,
+.seccion-metalica_2 i {
+    font-size: 38px;
+    color: #ffffff !important; /* Blanco puro */
+    opacity: 1 !important;    /* Quita la "capa" gris */
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.2));
 
+}
 
-
+.seccion-metalica_2 p,
+.seccion-metalica_2 .small,
+.seccion-metalica_2 a,
+.seccion-metalica_2 h6 {
+    font-family: "BBH Sans Bartle", sans-serif !important;
+    color: #ffffff !important;
+    text-transform: uppercase;
+    /*font-size: 0.75rem;*/
+}
 /* ===== MÓVIL ===== */
 
 
+
+    .seccion-metalica_2 .col-md-4 {
+        margin-bottom: 25px !important; /* Separa los bloques del footer */
+    }
+
+    /* 3. El Logo JS y Iconos en Blanco Puro */
+    .seccion-metalica_2 .fa-js,
+    .seccion-metalica_2 i {
+        font-size: 1.8rem !important;
+        color: #ffffff !important;
+        opacity: 1 !important; /* Adiós a la capa gris */
+    }
+}
+
 @media (max-width: 768px){
 
-    .seccion-metalica,
+        .seccion-metalica,
     .seccion-metalica_2{
         min-height: 160px !important;   /* 🔥 Más compacto aún */
-        padding: 25px 10px !important;  /* 🔥 Reduce aire vertical */
+        /* padding: 25px 10px !important; */  /* 🔥 Reduce aire vertical */
         display: flex !important;
         align-items: center;
         justify-content: center;
@@ -353,28 +638,18 @@ body{
 
 }
 
-    /*.seccion-metalica .hero-subtitle {
-        font-size: 0.9rem !important;
-        margin-top: 10px;
-    }*/
-
 
 
 /* =========================
    FOOTER GENERAL
 ========================= */
 
-.seccion-metalica_2{
-    background: #0b0b0b;
-    padding: 35px 0;
-    text-align: center;
-    color: white;
-}
+
 
 .footer-container{
-    padding-left: 40px;
-    padding-right: 40px;
-    font-family: 'BBH Sans Bartle';
+    /* padding-left: 40px; */
+    /* padding-right: 40px; */
+    /* font-family: 'BBH Sans Bartle'; */
 }
 
 .footer-row{
@@ -390,7 +665,7 @@ body{
 }
 
 .footer-title{
-    font-size: 1rem;
+    font-size: 0.7rem;
     margin-bottom: .8rem;
 }
 
@@ -405,7 +680,7 @@ body{
     width: 200px;
     height: 32px;
     background: linear-gradient(135deg, #101010, #1a1a1a);
-    border: 1px solid rgba(15, 207, 217, 0.25);
+    border: 1px solid rgb(15 207 217);
     border-radius: 8px;
     color: #fff;
     padding: 0 20px;
@@ -428,7 +703,7 @@ body{
 .footer-btn{
     height: 32px;
     padding: 0 20px;
-    border: 1px solid rgba(15, 207, 217, 0.28);
+    border: 1px solid rgb(15 207 217);
     border-radius: 8px;
     background: linear-gradient(135deg, #111, #1d1d1d);
     color: #fff;
@@ -474,7 +749,7 @@ body{
 }
 
 .footer-copy{
-    font-size: .9rem;
+    font-size: .7rem;
     margin: 0;
 }
 
@@ -483,9 +758,9 @@ body{
 ========================= */
 @media (max-width: 992px){
 
-    .footer-container{
-        padding-left: 24px;
-        padding-right: 24px;
+        .footer-container{
+        /* padding-left: 24px; */
+        /* padding-right: 24px; */
     }
 
     .footer-row{
@@ -523,8 +798,8 @@ body{
 @media (max-width: 768px){
 
     .footer-container{
-        padding-left: 10px;
-        padding-right: 10px;
+        /* padding-left: 10px; */
+        /* padding-right: 10px; */
     }
 
     .footer-row{
@@ -692,15 +967,15 @@ body{
 
 /* Contenedor visual (El fondo negro y glow) */
 .destacados-container {
- background: linear-gradient(0deg, #7318ff, #000000, #000000);
-  /* border: 1px solid rgba(15,207,217,.25); */
-  padding: 20px;
-  margin: 35px 0;
-  /* border-radius: 18px; */
-  /*padding: 20px 20px 20px;*/
-  box-shadow: 0 14px 40px rgba(0,0,0,.35);
-  position: relative;
-  overflow: hidden;
+ background: linear-gradient(0deg, #140114, #000000, #000000);
+ /* border: 1px solid rgba(15,207,217,.25); */
+ padding: 20px;
+ margin: 35px 0;
+ /* border-radius: 18px; */
+ /*padding: 20px 20px 20px;*/
+ box-shadow: 0 14px 40px rgba(0,0,0,.35);
+ position: relative;
+ overflow: hidden;
 }
 
 .destacados-container::before {
@@ -718,26 +993,21 @@ body{
 .destacados-container .card-small {
   background: transparent;
   border: none;
-  border-radius: 15px;
+  /* border-radius: 15px; */
   overflow: hidden;
-
-  padding: 12px 10px 16px;
-
+  /* padding: 12px 10px 16px; */
   transition: transform .25s ease, box-shadow .25s ease;
   will-change: transform;
   backface-visibility: hidden;
   transform: translateZ(0);
-
   display: flex;
   flex-direction: column;
   height: 100%;
   text-decoration: none;
 }
 
-.destacados-container .card-small:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 25px rgba(15, 207, 217, 0.35);
-}
+
+
 
 /* ==============================
    IMAGEN (SIN borde blanco)
@@ -760,19 +1030,21 @@ body{
 
 .destacados-header {
   text-align: center;
-  margin-bottom: 18px;
   position: relative;
   z-index: 1;
+  margin-bottom: 0 !important;
 }
 
 .destacados-title {
   font-family: "Michroma", sans-serif;
   font-weight: 900;
   font-size: 1.0rem;
-  /* color: #ffffff; */
-background: linear-gradient(359deg, #6700ff, #221f29);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #00f3ff;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  /* background: linear-gradient(359deg, #00f3ff, #221f29); */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
   letter-spacing: 0.6px;
 }
 
@@ -794,9 +1066,10 @@ background: linear-gradient(359deg, #6700ff, #221f29);
 }
 
 .destacados-container .producto-precio {
-  color: #0fcfd9 !important;
+  color: #00f3ff; !important;
   font-size: 1.4rem;
   font-weight: 900;
+  text-shadow: 0 0 2px rgba(0,0,0,0.6);
 }
 
 
@@ -811,6 +1084,8 @@ background: linear-gradient(359deg, #6700ff, #221f29);
 /* ==============================================
    AJUSTES PARA EL CARRUSEL (NUEVO)
    ============================================== */
+
+
 
 /* Centrar las filas dentro del carrusel */
 .carousel-item .row {
@@ -829,29 +1104,107 @@ background: linear-gradient(359deg, #6700ff, #221f29);
 }
 
 /* Cards dentro de destacados (Mantenemos tu estilo) */
+/* CARD BASE */
 .destacados-container .card-small {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background: #ffffff00;
-  transition: transform .25s ease, box-shadow .25s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 260px;
+    margin: 0 auto;
+    border-radius: 14px;
+    /* overflow: hidden; */
+    /* background: rgba(255,255,255,0.02); */
+    backdrop-filter: blur(4px);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border 0.25s ease;
+    /* border: 1px solid rgb(255 255 255 / 17%); */
 }
+
+/* IMAGEN */
+.destacados-container .card-img-top3 {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+/* BODY */
+.destacados-container .card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 110px;
+    padding: 12px 10px;
+}
+
+/* TITULO */
+.destacados-container .producto-titulo {
+    min-height: 2.6em;
+    line-height: 1.2;
+    margin-bottom: 8px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    transition: color 0.25s ease;
+}
+
+/* PRECIO */
+.destacados-container .producto-precio {
+    margin-top: auto;
+    font-weight: 700;
+    transition: color 0.25s ease;
+}
+
+/* ========================= */
+/* 🔥 HOVER MODERNO */
+/* ========================= */
 
 .destacados-container .card-small:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 12px 35px rgb(199 0 255 / 25%);
+    transform: translateY(-2px) scale(1.02);
+    /* box-shadow:
+        0 10px 25px rgba(0,0,0,0.5),
+        0 0 12px rgba(0, 255, 200, 0.25); */ /* glow Zeezton */
+    /* border: 1px solid rgba(0, 255, 200, 0.4); */
 }
 
-.destacados-container .producto-precio {
-  color: #0fcfd9 !important;
+/* ZOOM DE IMAGEN
+.destacados-container .card-small:hover .card-img-top3 {
+    transform: scale(1.08);
 }
 
-/* Ajuste de imagen para que no se deforme en el carrusel */
-.destacados-container .card-img-top3 {
-  height: 250px;
-
+/* EFECTO TEXTO */
+.destacados-container .card-small:hover .producto-titulo {
+    color: #2fffdc;
 }
 
+.destacados-container .card-small:hover .producto-precio {
+    color: #2fffdc;
+}
+
+/* EXTRA: BRILLO SUAVE */
+.destacados-container .card-small::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        transparent 40%,
+        rgba(255,255,255,0.08),
+        transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.destacados-container .card-small:hover::before {
+    opacity: 1;
+}
 /* ==============================
    GRID (BASE - DESKTOP GRANDE)
    ============================== */
@@ -878,10 +1231,7 @@ background: linear-gradient(359deg, #6700ff, #221f29);
   transition: transform .25s ease, box-shadow .25s ease;
 }
 
-.card-small:hover{
-  box-shadow: 0 8px 24px rgba(0,0,0,.15);
-  transform: translateY(-4px);
-}
+
 
 /* ✅ Imagen fija */
 .card-img-top3{
@@ -937,11 +1287,7 @@ background: linear-gradient(359deg, #6700ff, #221f29);
   -webkit-line-clamp: 3;
 }
 
-/* Meta abajo */
-.producto-meta{
-  margin-top: auto;
-  font-size: .9rem;
-}
+
 
 /* Precio */
 .producto-precio{
@@ -950,15 +1296,27 @@ background: linear-gradient(359deg, #6700ff, #221f29);
   color: #0fcfd9;
   font-weight: 800;
   letter-spacing: -0.5px;
-  display: block;
+  /*display: block;
+      text-shadow:
+        -0.6px -0.6px 0 #000,
+         0.6px -0.6px 0 #000,
+        -0.6px  0.6px 0 #000,
+         0.6px  0.6px 0 #000;*/
+
 }
 
 .producto-precio span.moneda{
   font-size: .5rem;
-  color: #555;
+  color: #0fcfd9;
   font-weight: 400;
 }
 
+
+/* Meta abajo */
+.producto-meta{
+  margin-top: auto;
+  font-size: .9rem;
+}
 /* Footer */
 .card-small .card-footer{
   flex: 0 0 56px;
@@ -1370,6 +1728,7 @@ background: linear-gradient(359deg, #6700ff, #221f29);
   border-radius: 999px;
   margin-bottom: 1rem;
   letter-spacing: 0.4px;
+  font-family: 'Michroma';
 }
 
 .product-detail-title {
@@ -1383,9 +1742,10 @@ background: linear-gradient(359deg, #6700ff, #221f29);
 }
 
 .product-detail-brand {
-  font-size: 1.05rem;
+  font-size: 0.5rem;
   color: #6c7a89;
   margin-bottom: 1rem;
+  font-family: 'Michroma';
 }
 
 .product-detail-brand span {
@@ -1394,24 +1754,28 @@ background: linear-gradient(359deg, #6700ff, #221f29);
 }
 
 .product-detail-price {
-  font-size: clamp(1.8rem, 2vw, 2.4rem);
+  font-size: 15px;
   font-weight: 900;
   color: #09b3d6;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
+  font-family: 'Michroma';
 }
 
 .product-detail-stock {
-  font-size: 1.05rem;
+  font-size: 0.5rem;
   color: #2d4055;
   margin-bottom: 1.5rem;
+  font-family: 'Michroma';
 }
 
-/* Botones */
+
+
 .product-detail-actions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 0.5rem;
+  /* margin-top: 0.5rem; */
+  font-family: 'Michroma';
 }
 
 .product-detail-btn {
@@ -1450,6 +1814,60 @@ background: linear-gradient(359deg, #6700ff, #221f29);
   background: #f7f9fc;
   color: #1b2c42;
   transform: translateY(-2px);
+}
+
+.btn-comprar {
+  position: relative;
+  display: inline-block;
+  padding: 12px 26px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  color: #fff;
+  background: linear-gradient(135deg, #00eaff, #0077ff);
+  border: none;
+  border-radius: 10px;
+
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 234, 255, 0.4);
+}
+
+/* ✨ glow animado */
+.btn-comprar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+
+  transition: 0.5s;
+}
+
+/* hover */
+.btn-comprar:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 20px rgba(0, 234, 255, 0.8);
+}
+
+/* animación luz */
+.btn-comprar:hover::before {
+  left: 100%;
+}
+
+/* click */
+.btn-comprar:active {
+  transform: scale(0.96);
 }
 
 /* Descripción */
@@ -1518,116 +1936,66 @@ background: linear-gradient(359deg, #6700ff, #221f29);
 
 .contenedor-maestro-presentacion {
     background-color: #dcdcdc !important;
-    padding: 100px 20px !important;
     display: flex !important;
+    min-height: 300px !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
     text-align: center !important;
     width: 100% !important;
+    padding: 60px 20px !important;
+    box-sizing: border-box !important;
 }
 
-/* Título del bloque presentación */
-/*
-.contenedor-maestro-presentacion .hero-titulo {
-    font-family: "BBH Sans Bartle", sans-serif !important;
-    font-size: 33.4px !important;
-    max-width: 900px !important;
-    margin: 0 auto 25px auto !important;
-    line-height: 1.2 !important;
-}
-*/
-
-/* Subtítulo del bloque presentación */
 .contenedor-maestro-presentacion .hero-subtitle {
     font-family: "Michroma", sans-serif !important;
-    font-size: 1.3rem !important;
-    max-width: 1500px !important;
-    margin: 0 auto !important;
-    color: #000000 !important;
-
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    overflow: hidden;
-    padding-left: 100px;
-    padding-right: 100px;
-}
-
-
-/* Limpieza total del logo y textos del footer */
-.seccion-metalica_2 .fa-js,
-.seccion-metalica_2 i {
-    font-size: 38px;
-    color: #ffffff !important; /* Blanco puro */
-    opacity: 1 !important;    /* Quita la "capa" gris */
-    filter: drop-shadow(0 0 2px rgba(255,255,255,0.2));
-
-}
-
-.seccion-metalica_2 p,
-.seccion-metalica_2 .small,
-.seccion-metalica_2 a,
-.seccion-metalica_2 h6 {
-    font-family: "BBH Sans Bartle", sans-serif !important;
-    color: #ffffff !important;
+    font-size: clamp(0.65rem, 2vw, 1.3rem) !important;
+    line-height: 1.5 !important;
     text-transform: uppercase;
-    /*font-size: 0.75rem;*/
+    margin: 0 auto !important;
+    padding: 0 !important;
+    max-width: 1200px !important;
+    width: 100% !important;
 }
 
-
-/* --- 📱 FUERZA TOTAL PARA MÓVIL (PRESENTACIÓN Y FOOTER) --- */
-
-@media (max-width: 768px) {
-
-    /* 1. Bloque de Presentación Blanco */
+/* Tablet */
+@media (max-width: 992px) {
     .contenedor-maestro-presentacion {
-        min-height: 160px !important;   /* 🔥 Más compacto aún */
-        padding: 25px 10px !important;  /* 🔥 Reduce aire vertical */
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
+        min-height: 240px !important;
+        padding: 45px 18px !important;
     }
 
-    /* Usamos los selectores que ya tienes en el HTML
-    .contenedor-maestro-presentacion .hero-titulo,
-    .bloque-presentacion-compacto h2 {
-        font-family: "BBH Sans Bartle", sans-serif !important;
-        font-size: 1.4rem !important;
-        line-height: 1.2 !important;
-        margin-bottom: 15px !important;
-        color: #000000 !important;
+    .contenedor-maestro-presentacion .hero-subtitle {
+        max-width: 850px !important;
+        line-height: 1.45 !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .contenedor-maestro-presentacion {
+        min-height: 170px !important;
+        padding: 30px 12px !important;
+    }
+
+    .contenedor-maestro-presentacion .hero-subtitle {
+        font-size: 0.62rem !important;
+        line-height: 1.45 !important;
+        letter-spacing: 0.3px !important;
         max-width: 100% !important;
-    }*/
+    }
+}
 
-    .contenedor-maestro-presentacion .hero-subtitle,
-    .bloque-presentacion-compacto p {
-        font-family: "Michroma", sans-serif !important;
-        font-size: 0.5rem !important;   /* 🔥 Bien pequeño */
-        /* line-height: 1.15 !important; */
-        letter-spacing: 0.4px;           /* 🔥 Ajuste óptico clave */
-        width: 100%;
-        margin: 0 auto;
-        padding: 10px;                  /* 🔥 Evita tocar bordes */
+/* Mobile pequeño */
+@media (max-width: 480px) {
+    .contenedor-maestro-presentacion {
+        min-height: 150px !important;
+        padding: 25px 10px !important;
     }
 
-    /* 2. Ajuste del Footer Metálico en Móvil */
-    .seccion-metalica_2 {
-        display: block !important; /* Apila las columnas (Copyright, Mapa, Club) */
-        padding: 40px 10px !important;
-    }
-
-    .seccion-metalica_2 .col-md-4 {
-        margin-bottom: 25px !important; /* Separa los bloques del footer */
-    }
-
-    /* 3. El Logo JS y Iconos en Blanco Puro */
-    .seccion-metalica_2 .fa-js,
-    .seccion-metalica_2 i {
-        font-size: 1.8rem !important;
-        color: #ffffff !important;
-        opacity: 1 !important; /* Adiós a la capa gris */
+    .contenedor-maestro-presentacion .hero-subtitle {
+        font-size: 0.55rem !important;
+        line-height: 1.5 !important;
     }
 }
 
@@ -1643,9 +2011,9 @@ background: linear-gradient(359deg, #6700ff, #221f29);
   letter-spacing: 0.3px;
   line-height: 1.15;
   text-transform: uppercase; /* si NO lo quieres en mayúsculas, borra esta línea */
-
-  font-size: 1.0rem;        /* desktop */
+  margin-bottom: 20px;
   margin: 0;
+  font-size: 15px;
 }
 
 /* Tablet */
@@ -1659,7 +2027,7 @@ background: linear-gradient(359deg, #6700ff, #221f29);
 /* Móvil */
 @media (max-width: 768px){
   .product-detail-title{
-    font-size: 1.05rem;
+    font-size: 0.6rem;
     line-height: 1.25;
     text-wrap: balance;      /* mejora los saltos de línea */
   }
@@ -1692,15 +2060,15 @@ background: linear-gradient(359deg, #6700ff, #221f29);
     font-size: 1.0rem;        /* 🔥 EXACTO como quieres */
     line-height: 1.6;         /* 🔥 Esto es lo que la hace verse premium */
     letter-spacing: 0.2px;
-
     color: rgba(0,0,0,.65);   /* Más elegante que text-secondary */
     max-width: 900px;         /* Evita bloque demasiado ancho */
+    font-family: 'Michroma';
 }
 
 @media (max-width: 768px){
 
     .product-detail-section-title{
-        font-size: 0.9rem;
+        font-size: 0.5rem;
     }
 
 }
@@ -1708,7 +2076,7 @@ background: linear-gradient(359deg, #6700ff, #221f29);
 @media (max-width: 768px){
 
     .product-detail-description{
-        font-size: 0.95rem;   /* 🔥 Ligera reducción visual */
+        font-size: 0.7rem;   /* 🔥 Ligera reducción visual */
         line-height: 1.55;
     }
 
@@ -1718,6 +2086,7 @@ background: linear-gradient(359deg, #6700ff, #221f29);
 /*ABOUT*/
 
 .about-container{
+    text-align: center;
     width: 100%;
 }
 
@@ -1748,25 +2117,38 @@ background: linear-gradient(359deg, #6700ff, #221f29);
 }
 
 /* =====================================================
-   📞 BOTÓN FLOTANTE WHATSAPP (Desktop)
+   📞 BOTÓN FLOTANTE WHATSAPP (RESPONSIVE COMPLETO)
    ===================================================== */
+
 .whatsapp-float{
     position: fixed;
-    bottom: 80px;
-    right: 80px;
+    bottom: 30px;
+    right: 30px;
     z-index: 99999;
-    width: 80px;
-    height: 80px;
-
-    border-radius: 50%;
-    background: #25D366;
-
+    width: 90px;
+    height: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
-
-    box-shadow: 0 6px 18px rgba(0,0,0,.35);
+    background: transparent !important;
+    box-shadow: none !important;
     transition: transform .25s ease, box-shadow .25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+    .whatsapp-float:hover {
+        transform: scale(1.12) translateY(-4px);
+
+        /* glow moderno */
+        filter: drop-shadow(0 0 10px rgba(37, 211, 102, 0.6))
+                drop-shadow(0 0 20px rgba(37, 211, 102, 0.4));
+    }
+
+    .whatsapp-float:hover img {
+        transform: scale(1.05);
+    }
+
 }
 
 .whatsapp-float:hover{
@@ -1774,57 +2156,52 @@ background: linear-gradient(359deg, #6700ff, #221f29);
     box-shadow: 0 10px 25px rgba(0,0,0,.45);
 }
 
+
 .whatsapp-float img{
-    width: 95%;
+    width: 100%;
     height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.4));
 }
 
-/* =====================================================
-   📱 TABLET
-   ===================================================== */
-@media (max-width: 992px){
 
+@media (max-width: 992px){
+    .whatsapp-float{
+        width: 80px;
+        height: 80px;
+        bottom: 25px;
+        right: 25px;
+    }
+}
+
+
+@media (max-width: 768px){
     .whatsapp-float{
         width: 70px;
         height: 70px;
-        bottom: 30px;
-        right: 30px;
-    }
-
-}
-
-/* =====================================================
-   📱 MÓVIL
-   ===================================================== */
-@media (max-width: 768px){
-
-    .whatsapp-float{
-        width: 55px;
-        height: 55px;
         bottom: 20px;
-        right: 18px;
+        right: 15px;
     }
-
-    .whatsapp-float img{
-        width: 95%;
-    }
-
 }
 
-/* =====================================================
-   📱 MÓVIL PEQUEÑO
-   ===================================================== */
 @media (max-width: 480px){
-
     .whatsapp-float{
-        width: 50px;
-        height: 50px;
-        bottom: 38px;
-        right: 34px;
+        width: 65px;
+        height: 65px;
+        bottom: 18px;
+        right: 12px;
     }
-
 }
 
+@keyframes floatWA {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+.whatsapp-float {
+    animation: floatWA 3s ease-in-out infinite;
+}
 /* ==============================
    PAGINACIÓN – Estilo Zeezton
    ============================== */
@@ -1906,136 +2283,158 @@ background: linear-gradient(359deg, #6700ff, #221f29);
 
 .fuente-titulo{
     font-family: 'Michroma', sans-serif;
-    margin-bottom: 2rem;
 }
 
 .about-text{
     font-family: 'Michroma', sans-serif;
     letter-spacing: 1px;
     line-height: 1.7;
-    margin-bottom: 3rem;
+
 }
 
 
 
 /* =========================
-   FORMULARIO – Zeezton UI
+   CONTACT – Formulario reseñas Zeezton UI (GLASS)
    ========================= */
 
-.zf-form{
-  max-width: 820px;
-  margin: 0 auto 40px;
-  background: linear-gradient(135deg, #fff844, #000000);
-  /* border: 1px solid rgba(15,207,217,.22); */
-  /* box-shadow: 0 16px 46px rgba(0,0,0,.45); */
-  border-radius: 8px;
-  padding: 22px;
-  /* color: rgba(255,255,255,.92); */
-  position: relative;
-  overflow: hidden;
+.zf-form {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 28px;
+    border-radius: 18px;
+
+    /* 🔥 efecto vidrio */
+    background: linear-gradient(
+116deg, rgb(229 212 11 / 82%), rgb(249 245 92), rgb(0 0 0));
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    /* border: 1px solid rgba(255, 255, 255, 0.22); */
+    /* box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25); */
 }
 
-/* glow sutil */
-.zf-form::before{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  background: radial-gradient(circle at 20% 10%, rgba(15,207,217,.12), transparent 45%);
-  pointer-events:none;
+
+/* TÍTULO */
+.zf-form__title {
+    font-family: 'Michroma', sans-serif;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #000;
+    text-transform: uppercase;
 }
 
-.zf-form__title{
-  font-family: "BBH Sans Bartle", sans-serif;
-  font-weight: 900;
-  letter-spacing: .6px;
-  text-transform: uppercase;
-  text-align: center;
-  margin: 0 0 16px;
-  font-size: 1.05rem;
-  color: rgb(8 8 3);
+/* CAMPOS */
+.zf-field {
+    margin-bottom: 18px;
 }
 
-/* Campo */
-.zf-field{
-  margin-bottom: 14px;
+.zf-field label {
+    font-family: 'Michroma', sans-serif;
+    display: block;
+    margin-bottom: 8px;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
 }
 
-/* Labels (Django label_tag) */
-.zf-form label{
-  display:block;
-  margin-bottom: 6px;
-  font-family: "BBH Sans Bartle", sans-serif;
-  font-weight: 800;
-  letter-spacing: .35px;
-  text-transform: uppercase;
-  font-size: .78rem;
-  color: rgb(8 8 3);
+/* INPUTS GLASS */
+.zf-input {
+    width: 100%;
+    padding: 12px 14px;
+
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    border-radius: 12px;
+
+    color: #fff !important;
+
+    box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.18) !important;
+
+    outline: none !important;
+    transition: all .25s ease;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
-/* Inputs del form Django (input, select, textarea) */
-.zf-form input,
-.zf-form select,
-.zf-form textarea{
-  width: 100%;
-  background: rgba(255,255,255,.06);
-  color: rgb(0 0 0 / 92%);
-  font-family: 'Michroma';
-  border: 1px solid rgb(0 0 0 / 46%);
-  border-radius: 14px;
-  padding: 12px 12px;
-  outline: none;
-  box-shadow: none;
-  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+/* PLACEHOLDER */
+.zf-input::placeholder {
+    color: rgba(255, 255, 255, 0.65);
 }
 
-.zf-form textarea{
-  min-height: 130px;
-  resize: vertical;
+/* FOCUS PRO */
+.zf-input:focus {
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: rgba(255, 255, 255, 0.45) !important;
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.16),
+        inset 0 1px 8px rgba(0, 0, 0, 0.22) !important;
+
+    outline: none !important;
 }
 
-/* Focus premium */
-.zf-form input:focus,
-.zf-form select:focus,
-.zf-form textarea:focus{
-  border-color: rgba(15,207,217,.60);
-  box-shadow: 0 0 0 3px rgba(15,207,217,.18), 0 14px 34px rgba(0,0,0,.35);
+/* SELECT OPTIONS */
+.zf-input option {
+    color: #000;
+    background: #fff;
 }
 
-/* Botón Zeezton */
-.zf-btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 100%;
-  margin-top: 6px;
-  border-radius: 14px;
-  padding: 12px 14px;
-  background: linear-gradient(135deg, #ffffff, #000000);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,.10);
-  box-shadow: 0 14px 34px rgba(0,0,0,.45);
-  font-family: "BBH Sans Bartle", sans-serif;
-  font-weight: 900;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+/* BOTÓN GLASS */
+.zf-btn {
+    font-family: 'Michroma', sans-serif;
+    width: 100%;
+    padding: 14px;
+    border-radius: 14px;
+    border: 1px solid rgb(255 255 255 / 0%);
+    background: linear-gradient(90deg, rgb(255 247 10 / 0%), rgba(0, 0, 0, 0.75));
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
 }
 
-.zf-btn:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 18px 44px rgba(0,0,0,.55), 0 0 18px rgba(15,207,217,.18);
-  filter: brightness(1.05);
+/* HOVER BOTÓN */
+.zf-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.6),
+        rgba(0,0,0,0.9)
+    );
 }
 
-/* Móvil */
-@media (max-width: 768px){
-  .zf-form{
-    padding: 18px;
-    border-radius: 16px;
-  }
-  .zf-form__title{
-    font-size: .95rem;
-  }
+/* ERRORES */
+.zf-error {
+    margin-top: 6px;
+    color: #ffb3b3;
+    font-size: 0.9rem;
+}
+
+/* RESEÑAS */
+.zf-resena-item {
+    font-family: 'Inter', sans-serif;
+}
+
+/* =========================
+   📱 RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+    .zf-form {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .zf-form__title {
+        font-size: 0.95rem;
+    }
 }

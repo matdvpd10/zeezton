@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Producto, Reseña   # 👈 importa también Reseña
+from .models import Producto, Reseña
 
 
 class ProductoForm(ModelForm):
@@ -32,14 +32,30 @@ class ProductoForm(ModelForm):
         }
 
 
-# ✅ Nuevo formulario para reseñas
+
 class ReseñaForm(forms.ModelForm):
     class Meta:
         model = Reseña
         fields = ["nombre", "email", "calificacion", "comentario"]
         widgets = {
-            "nombre": forms.TextInput(attrs={"class": "form-control", "placeholder": "Tu nombre"}),
-            "email": forms.EmailInput(attrs={"class": "form-control", "placeholder": "Tu correo"}),
-            "calificacion": forms.Select(attrs={"class": "form-select"}),
-            "comentario": forms.Textarea(attrs={"class": "form-control", "rows": 3, "placeholder": "Escribe tu reseña..."}),
+            "nombre": forms.TextInput(attrs={
+                "class": "zf-input",
+                "placeholder": "Tu nombre",
+                "id": "id_nombre"
+            }),
+            "email": forms.EmailInput(attrs={
+                "class": "zf-input",
+                "placeholder": "Tu correo",
+                "id": "id_email"
+            }),
+            "calificacion": forms.Select(attrs={
+                "class": "zf-input",
+                "id": "id_calificacion"
+            }),
+            "comentario": forms.Textarea(attrs={
+                "class": "zf-input",
+                "rows": 4,
+                "placeholder": "Escribe tu reseña...",
+                "id": "id_comentario"
+            }),
         }

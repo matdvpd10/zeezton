@@ -14,9 +14,11 @@ from pathlib import Path
 import os
 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+MERCADOPAGO_ACCESS_TOKEN = os.getenv("MERCADOPAGO_ACCESS_TOKEN")
+BASE_URL = os.getenv("BASE_URL", "https://zeezton.cl")
 
 
 # Quick-start development settings - unsuitable for production

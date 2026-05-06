@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from crud.models import Producto, Marca, Reseña
 from crud.forms import ReseñaForm
-import unicodedata
 
+import unicodedata
+import json
 
 def root(request):
     return redirect('home')
@@ -22,12 +25,14 @@ def contact(request):
     if request.method == "POST":
         form = ReseñaForm(request.POST)
         if form.is_valid():
-            form.save()
+            reseña = form.save(commit=False)
+            reseña.aprobada = False
+            reseña.save()
             return redirect("contact")
     else:
         form = ReseñaForm()
 
-    reseñas = Reseña.objects.all().order_by("-creado")[:5]
+    reseñas = Reseña.objects.filter(aprobada=True).order_by("-creado")[:5]
     return render(request, 'core/contact.html', {"form": form, "reseñas": reseñas})
 
 
@@ -49,7 +54,7 @@ def product(request):
         productos_qs = productos_qs.filter(marca__id=marca_id)
 
     # 🔥 TOP 5 DESTACADOS (independiente de filtros)
-    productos_destacados = Producto.objects.filter(destacado=True).order_by("-id")[:8]
+    productos_destacados = Producto.objects.filter(destacado=True).order_by("-id")[:10]
 
     paginator = Paginator(productos_qs, 20)
     page_obj = paginator.get_page(request.GET.get("page"))
@@ -94,3 +99,88 @@ def quitar_tildes(texto):
         c for c in unicodedata.normalize("NFKD", texto)
         if not unicodedata.combining(c)
     )
+
+def api_productos(request):
+    productos = []
+
+    qs = Producto.objects.select_related("marca").all().order_by("id")
+
+    for p in qs:
+        imagen_url = request.build_absolute_uri(p.imagen.url) if p.imagen else ""
+
+        productos.append({
+            "id": p.id,
+            "nombre": p.nombre,
+            "descripcion": p.descripcion or "",
+            "precio": p.precio,
+            "stock": p.stock,
+            "marca": p.marca.nombre if p.marca else "",
+            "imagen": imagen_url,
+            "destacado": p.destacado,
+            "oferta": p.oferta,
+            "super_oferta": p.super_oferta,
+        })
+
+    return JsonResponse(productos, safe=False)
+
+@csrf_exempt
+def vender_producto(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "Método no permitido"}, status=405)
+
+    try:
+        data = json.loads(request.body)
+
+        producto_id = data.get("producto_id")
+        cantidad = data.get("cantidad")
+
+        if not producto_id or not cantidad:
+            return JsonResponse({"error": "Datos incompletos"}, status=400)
+
+        if cantidad <= 0:
+            return JsonResponse({"error": "Cantidad inválida"}, status=400)
+
+        producto = Producto.objects.get(id=producto_id)
+
+        if producto.stock < cantidad:
+            return JsonResponse({"error": "Stock insuficiente"}, status=400)
+
+        # 🔥 RESTAR STOCK DIRECTAMENTE
+        producto.stock -= cantidad
+        producto.save()
+
+        return JsonResponse({
+            "mensaje": "Venta realizada correctamente",
+            "nuevo_stock": producto.stock
+        })
+
+    except Producto.DoesNotExist:
+        return JsonResponse({"error": "Producto no encontrado"}, status=404)
+    except Exception as e:
+        return JsonResponse({"error": str(e)}, status=500)
+
+def api_producto_detalle(request, pk):
+    try:
+        p = Producto.objects.select_related("marca").get(pk=pk)
+    except Producto.DoesNotExist:
+        return JsonResponse({"error": "Producto no encontrado"}, status=404)
+
+    imagen_url = request.build_absolute_uri(p.imagen.url) if p.imagen else ""
+
+    producto = {
+        "id": p.id,
+        "nombre": p.nombre,
+        "descripcion": p.descripcion or "",
+        "precio": p.precio,
+        "stock": p.stock,
+        "marca": p.marca.nombre if p.marca else "",
+        "imagen": imagen_url,
+        "destacado": p.destacado,
+        "oferta": p.oferta,
+        "super_oferta": p.super_oferta,
+    }
+
+    return JsonResponse(producto, safe=False)
+
+
+
