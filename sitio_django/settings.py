@@ -31,9 +31,11 @@ SECURE_SSL_REDIRECT = False
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
     "zeezton.cl",
     "www.zeezton.cl",
     "zeezton.pythonanywhere.com",
@@ -136,14 +138,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "core/static"),
+    BASE_DIR / "core" / "static",
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")  # 👈 AGREGA ESTA LÍNEA
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Media Files
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
