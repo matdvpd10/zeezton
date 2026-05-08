@@ -59,7 +59,7 @@
             <i class="fa fa-cart-plus"></i> Añadir al carrito
           </a>
           {% endcomment %}
-<a href="#" class="btn btn-comprar">
+          <a href="{% url 'pagar_producto' producto.id %}" class="btn btn-comprar">
   <i class="fa fa-bolt"></i> Comprar ahora
 </a>
 

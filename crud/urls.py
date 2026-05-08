@@ -17,5 +17,5 @@ path('api/informes/listar/', views.listar_informes, name='api_listar_informes'),
     path('', views.root),
     path('products/', views.products_list),
     path('products/<str:product_id>/', views.product_detail),
-    path('pagar/<int:producto_id>/', views.pagar_producto),
+    path('pagar/<int:producto_id>/', views.pagar_producto, name='pagar_producto'),
 ]
