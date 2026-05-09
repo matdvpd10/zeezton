@@ -1159,7 +1159,7 @@ body{
 }
 /* PRECIO */
 .destacados-container .producto-precio {
-    margin-top: auto;
+    margin-top: 0.6rem;
     font-weight: 700;
     transition: color 0.25s ease;
 }
