@@ -1143,18 +1143,20 @@ body{
 
 /* TITULO */
 .destacados-container .producto-titulo {
-    min-height: 2.6em;
-    line-height: 1.2;
-    margin-bottom: 8px;
 
+    line-height: 1.2;
+    margin-bottom: 0.2rem !important;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-
     transition: color 0.25s ease;
 }
 
+
+.destacados-container .producto-desc {
+    color : white;
+}
 /* PRECIO */
 .destacados-container .producto-precio {
     margin-top: auto;
