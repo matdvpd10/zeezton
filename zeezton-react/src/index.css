@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Neue&display=swap');
+
+
+body {
+  margin: 0;
+  background: #090909;
+  color: white;
+  font-family: 'Michroma', sans-serif;
+}
+
+.hero-title {
+  font-family: "BBH Bartle", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 55px;
+}
+
+.hero-zeezton {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at top right, rgba(120, 14, 106, 0.35), transparent 35%),
+    linear-gradient(135deg, #050505, #111);
+}
+
+.hero-badge {
+  display: inline-block;
+  margin-bottom: 18px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 999px;
+  color: #e6e6e6;
+  font-size: 14px;
+}
+
+
+.hero-text {
+  font-family: 'Michroma', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #cfcfcf;
+
+}
+.navbar-brand {
+  font-family: "BBH Bartle", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.nav-link {
+  font-family: Michroma;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-style: normal;
+  transition: color 0.2s, transform 0.2s;
+}
+
+/* =========================
+   DESTACADOS / CARRUSEL
+   ========================= */
+
+.destacados-section {
+    background: radial-gradient(circle at bottom, #ffffff 0%, #000 55%);
+    padding: 35px 7% 45px;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.15);
+    overflow: hidden;
+}
+
+.destacados-title {
+    color: #00e1ff;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 28px;
+}
+
+.destacados-section .carousel-inner {
+    width: 100%;
+}
+
+.destacados-section .carousel-item {
+    min-height: 310px;
+}
+
+.destacados-section .card-small {
+    background: transparent;
+    border: none;
+    color: white;
+    overflow: hidden;
+    height: 100%;
+}
+
+.destacados-section .card-img-top3 {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+.destacados-section .card-body {
+    padding: 10px 0 0;
+}
+
+.destacados-section .producto-titulo {
+    color: #fff;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    margin: 0 0 4px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.destacados-section .producto-desc {
+    color: #ccc;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    margin: 0 0 8px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.destacados-section .producto-precio {
+    color: #00e1ff;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.destacados-section .moneda {
+    font-size: 0.75rem;
+    margin-right: 3px;
+}
+
+.destacados-section .carousel-control-prev,
+.destacados-section .carousel-control-next {
+    width: 4%;
+}
+
+.destacados-section .carousel-control-prev-icon,
+.destacados-section .carousel-control-next-icon {
+    filter: invert(20%) sepia(100%) saturate(500%) hue-rotate(260deg);
+}
+
+/*catalogo*/
+.producto-card {
+    background: linear-gradient(180deg, #060606 0%, #101820 100%);
+    border: 1px solid rgba(0, 217, 255, 0.35);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 18px rgba(0, 217, 255, 0.12);
+    transition: all 0.3s ease;
+}
+
+.producto-card:hover {
+    transform: translateY(-5px);
+    border-color: #00d9ff;
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.35);
+}
+
+.producto-img-wrapper {
+    width: 100%;
+    height: 240px;
+    position: relative;
+    overflow: hidden;
+    background: #050505;
+    flex-shrink: 0;
+}
+
+.producto-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.producto-card:hover .producto-img {
+    transform: scale(1.05);
+}
+
+.producto-badges {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.producto-info {
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.producto-title,
+.producto-desc {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.producto-title {
+    color: #007bff;
+    font-size: 1.15rem;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.producto-desc {
+    color: #c8c8c8;
+    font-size: 0.9rem;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.producto-price {
+    color: #00e1ff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.stock-ok {
+  color: #7dff9b;
+}
+
+.stock-no {
+  color: #ff6b6b;
+}
+/* detalles del producto */
+
+.detalle-page {
+    min-height: 100vh;
+    background: #050505;
+    padding: 60px 0;
+}
+
+.detalle-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 45px;
+    align-items: center;
+}
+
+.detalle-img-box {
+    width: 100%;
+    max-height: 520px;
+    border: 1px solid rgba(0, 217, 255, 0.35);
+    border-radius: 18px;
+    overflow: hidden;
+    background: #0b0b0b;
+    box-shadow: 0 0 25px rgba(0, 217, 255, 0.15);
+}
+
+.detalle-img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    display: block;
+}
+
+.detalle-info {
+    color: white;
+}
+
+.detalle-title {
+    color: #fff;
+    font-size: 2.4rem;
+    line-height: 1.1;
+    margin-bottom: 18px;
+}
+
+.detalle-desc {
+    color: #d7d7d7;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.detalle-price {
+    color: #00e1ff;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.detalle-stock {
+    color: #36ff72;
+    margin-bottom: 25px;
+}
+
+.detalle-btn {
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-weight: 700;
+}
+
+
+/* WhatsApp Float Button */
+.destacados-section {
+    background:
+        radial-gradient(circle at bottom, #170015 0%, #000 55%);
+    padding: 35px 8% 50px;
+    border-bottom: 1px solid rgba(0, 217, 255, 0.15);
+    overflow: hidden;
+}
+
+.destacados-title {
+    color: #00e1ff;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 28px;
+}
+
+.destacados-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.destacado-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: white;
+    min-width: 0;
+}
+
+.destacado-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+.destacado-card h5,
+.destacado-card p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.destacado-card h5 {
+    color: white;
+    font-size: 1rem;
+    margin: 10px 0 4px;
+    line-height: 1.2;
+}
+
+.destacado-card p {
+    color: #ccc;
+    font-size: 0.8rem;
+    margin: 0 0 8px;
+    line-height: 1.2;
+}
+
+.destacado-card span {
+    color: #00e1ff;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.filtro-section {
+    background:
+        radial-gradient(
+            circle at bottom,
+            #170015 0%,
+            #000 55%
+        );
+
+    padding: 45px 8%;
+}
+
+.filtro-box {
+    background: rgba(20,20,20,0.95);
+
+    border: 1px solid rgba(0,217,255,0.18);
+
+    border-radius: 40px;
+
+    padding: 12px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 0.7fr 180px;
+
+    gap: 12px;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.55),
+        0 0 18px rgba(0,217,255,0.08);
+
+    backdrop-filter: blur(10px);
+}
+
+.filtro-box input,
+.filtro-box select {
+    background: #1a1a1a;
+
+    color: white;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 30px;
+
+    padding: 14px 18px;
+
+    outline: none;
+
+    transition: 0.3s ease;
+
+    font-family: 'Michroma', sans-serif;
+}
+
+.filtro-box input:focus,
+.filtro-box select:focus {
+    border-color: #00d9ff;
+
+    box-shadow:
+        0 0 10px rgba(0,217,255,0.25);
+}
+
+.filtro-box input::placeholder {
+    color: #9f9f9f;
+}
+
+.filtro-box button {
+    border-radius: 30px;
+
+    border: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #5c5c5c
+        );
+
+    color: #00d9ff;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+
+    font-family: 'Michroma', sans-serif;
+}
+
+.filtro-box button:hover {
+    transform: scale(1.03);
+
+    box-shadow:
+        0 0 15px rgba(0,217,255,0.35);
+}
