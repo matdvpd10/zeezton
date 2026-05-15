@@ -425,7 +425,9 @@ def listar_informes(request):
 
 def api_productos(request):
     try:
-        productos = Producto.objects.select_related("marca").all()
+        productos = Producto.objects.select_related(
+            "marca"
+        ).order_by('-creado')
 
         data = []
 
@@ -433,11 +435,14 @@ def api_productos(request):
             data.append({
                 "id": p.id,
                 "nombre": p.nombre,
+                "descripcion": p.descripcion,
                 "precio": int(p.precio),
                 "stock": p.stock,
                 "marca": p.marca.nombre if p.marca else "",
+                "imagen": request.build_absolute_uri(p.imagen.url) if p.imagen else "",
+                "destacado": p.destacado,
                 "oferta": p.oferta,
-                "destacado": p.destacado
+                "super_oferta": p.super_oferta
             })
 
         return JsonResponse(data, safe=False)
