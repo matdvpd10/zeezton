@@ -726,7 +726,6 @@ body{
 .footer-menu .footer-links{
     display: flex;
     flex-direction: column;
-    gap: 10px;
 }
 
 .footer-menu .footer-links li{
@@ -742,7 +741,7 @@ body{
 @media (max-width: 768px){
 
     .seccion-metalica_2{
-        min-height: calc(100vh - 342px);
+        height: 200px;
         padding: 70px 20px 60px;
         display: flex;
         align-items: center;
