@@ -1692,23 +1692,67 @@ body{
 
 /* Responsive */
 @media (max-width: 992px){
-  .zfiltro{
-    /* grid-template-columns: 1fr; */
+  .zfiltro-wrap{
+    padding: 18px 14px;
   }
+
+  .zfiltro{
+    grid-template-columns: 1fr 0.85fr 120px;
+    max-width: 100%;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 34px;
+  }
+
+  .zfiltro-field{
+    min-height: 44px;
+    padding: 8px 10px;
+  }
+
+  .zfiltro-input,
+  .zfiltro-select-input{
+    font-size: 0.78rem;
+  }
+
   .zfiltro-btn{
     width: 100%;
+    height: 44px;
+    font-size: 0.78rem;
   }
 }
 
-@media (max-width: 480px) {
-    .zfiltro-input {
-        font-size: 0.6rem;
-    }
-    .zfiltro-btn{
-        font-size: 0.6rem;
-    }
+@media (max-width: 576px){
+  .zfiltro{
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .zfiltro-field,
+  .zfiltro-btn{
+    width: 100%;
+    height: 46px;
+  }
+
+  .zfiltro-input,
+  .zfiltro-select-input,
+  .zfiltro-btn{
+    font-size: 0.78rem;
+  }
 }
 
+@media (max-width: 380px){
+  .zfiltro-input,
+  .zfiltro-select-input,
+  .zfiltro-btn{
+    font-size: 0.68rem;
+  }
+
+  .zfiltro-field{
+    padding: 8px;
+  }
+}
 
 /* ================================
    DETALLE PRODUCTO
@@ -2461,16 +2505,3 @@ body{
     }
 }
 
-
-/* TEST DEPLOY ZEEZTON 2026 */
-body::before{
-  content: "TEST OK";
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
-  z-index: 999999;
-  background: red;
-  color: white;
-  padding: 8px 12px;
-  font-size: 14px;
-}
