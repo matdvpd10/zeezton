@@ -2460,3 +2460,17 @@ body{
         font-size: 0.95rem;
     }
 }
+
+
+/* TEST DEPLOY ZEEZTON 2026 */
+body::before{
+  content: "TEST OK";
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 999999;
+  background: red;
+  color: white;
+  padding: 8px 12px;
+  font-size: 14px;
+}
