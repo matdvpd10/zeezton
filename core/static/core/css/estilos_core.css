@@ -4,15 +4,12 @@
 
 /* Reset de espacios entre secciones */
 section,
-main {
-  margin-bottom: 0 ;
-  padding-bottom: 0 ;
-}
-main section.seccion-metalica {
-  margin: 0 !important;
-  padding-bottom: 120px !important;
+main{
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
+html,
 body{
     background-color: #ffffff !important;
 }
@@ -589,6 +586,7 @@ body{
     padding: 60px 20px 40px;
     position: relative;
     z-index: 5;
+    margin-bottom: 0;
 }
 
 .footer-zeezton{
@@ -740,12 +738,57 @@ body{
 }
 
 /* responsive */
+/* Footer responsive móvil */
 @media (max-width: 768px){
-    .footer-newsletter,
-    .footer-menu,
-    .footer-brand{
+
+    .seccion-metalica_2{
+        min-height: calc(100vh - 342px);
+        padding: 70px 20px 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-zeezton{
+        width: 100%;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+    }
+
+    .footer-block{
+        width: 100%;
         align-items: center;
         text-align: center;
+    }
+
+    .footer-newsletter{
+        max-width: 260px;
+    }
+
+    .footer-input-group{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 8px;
+    }
+
+    .footer-input{
+        min-width: 0;
+        height: 42px;
+        font-size: .7rem;
+    }
+
+    .footer-btn{
+        width: 76px;
+        height: 42px;
+        padding: 0;
+        font-size: .65rem;
+    }
+
+    .footer-menu,
+    .footer-brand{
+        display: none;
     }
 }
 
