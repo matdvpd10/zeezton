@@ -92,40 +92,44 @@
 
 {% block metalico_global %}
 <section class="seccion-metalica_2">
-    <div class="container-fluid footer-container">
-        <div class="row footer-row">
+    <div class="footer-zeezton">
 
-            <div class="col-md-auto footer-block">
-                <h6 class="footer-title">
-                    Suscríbete al CLUB
-                </h6>
-
-                <div class="footer-input-group">
-                    <input type="email" class="footer-input" placeholder="Email">
-                    <button class="footer-btn">Enviar</button>
-                </div>
-            </div>
-
-            <div class="col-md-auto footer-block">
-                <h6 class="footer-title">
-                    Mapa del sitio
-                </h6>
-
-                <ul class="footer-links">
-                    <li><a href="{% url 'home' %}" class="footer-link">Home</a></li>
-                    <li><a href="{% url 'product' %}" class="footer-link">Productos</a></li>
-                </ul>
-            </div>
-
-            <div class="col-md-auto footer-block">
-                <i class="fa-brands fa-js footer-icon"></i>
-                <p class="footer-copy">© 2026 Zeezton Store · Millwords</p>
-            </div>
-
+        <div class="footer-block footer-newsletter">
+            <h6 class="footer-title">Suscríbete al Club</h6>
+            <form class="footer-input-group">
+                <input type="email" class="footer-input" placeholder="Tu email">
+                <button type="submit" class="footer-btn">Enviar</button>
+            </form>
         </div>
+
+        <div class="footer-block footer-menu">
+            <h6 class="footer-title">Mapa del sitio</h6>
+
+            <ul class="footer-links">
+                <li><a href="{% url 'home' %}" class="footer-link">Home</a></li>
+                <li><a href="{% url 'product' %}" class="footer-link">Productos</a></li>
+                <li><a href="{% url 'offers' %}" class="footer-link">Ofertas</a></li>
+                <li><a href="{% url 'about' %}" class="footer-link">About</a></li>
+                <li><a href="{% url 'contact' %}" class="footer-link">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-block footer-brand">
+            <i class="fa-brands fa-js footer-icon"></i>
+
+            <p class="footer-copy">
+                © 2026 Zeezton Store
+            </p>
+
+            <p class="footer-subcopy">
+                Repuestos · Accesorios · Estilo BMW
+            </p>
+        </div>
+
     </div>
 </section>
 {% endblock %}
+
 
     <a href="https://wa.me/56964333347" class="whatsapp-float" target="_blank" rel="noopener">
         <img src="{% static 'core/img/whatsapp.svg' %}" alt="WS">

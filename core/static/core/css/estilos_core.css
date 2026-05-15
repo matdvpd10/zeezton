@@ -223,10 +223,10 @@ body{
 
 .logo-text{
   font-family: "BBH Sans Bartle", sans-serif !important;
-  font-size: 1.3rem;
-  font-weight: 800;
+  /* font-size: 1.3rem; */
+  /* font-weight: 800; */
   text-transform: uppercase;
-  color: #000;
+  /* color: #000; */
   line-height: 1;
   margin: 0;
   margin-left: 20px;
@@ -528,383 +528,227 @@ body{
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23780e6a' viewBox='0 0 16 16'%3E%3Cpath d='M10 12.5a.5.5 0 0 0 0-.707L6.207 8 10 4.207a.5.5 0 1 0-.707-.707L5.146 7.646a.5.5 0 0 0 0 .708l4.147 4.146a.5.5 0 0 0 .707 0z'/%3E%3C/svg%3E");
 }
 
-/* ============================================================
-   1. SECCIÓN METÁLICA (BLOQUE NEGRO SUPERIOR E INFERIOR)
-   ============================================================ */
-
-.seccion-metalica,
-.seccion-metalica_2 {
-    background-color: #000000 !important;
-    min-height: 200px !important;
-    width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    position: relative !important;
-    z-index: 5 !important;
-}
-
-
-@media (max-width: 768px) {
-    .seccion-metalica,
-    .seccion-metalica_2 {
-        min-height: 140px !important;   /* 🔥 más compacto */
-        padding: 20px 10px !important;  /* 🔥 aire lateral */
-        flex-direction: column !important;
-    }
-}
-
-.seccion-metalica .hero-titulo {
-    font-family: "Michroma", sans-serif !important;
-    color: #ffffff !important; /* Blanco */
-    opacity: 1 !important;
-    font-size: 1.5rem !important;
-    text-transform: uppercase;
-    margin: 0 !important;   /* 🔥 quita margen */
-    padding: 0 !important;  /* 🔥 quita padding */
-}
-
-@media (max-width: 768px) {
-    .seccion-metalica .hero-titulo {
-        font-size: 0.62rem !important;
-        line-height: 1.45 !important;
-        letter-spacing: 0.3px !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 10px !important;
-        text-align: center !important;
-    }
-}
-
-
-.seccion-metalica .hero-subtitle { font-size: 18px !important; }
-/* Limpieza total del logo y textos del footer */
-.seccion-metalica_2 .fa-js,
-.seccion-metalica_2 i {
-    font-size: 38px;
-    color: #ffffff !important; /* Blanco puro */
-    opacity: 1 !important;    /* Quita la "capa" gris */
-    filter: drop-shadow(0 0 2px rgba(255,255,255,0.2));
-
-}
-
-.seccion-metalica_2 p,
-.seccion-metalica_2 .small,
-.seccion-metalica_2 a,
-.seccion-metalica_2 h6 {
-    font-family: "BBH Sans Bartle", sans-serif !important;
-    color: #ffffff !important;
-    text-transform: uppercase;
-    /*font-size: 0.75rem;*/
-}
-/* ===== MÓVIL ===== */
-
-
-
-    .seccion-metalica_2 .col-md-4 {
-        margin-bottom: 25px !important; /* Separa los bloques del footer */
-    }
-
-    /* 3. El Logo JS y Iconos en Blanco Puro */
-    .seccion-metalica_2 .fa-js,
-    .seccion-metalica_2 i {
-        font-size: 1.8rem !important;
-        color: #ffffff !important;
-        opacity: 1 !important; /* Adiós a la capa gris */
-    }
-}
-
-@media (max-width: 768px){
-
-        .seccion-metalica,
-    .seccion-metalica_2{
-        min-height: 160px !important;   /* 🔥 Más compacto aún */
-        /* padding: 25px 10px !important; */  /* 🔥 Reduce aire vertical */
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .seccion-metalica .hero-titulo{
-        font-size: 0.55rem !important;   /* 🔥 Bien pequeño */
-        line-height: 1.15 !important;
-        letter-spacing: 0.6px;           /* 🔥 Ajuste óptico clave */
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 6px;                  /* 🔥 Evita tocar bordes */
-    }
-
-}
-
-
-
 /* =========================
-   FOOTER GENERAL
+   HERO / TOP SECTION
 ========================= */
 
+.seccion-metalica{
+    background-color: #000;
+    min-height: 200px;
+    width: 100%;
 
-
-.footer-container{
-    /* padding-left: 40px; */
-    /* padding-right: 40px; */
-    /* font-family: 'BBH Sans Bartle'; */
-}
-
-.footer-row{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap;
-    gap: 2rem;
+    justify-content: center;
+
+    text-align: center;
+    position: relative;
+    z-index: 5;
 }
 
-.footer-block{
-    flex: 0 0 auto;
-}
-
-.footer-title{
-    font-size: 0.7rem;
-    margin-bottom: .8rem;
-}
-
-.footer-input-group{
-    font-family: 'Michroma';
-    /*display: flex;*/
-    align-items: center;
-    gap: 8px;
-}
-
-.footer-input{
-    width: 200px;
-    height: 32px;
-    background: linear-gradient(135deg, #101010, #1a1a1a);
-    border: 1px solid rgb(15 207 217);
-    border-radius: 8px;
+.seccion-metalica .hero-titulo{
+    font-family: "Michroma", sans-serif;
     color: #fff;
-    padding: 0 20px;
-    font-size: 0.5rem;
-    outline: none;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
-    transition: all .25s ease;
-}
-
-.footer-input::placeholder{
-    color: #8a8a8a;
-}
-
-.footer-input:focus{
-    border-color: #0fcfd9;
-    box-shadow: 0 0 0 3px rgba(15, 207, 217, 0.12);
-    background: linear-gradient(135deg, #111, #202020);
-}
-
-.footer-btn{
-    height: 32px;
-    padding: 0 20px;
-    border: 1px solid rgb(15 207 217);
-    border-radius: 8px;
-    background: linear-gradient(135deg, #111, #1d1d1d);
-    color: #fff;
-    font-size: 0.5rem;
-    font-weight: 600;
-    letter-spacing: .3px;
-    cursor: pointer;
-    transition: all .25s ease;
-}
-
-.footer-btn:hover{
-    color: #0fcfd9;
-    border-color: #0fcfd9;
-    box-shadow: 0 0 14px rgba(15, 207, 217, 0.18);
-    transform: translateY(-1px);
-}
-
-.footer-btn:active{
-    transform: translateY(0);
-}
-
-
-.footer-links{
-    list-style: none !important;
-    padding-left: 0 !important;
-    margin: 0 !important;
-}
-
-.footer-links li{
+    font-size: 1.5rem;
+    text-transform: uppercase;
     margin: 0;
     padding: 0;
 }
 
+.seccion-metalica .hero-subtitle{
+    font-size: 18px;
+}
+
+/* Responsive hero */
+@media (max-width: 768px){
+    .seccion-metalica{
+        min-height: 140px;
+        padding: 20px 10px;
+        flex-direction: column;
+    }
+
+    .seccion-metalica .hero-titulo{
+        font-size: 0.62rem;
+        line-height: 1.45;
+        letter-spacing: 0.3px;
+        max-width: 100%;
+        padding: 0 10px;
+        text-align: center;
+    }
+}
+
+
+
+/* =========================
+   FOOTER ZEEZTON
+========================= */
+
+.seccion-metalica_2{
+    background: #000;
+    width: 100%;
+    padding: 60px 20px 40px;
+    position: relative;
+    z-index: 5;
+}
+
+.footer-zeezton{
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.15fr .75fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.footer-block{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Michroma', sans-serif;
+}
+.footer-title{
+    color: #fff;
+    font-size: .78rem;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.footer-text{
+    color: rgba(255,255,255,.75);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    max-width: 360px;
+    font-size: .82rem;
+}
+
+.footer-input-group{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 380px;
+}
+
+.footer-input{
+    flex: 1;
+    height: 46px;
+    border: 1px solid rgba(0,231,255,.18);
+    border-radius: 14px;
+    background: rgba(255,255,255,.04);
+    color: #fff;
+    padding: 0 16px;
+    outline: none;
+    font-size: .78rem;
+}
+
+.footer-input:focus{
+    border-color: rgba(0,231,255,.45);
+    box-shadow: 0 0 0 3px rgba(0,231,255,.12);
+}
+
+.footer-btn{
+    height: 46px;
+    padding: 0 22px;
+    border: 0;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #111, #00e7ff);
+    color: #fff;
+    font-size: .75rem;
+    transition: .2s ease;
+}
+
+.footer-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,231,255,.25);
+}
+
+.footer-links{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li{
+    margin-bottom: 12px;
+}
+
 .footer-link{
-    font-size: .95rem;
-    text-decoration: none !important;
-    color: #ccc;
-    transition: 0.25s;
+    color: rgba(255,255,255,.85);
+    text-decoration: none;
+    transition: .2s ease;
+    font-size: .82rem;
+    letter-spacing: 1px;
 }
 
 .footer-link:hover{
-    color: #0fcfd9;
+    color: #00e7ff;
+    padding-left: 4px;
+}
+
+.footer-brand{
+    align-items: flex-end;
+    text-align: right;
+}
+
+.footer-icon{
+    font-size: 1.6rem;
+    color: #00e7ff;
+    margin-bottom: 14px;
 }
 
 .footer-copy{
-    font-size: .65rem;
-    margin: 0;
-    white-space: normal;
+    color: rgba(255,255,255,.85);
+    margin-bottom: 8px;
+    font-size: .82rem;
+    line-height: 1.6;
 }
 
-/* =========================
-   TABLET
-========================= */
-@media (max-width: 992px){
-
-        .footer-container{
-        /* padding-left: 24px; */
-        /* padding-right: 24px; */
-    }
-
-    .footer-row{
-        gap: 1.2rem;
-        align-items: flex-start;
-    }
-
-    .footer-title{
-        font-size: .88rem;
-    }
-
-    .footer-link{
-        font-size: .82rem;
-    }
-
-    .footer-copy{
-        font-size: .78rem;
-    }
-
-    .footer-input{
-        width: 180px;
-        font-size: .5rem;
-        padding: 6px 8px;
-    }
-
-    .footer-btn{
-        font-size: .75rem;
-        padding: 6px 10px;
-    }
+.footer-subcopy{
+    color: rgba(255,255,255,.6);
+    font-size: .75rem;
+    line-height: 1.6;
 }
 
-/* =========================
-   MÓVIL
-========================= */
+/* los footer*/
+
+.footer-newsletter{
+    align-items: flex-start;
+    text-align: left;
+}
+
+.footer-menu{
+    align-items: center;
+    text-align: center;
+}
+
+.footer-brand{
+    align-items: flex-end;
+    text-align: right;
+}
+
+.footer-menu .footer-links{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-menu .footer-links li{
+    margin-bottom: 0;
+}
+
+.footer-brand .footer-icon{
+    align-self: center;
+}
+
+/* responsive */
 @media (max-width: 768px){
-
-    .footer-container{
-        /* padding-left: 10px; */
-        /* padding-right: 10px; */
-    }
-
-    .footer-row{
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
+    .footer-newsletter,
+    .footer-menu,
+    .footer-brand{
         align-items: center;
-        gap: .5rem;
         text-align: center;
     }
-
-    .footer-block{
-        flex: 1 1 0;
-        min-width: 0;
-    }
-
-    .footer-title{
-        font-size: .62rem;
-        line-height: 1.1;
-        margin-bottom: .45rem;
-    }
-
-    .footer-links{
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-
-    .footer-link{
-        font-size: .60rem;
-        line-height: 1.1;
-    }
-
-    .footer-copy{
-        font-size: .56rem;
-        line-height: 1.1;
-        margin: 0;
-        word-break: break-word;
-    }
-
-    .footer-icon{
-        font-size: .8rem;
-        margin-bottom: .2rem;
-    }
-
-    .footer-input-group{
-        display: flex;
-        justify-content: center;
-        gap: 4px;
-        flex-wrap: nowrap;
-        margin-left: 20px;
-    }
-
-    .footer-input{
-        width: 140px;
-        font-size: .4rem;
-        padding: 4px 20px;
-    }
-
-    .footer-btn{
-        font-size: .4rem;
-        padding: 4px 10px;
-        white-space: nowrap;
-    }
 }
 
-/* =========================
-   MÓVIL MUY PEQUEÑO
-========================= */
-@media (max-width: 480px){
-
-    .footer-row{
-        gap: .35rem;
-    }
-
-    .footer-title{
-        font-size: .4rem;
-    }
-
-    .footer-link{
-        font-size: .4rem;
-    }
-
-    .footer-copy{
-        font-size: .4rem;
-    }
-
-    .footer-input{
-        width: 90px;
-        font-size: .4rem;
-        padding: 3px 5px;
-        height: 22px;
-    }
-
-    .footer-btn{
-        font-size: .4rem;
-        padding: 3px 5px;
-        height: 22px;
-    }
-
-    .footer-icon{
-        font-size: .7rem;
-    }
-}
 
 
 /* =====================================================
@@ -1038,7 +882,6 @@ body{
 
 .destacados-title {
   font-family: "Michroma", sans-serif;
-  font-weight: 900;
   font-size: 1.0rem;
   color: #00f3ff;
   margin-top: 0 !important;
