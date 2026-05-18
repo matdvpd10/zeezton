@@ -1,5 +1,3 @@
-import DetalleProducto from './pages/DetalleProducto'
-
 import {
   BrowserRouter,
   Routes,
@@ -7,10 +5,12 @@ import {
 } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 import Home from './pages/Home'
 import Productos from './pages/Productos'
 import Contacto from './pages/Contacto'
+import DetalleProducto from './pages/DetalleProducto'
 
 function App() {
   return (
@@ -23,6 +23,8 @@ function App() {
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/productos/:id" element={<DetalleProducto />} />
       </Routes>
+
+      <Footer />
     </BrowserRouter>
   )
 }

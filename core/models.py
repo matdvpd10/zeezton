@@ -36,7 +36,11 @@ class DetalleMovimiento(models.Model):
         on_delete=models.CASCADE,
         related_name="detalles"
     )
-    producto = models.ForeignKey(Producto, on_delete=models.PROTECT)
+    producto = models.ForeignKey(
+    Producto,
+    on_delete=models.PROTECT,
+    related_name="detalles_movimiento_core"
+)
     cantidad = models.PositiveIntegerField()
     precio_unitario = models.PositiveIntegerField()
 
@@ -112,3 +116,6 @@ class DetalleMovimiento(models.Model):
 
         super().delete(*args, **kwargs)
         mov.recalcular_total()
+
+
+

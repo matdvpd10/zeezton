@@ -5,13 +5,31 @@
 /* Reset de espacios entre secciones */
 section,
 main{
-    margin-bottom: 0;
-    padding-bottom: 0;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 html,
 body{
     background-color: #ffffff !important;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body{
+    overflow-x: hidden;
+}
+
+/* evita scroll fantasma en móvil */
+body{
+    min-height: 100vh;
+}
+
+/* asegura que el botón flotante no genere espacio */
+.whatsapp-float{
+    inset: auto 12px 18px auto;
 }
 
 /* =========================
@@ -586,7 +604,8 @@ body{
     padding: 60px 20px 40px;
     position: relative;
     z-index: 5;
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
+    padding-bottom: 45px;
 }
 
 .footer-zeezton{
@@ -753,6 +772,7 @@ body{
         grid-template-columns: 1fr;
         justify-items: center;
         text-align: center;
+        margin-bottom: 70px;
     }
 
     .footer-block{
@@ -2071,8 +2091,8 @@ body{
 
 .whatsapp-float{
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 24px;
+    right: 24px;
     z-index: 99999;
     width: 90px;
     height: 90px;

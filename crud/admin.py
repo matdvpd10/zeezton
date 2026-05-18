@@ -1,7 +1,12 @@
 from django.contrib import admin
 from .models import Marca, Producto, Reseña, Cliente, Venta, DetalleVenta
 from .models import Suscriptor
+from .models import Producto, Marca, Categoria, Subcategoria, ImagenProducto
 
+
+class ImagenProductoInline(admin.TabularInline):
+    model = ImagenProducto
+    extra = 1
 
 # ---------------- MARCA ----------------
 @admin.register(Marca)
@@ -9,14 +14,29 @@ class MarcaAdmin(admin.ModelAdmin):
     list_display = ("nombre", "creado", "actualizado")
     search_fields = ("nombre",)
 
+@admin.register(Categoria)
+class CategoriaAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nombre')
+    search_fields = ('nombre',)
+
+
+@admin.register(Subcategoria)
+class SubcategoriaAdmin(admin.ModelAdmin):
+    list_display = ('id', 'nombre', 'categoria')
+    list_filter = ('categoria',)
+    search_fields = ('nombre', 'categoria__nombre')
 
 # ---------------- PRODUCTO ----------------
 @admin.register(Producto)
 class ProductoAdmin(admin.ModelAdmin):
+    inlines = [ImagenProductoInline]
+
     list_display = (
+    
         "nombre",
         "marca",
         "precio",
+        "calificacion",
         "costo_promedio",
         "ganancia_unitaria",
         "stock",

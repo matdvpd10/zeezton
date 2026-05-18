@@ -10,12 +10,12 @@ import unicodedata
 import json
 import mercadopago
 from django.shortcuts import redirect
-from .models import Producto
+
 from core.models import MovimientoInventario, DetalleMovimiento
-from .models import Informe
+
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect
-from .models import Suscriptor
+
 from django.db import transaction
 
 # Create your views here.
@@ -329,7 +329,6 @@ def pagar_producto(request, producto_id):
 
     return redirect(response["init_point"])
 
-    from core.models import MovimientoInventario, DetalleMovimiento
 
 def api_detalle_ventas(request):
     try:
@@ -421,17 +420,25 @@ def listar_informes(request):
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
 
-
+def api_productos(request):
+    return JsonResponse({"prueba": "ESTA ES LA API QUE SE ESTA USANDO"})
 
 def api_productos(request):
     try:
-        productos = Producto.objects.select_related(
-            "marca"
-        ).order_by('-creado')
+        productos = Producto.objects.select_related("marca").order_by("-creado")
 
         data = []
 
         for p in productos:
+            imagen_url = ""
+
+            imagen_extra = p.imagenes.all().order_by("-principal", "orden", "id").first()
+
+            if imagen_extra and imagen_extra.imagen:
+                imagen_url = request.build_absolute_uri(imagen_extra.imagen.url)
+            elif p.imagen:
+                imagen_url = request.build_absolute_uri(p.imagen.url)
+
             data.append({
                 "id": p.id,
                 "nombre": p.nombre,
@@ -439,10 +446,10 @@ def api_productos(request):
                 "precio": int(p.precio),
                 "stock": p.stock,
                 "marca": p.marca.nombre if p.marca else "",
-                "imagen": request.build_absolute_uri(p.imagen.url) if p.imagen else "",
+                "imagen": imagen_url,
                 "destacado": p.destacado,
                 "oferta": p.oferta,
-                "super_oferta": p.super_oferta
+                "super_oferta": p.super_oferta,
             })
 
         return JsonResponse(data, safe=False)
