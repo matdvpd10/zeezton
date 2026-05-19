@@ -35,15 +35,13 @@
 
     <div class="card-small h-100">
 
-{% with imagen_principal=p.imagenes.first %}
-    {% if imagen_principal %}
-        <img src="{{ imagen_principal.imagen.url }}"
-             class="card-img-top3"
-             alt="{{ p.nombre }}">
+{% with img=p.imagenes.first %}
+    {% if img %}
+        <img src="{{ img.imagen.url }}" class="card-img-top3" alt="{{ p.nombre }}">
+    {% elif p.imagen %}
+        <img src="{{ p.imagen.url }}" class="card-img-top3" alt="{{ p.nombre }}">
     {% else %}
-        <img src="{% static 'core/img/image_not_found.jpg' %}"
-             class="card-img-top3"
-             alt="Sin imagen">
+        <img src="{% static 'core/img/image_not_found.jpg' %}" class="card-img-top3" alt="Sin imagen">
     {% endif %}
 {% endwith %}
 

@@ -1673,6 +1673,29 @@ body{
   display: block;
 }
 
+.product-detail-thumbs{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:14px;
+}
+
+.product-detail-thumb{
+    width:85px;
+    height:85px;
+    object-fit:cover;
+    border-radius:12px;
+    border:2px solid rgba(0,0,0,.08);
+    cursor:pointer;
+    transition:.25s ease;
+    background:#fff;
+}
+
+.product-detail-thumb:hover{
+    transform:translateY(-2px) scale(1.03);
+    border-color:#09b3d6;
+}
+
 /* Caja info */
 .product-detail-info-box {
   background: #ffffff;
@@ -1893,9 +1916,6 @@ body{
     width: 100%;
   }
 }
-
-
-
 
 
 

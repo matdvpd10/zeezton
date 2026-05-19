@@ -4,14 +4,25 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from crud.models import Producto, Marca, Reseña, Cliente, Venta, DetalleVenta, Informe
-from crud.forms import ReseñaForm
+from .models import (
+    Producto,
+    Marca,
+    Reseña,
+    Cliente,
+    Venta,
+    DetalleVenta,
+    Informe,
+    Suscriptor,
+    MovimientoInventario,
+    DetalleMovimiento,
+)
+
 import unicodedata
 import json
 import mercadopago
 from django.shortcuts import redirect
 
-from core.models import MovimientoInventario, DetalleMovimiento
+
 
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect
@@ -420,24 +431,28 @@ def listar_informes(request):
     except Exception as e:
         return JsonResponse({"error": str(e)}, status=500)
 
-def api_productos(request):
-    return JsonResponse({"prueba": "ESTA ES LA API QUE SE ESTA USANDO"})
+
+
 
 def api_productos(request):
     try:
-        productos = Producto.objects.select_related("marca").order_by("-creado")
+        productos = Producto.objects.select_related(
+            "marca"
+        ).prefetch_related(
+            "imagenes"
+        ).order_by("-creado")
 
         data = []
 
         for p in productos:
-            imagen_url = ""
-
-            imagen_extra = p.imagenes.all().order_by("-principal", "orden", "id").first()
+            imagen_extra = p.imagenes.order_by("-principal", "orden", "id").first()
 
             if imagen_extra and imagen_extra.imagen:
                 imagen_url = request.build_absolute_uri(imagen_extra.imagen.url)
             elif p.imagen:
                 imagen_url = request.build_absolute_uri(p.imagen.url)
+            else:
+                imagen_url = ""
 
             data.append({
                 "id": p.id,

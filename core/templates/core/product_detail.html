@@ -8,8 +8,6 @@
 <section class="seccion-metalica">
   <div class="container-fluid text-center text-white">
     <h1 class="hero-titulo">Detalle del Producto</h1>
-    {# si quieres subtítulo, descomenta #}
-    {# <p class="hero-subtitle">Descubre más sobre este artículo</p> #}
   </div>
 </section>
 {% endblock %}
@@ -20,17 +18,41 @@
 
     <!-- Imagen -->
     <div class="col-lg-6">
+
       <div class="product-detail-image-box">
-        {% if producto.imagen %}
-          <img src="{{ producto.imagen.url }}"
-               alt="{{ producto.descripcion }}"
+
+        {% if imagen_principal %}
+          <img src="{{ imagen_principal.imagen.url }}"
+               alt="{{ producto.nombre }}"
                class="product-detail-image">
+
+        {% elif producto.imagen %}
+          <img src="{{ producto.imagen.url }}"
+               alt="{{ producto.nombre }}"
+               class="product-detail-image">
+
         {% else %}
           <img src="{% static 'core/img/image_not_found.jpg' %}"
                alt="Sin imagen"
                class="product-detail-image">
         {% endif %}
+
       </div>
+
+      {% if imagenes %}
+        <div class="product-detail-thumbs mt-3">
+
+          {% for img in imagenes %}
+            {% if img.imagen %}
+              <img src="{{ img.imagen.url }}"
+                   alt="{{ producto.nombre }}"
+                   class="product-detail-thumb">
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      {% endif %}
+
     </div>
 
     <!-- Info -->
@@ -53,19 +75,44 @@
           <strong>Stock disponible:</strong> {{ producto.stock }}
         </p>
 
-        <div class="product-detail-actions">
-          {% comment %}
-          <a href="#" class="btn product-detail-btn product-detail-btn-primary">
-            <i class="fa fa-cart-plus"></i> Añadir al carrito
-          </a>
-          {% endcomment %}
-          <a href="{% url 'pagar_producto' producto.id %}" class="btn btn-comprar">
-  <i class="fa fa-bolt"></i> Comprar ahora
-</a>
+<div class="product-detail-benefits">
+  <div>
+    <i class="fa fa-shield"></i>
+    <strong>Calidad premium</strong>
+    <span>Material de alta resistencia</span>
+  </div>
 
-          <a href="{% url 'product' %}" class="btn product-detail-btn product-detail-btn-secondary">
+  <div>
+    <i class="fa fa-wrench"></i>
+    <strong>Fácil instalación</strong>
+    <span>Compatible con la mayoría</span>
+  </div>
+
+  <div>
+    <i class="fa fa-star"></i>
+    <strong>Acabado elegante</strong>
+    <span>Mejora el interior</span>
+  </div>
+
+  <div>
+    <i class="fa fa-check-circle"></i>
+    <strong>Compra segura</strong>
+    <span>Respaldo Zeezton</span>
+  </div>
+</div>
+
+        <div class="product-detail-actions">
+
+          <a href="{% url 'pagar_producto' producto.id %}"
+             class="btn btn-comprar">
+            <i class="fa fa-bolt"></i> Comprar ahora
+          </a>
+
+          <a href="{% url 'product' %}"
+             class="btn product-detail-btn product-detail-btn-secondary">
             <i class="fa fa-arrow-left"></i> Volver a productos
           </a>
+
         </div>
 
       </div>
@@ -77,10 +124,15 @@
   <div class="row mt-4">
     <div class="col-12">
       <div class="product-detail-description-box">
-        <h3 class="product-detail-section-title">Descripción del producto</h3>
+
+        <h3 class="product-detail-section-title">
+          Descripción del producto
+        </h3>
+
         <p class="product-detail-description">
           {{ producto.descripcion }}
         </p>
+
       </div>
     </div>
   </div>

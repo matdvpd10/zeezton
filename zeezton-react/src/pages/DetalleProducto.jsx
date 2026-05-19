@@ -1,77 +1,88 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { obtenerProductos } from '../services/api'
+{% extends 'core/base.html' %}
+{% load static %}
+{% load currency_filters %}
 
-function DetalleProducto() {
-  const { id } = useParams()
+{% block title %}{{ producto.nombre }}{% endblock %}
 
-  const [producto, setProducto] = useState(null)
-  const [cargando, setCargando] = useState(true)
-  const [error, setError] = useState(null)
+{% block main_content %}
+<div class="product-detail-mobile">
 
-  useEffect(() => {
-    obtenerProductos()
-      .then(data => {
-        const encontrado = data.find(p => String(p.id) === String(id))
+  <div class="product-gallery-box">
+    {% if imagen_principal %}
+      <img src="{{ imagen_principal.imagen.url }}" alt="{{ producto.nombre }}" class="product-main-image">
+    {% elif producto.imagen %}
+      <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="product-main-image">
+    {% else %}
+      <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen" class="product-main-image">
+    {% endif %}
+  </div>
 
-        if (!encontrado) {
-          throw new Error('Producto no encontrado')
-        }
+  {% if imagenes %}
+  <div class="product-thumbs">
+    {% for img in imagenes %}
+      {% if img.imagen %}
+        <img src="{{ img.imagen.url }}" alt="{{ producto.nombre }}" class="product-thumb">
+      {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
 
-        setProducto(encontrado)
-        setCargando(false)
-      })
-      .catch(error => {
-        setError(error.message)
-        setCargando(false)
-      })
-  }, [id])
+  <section class="product-info-premium">
+    <span class="product-status">Disponible</span>
 
-  if (cargando) {
-    return <div className="container py-5 text-light">Cargando producto...</div>
-  }
+    <h1>{{ producto.nombre }}</h1>
 
-  if (error) {
-    return <div className="container py-5 text-danger">{error}</div>
-  }
+    <p class="product-brand">
+      Marca: <span>{{ producto.marca }}</span>
+    </p>
 
-  return (
-    <div className="container py-5 text-light">
-      <div className="row g-5 align-items-center">
-        <div className="col-md-6">
-          <img
-            src={producto.imagen}
-            alt={producto.nombre}
-            className="detalle-img"
-          />
-        </div>
+    <div class="product-price">
+      ${{ producto.precio|clp }} CLP
+    </div>
 
-        <div className="col-md-6">
-          <span className="detalle-marca">{producto.marca}</span>
+    <div class="product-stock">
+      Stock disponible: {{ producto.stock }}
+    </div>
 
-          <h1 className="detalle-title">{producto.nombre}</h1>
-
-          <p className="detalle-desc">{producto.descripcion}</p>
-
-          <h2 className="detalle-price">
-            ${producto.precio.toLocaleString('es-CL')} CLP
-          </h2>
-
-          <p className={producto.stock > 0 ? 'stock-ok' : 'stock-no'}>
-            {producto.stock > 0 ? `Stock disponible: ${producto.stock}` : 'Sin stock disponible'}
-          </p>
-
-          <a
-            href={`https://wa.me/56900000000?text=Hola,%20quiero%20consultar%20por%20${encodeURIComponent(producto.nombre)}`}
-            target="_blank"
-            className="btn btn-light fw-bold mt-3"
-          >
-            Consultar por WhatsApp
-          </a>
-        </div>
+    <div class="product-benefits">
+      <div>
+        <i class="fa fa-shield"></i>
+        <span>Calidad premium</span>
+      </div>
+      <div>
+        <i class="fa fa-wrench"></i>
+        <span>Fácil instalación</span>
+      </div>
+      <div>
+        <i class="fa fa-star"></i>
+        <span>Acabado elegante</span>
+      </div>
+      <div>
+        <i class="fa fa-check-circle"></i>
+        <span>Compra segura</span>
       </div>
     </div>
-  )
-}
 
-export default DetalleProducto
+    <a href="{% url 'pagar_producto' producto.id %}" class="btn-buy-premium">
+      <i class="fa fa-bolt"></i> Comprar ahora
+    </a>
+
+    <a href="{% url 'product' %}" class="btn-back-premium">
+      <i class="fa fa-arrow-left"></i> Volver a productos
+    </a>
+  </section>
+
+  <section class="product-description-premium">
+    <h3>Descripción del producto</h3>
+
+    <p>
+      {% if producto.descripcion %}
+        {{ producto.descripcion }}
+      {% else %}
+        Producto seleccionado especialmente para mejorar la estética, comodidad y personalización de tu vehículo.
+      {% endif %}
+    </p>
+  </section>
+
+</div>
+{% endblock %}

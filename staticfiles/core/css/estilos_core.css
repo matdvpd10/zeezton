@@ -4,17 +4,32 @@
 
 /* Reset de espacios entre secciones */
 section,
-main {
-  margin-bottom: 0 ;
-  padding-bottom: 0 ;
-}
-main section.seccion-metalica {
-  margin: 0 !important;
-  padding-bottom: 120px !important;
+main{
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
 }
 
+html,
 body{
     background-color: #ffffff !important;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body{
+    overflow-x: hidden;
+}
+
+/* evita scroll fantasma en móvil */
+body{
+    min-height: 100vh;
+}
+
+/* asegura que el botón flotante no genere espacio */
+.whatsapp-float{
+    inset: auto 12px 18px auto;
 }
 
 /* =========================
@@ -223,10 +238,10 @@ body{
 
 .logo-text{
   font-family: "BBH Sans Bartle", sans-serif !important;
-  font-size: 1.3rem;
-  font-weight: 800;
+  /* font-size: 1.3rem; */
+  /* font-weight: 800; */
   text-transform: uppercase;
-  color: #000;
+  /* color: #000; */
   line-height: 1;
   margin: 0;
   margin-left: 20px;
@@ -528,382 +543,274 @@ body{
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23780e6a' viewBox='0 0 16 16'%3E%3Cpath d='M10 12.5a.5.5 0 0 0 0-.707L6.207 8 10 4.207a.5.5 0 1 0-.707-.707L5.146 7.646a.5.5 0 0 0 0 .708l4.147 4.146a.5.5 0 0 0 .707 0z'/%3E%3C/svg%3E");
 }
 
-/* ============================================================
-   1. SECCIÓN METÁLICA (BLOQUE NEGRO SUPERIOR E INFERIOR)
-   ============================================================ */
-
-.seccion-metalica,
-.seccion-metalica_2 {
-    background-color: #000000 !important;
-    min-height: 200px !important;
-    width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
-    position: relative !important;
-    z-index: 5 !important;
-}
-
-
-@media (max-width: 768px) {
-    .seccion-metalica,
-    .seccion-metalica_2 {
-        min-height: 140px !important;   /* 🔥 más compacto */
-        padding: 20px 10px !important;  /* 🔥 aire lateral */
-        flex-direction: column !important;
-    }
-}
-
-.seccion-metalica .hero-titulo {
-    font-family: "Michroma", sans-serif !important;
-    color: #ffffff !important; /* Blanco */
-    opacity: 1 !important;
-    font-size: 1.5rem !important;
-    text-transform: uppercase;
-    margin: 0 !important;   /* 🔥 quita margen */
-    padding: 0 !important;  /* 🔥 quita padding */
-}
-
-@media (max-width: 768px) {
-    .seccion-metalica .hero-titulo {
-        font-size: 0.62rem !important;
-        line-height: 1.45 !important;
-        letter-spacing: 0.3px !important;
-        max-width: 100% !important;
-        margin: 0 !important;
-        padding: 0 10px !important;
-        text-align: center !important;
-    }
-}
-
-
-.seccion-metalica .hero-subtitle { font-size: 18px !important; }
-/* Limpieza total del logo y textos del footer */
-.seccion-metalica_2 .fa-js,
-.seccion-metalica_2 i {
-    font-size: 38px;
-    color: #ffffff !important; /* Blanco puro */
-    opacity: 1 !important;    /* Quita la "capa" gris */
-    filter: drop-shadow(0 0 2px rgba(255,255,255,0.2));
-
-}
-
-.seccion-metalica_2 p,
-.seccion-metalica_2 .small,
-.seccion-metalica_2 a,
-.seccion-metalica_2 h6 {
-    font-family: "BBH Sans Bartle", sans-serif !important;
-    color: #ffffff !important;
-    text-transform: uppercase;
-    /*font-size: 0.75rem;*/
-}
-/* ===== MÓVIL ===== */
-
-
-
-    .seccion-metalica_2 .col-md-4 {
-        margin-bottom: 25px !important; /* Separa los bloques del footer */
-    }
-
-    /* 3. El Logo JS y Iconos en Blanco Puro */
-    .seccion-metalica_2 .fa-js,
-    .seccion-metalica_2 i {
-        font-size: 1.8rem !important;
-        color: #ffffff !important;
-        opacity: 1 !important; /* Adiós a la capa gris */
-    }
-}
-
-@media (max-width: 768px){
-
-        .seccion-metalica,
-    .seccion-metalica_2{
-        min-height: 160px !important;   /* 🔥 Más compacto aún */
-        /* padding: 25px 10px !important; */  /* 🔥 Reduce aire vertical */
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    .seccion-metalica .hero-titulo{
-        font-size: 0.55rem !important;   /* 🔥 Bien pequeño */
-        line-height: 1.15 !important;
-        letter-spacing: 0.6px;           /* 🔥 Ajuste óptico clave */
-        width: 100%;
-        margin: 0 auto;
-        padding: 0 6px;                  /* 🔥 Evita tocar bordes */
-    }
-
-}
-
-
-
 /* =========================
-   FOOTER GENERAL
+   HERO / TOP SECTION
 ========================= */
 
+.seccion-metalica{
+    background-color: #000;
+    min-height: 200px;
+    width: 100%;
 
-
-.footer-container{
-    /* padding-left: 40px; */
-    /* padding-right: 40px; */
-    /* font-family: 'BBH Sans Bartle'; */
-}
-
-.footer-row{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: nowrap;
-    gap: 2rem;
+    justify-content: center;
+
+    text-align: center;
+    position: relative;
+    z-index: 5;
 }
 
-.footer-block{
-    flex: 0 0 auto;
-}
-
-.footer-title{
-    font-size: 0.7rem;
-    margin-bottom: .8rem;
-}
-
-.footer-input-group{
-    font-family: 'Michroma';
-    /*display: flex;*/
-    align-items: center;
-    gap: 8px;
-}
-
-.footer-input{
-    width: 200px;
-    height: 32px;
-    background: linear-gradient(135deg, #101010, #1a1a1a);
-    border: 1px solid rgb(15 207 217);
-    border-radius: 8px;
+.seccion-metalica .hero-titulo{
+    font-family: "Michroma", sans-serif;
     color: #fff;
-    padding: 0 20px;
-    font-size: 0.5rem;
-    outline: none;
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
-    transition: all .25s ease;
-}
-
-.footer-input::placeholder{
-    color: #8a8a8a;
-}
-
-.footer-input:focus{
-    border-color: #0fcfd9;
-    box-shadow: 0 0 0 3px rgba(15, 207, 217, 0.12);
-    background: linear-gradient(135deg, #111, #202020);
-}
-
-.footer-btn{
-    height: 32px;
-    padding: 0 20px;
-    border: 1px solid rgb(15 207 217);
-    border-radius: 8px;
-    background: linear-gradient(135deg, #111, #1d1d1d);
-    color: #fff;
-    font-size: 0.5rem;
-    font-weight: 600;
-    letter-spacing: .3px;
-    cursor: pointer;
-    transition: all .25s ease;
-}
-
-.footer-btn:hover{
-    color: #0fcfd9;
-    border-color: #0fcfd9;
-    box-shadow: 0 0 14px rgba(15, 207, 217, 0.18);
-    transform: translateY(-1px);
-}
-
-.footer-btn:active{
-    transform: translateY(0);
-}
-
-
-.footer-links{
-    list-style: none !important;
-    padding-left: 0 !important;
-    margin: 0 !important;
-}
-
-.footer-links li{
+    font-size: 1.5rem;
+    text-transform: uppercase;
     margin: 0;
     padding: 0;
 }
 
-.footer-link{
-    font-size: .95rem;
-    text-decoration: none !important;
-    color: #ccc;
-    transition: 0.25s;
+.seccion-metalica .hero-subtitle{
+    font-size: 18px;
 }
 
-.footer-link:hover{
-    color: #0fcfd9;
+/* Responsive hero */
+@media (max-width: 768px){
+    .seccion-metalica{
+        min-height: 140px;
+        padding: 20px 10px;
+        flex-direction: column;
+    }
+
+    .seccion-metalica .hero-titulo{
+        font-size: 0.62rem;
+        line-height: 1.45;
+        letter-spacing: 0.3px;
+        max-width: 100%;
+        padding: 0 10px;
+        text-align: center;
+    }
 }
 
-.footer-copy{
-    font-size: .7rem;
+
+
+/* =========================
+   FOOTER ZEEZTON
+========================= */
+
+.seccion-metalica_2{
+    background: #000;
+    width: 100%;
+    padding: 60px 20px 40px;
+    position: relative;
+    z-index: 5;
+    margin-bottom: 0 !important;
+    padding-bottom: 45px;
+}
+
+.footer-zeezton{
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.15fr .75fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.footer-block{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Michroma', sans-serif;
+}
+.footer-title{
+    color: #fff;
+    font-size: .78rem;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.footer-text{
+    color: rgba(255,255,255,.75);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    max-width: 360px;
+    font-size: .82rem;
+}
+
+.footer-input-group{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 380px;
+}
+
+.footer-input{
+    flex: 1;
+    height: 46px;
+    border: 1px solid rgba(0,231,255,.18);
+    border-radius: 14px;
+    background: rgba(255,255,255,.04);
+    color: #fff;
+    padding: 0 16px;
+    outline: none;
+    font-size: .78rem;
+}
+
+.footer-input:focus{
+    border-color: rgba(0,231,255,.45);
+    box-shadow: 0 0 0 3px rgba(0,231,255,.12);
+}
+
+.footer-btn{
+    height: 46px;
+    padding: 0 22px;
+    border: 0;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #111, #00e7ff);
+    color: #fff;
+    font-size: .75rem;
+    transition: .2s ease;
+}
+
+.footer-btn:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,231,255,.25);
+}
+
+.footer-links{
+    list-style: none;
+    padding: 0;
     margin: 0;
 }
 
-/* =========================
-   TABLET
-========================= */
-@media (max-width: 992px){
-
-        .footer-container{
-        /* padding-left: 24px; */
-        /* padding-right: 24px; */
-    }
-
-    .footer-row{
-        gap: 1.2rem;
-        align-items: flex-start;
-    }
-
-    .footer-title{
-        font-size: .88rem;
-    }
-
-    .footer-link{
-        font-size: .82rem;
-    }
-
-    .footer-copy{
-        font-size: .78rem;
-    }
-
-    .footer-input{
-        width: 180px;
-        font-size: .5rem;
-        padding: 6px 8px;
-    }
-
-    .footer-btn{
-        font-size: .75rem;
-        padding: 6px 10px;
-    }
+.footer-links li{
+    margin-bottom: 12px;
 }
 
-/* =========================
-   MÓVIL
-========================= */
+.footer-link{
+    color: rgba(255,255,255,.85);
+    text-decoration: none;
+    transition: .2s ease;
+    font-size: .82rem;
+    letter-spacing: 1px;
+}
+
+.footer-link:hover{
+    color: #00e7ff;
+    padding-left: 4px;
+}
+
+.footer-brand{
+    align-items: flex-end;
+    text-align: right;
+}
+
+.footer-icon{
+    font-size: 1.6rem;
+    color: #00e7ff;
+    margin-bottom: 14px;
+}
+
+.footer-copy{
+    color: rgba(255,255,255,.85);
+    margin-bottom: 8px;
+    font-size: .82rem;
+    line-height: 1.6;
+}
+
+.footer-subcopy{
+    color: rgba(255,255,255,.6);
+    font-size: .75rem;
+    line-height: 1.6;
+}
+
+/* los footer*/
+
+.footer-newsletter{
+    align-items: flex-start;
+    text-align: left;
+}
+
+.footer-menu{
+    align-items: center;
+    text-align: center;
+}
+
+.footer-brand{
+    align-items: flex-end;
+    text-align: right;
+}
+
+.footer-menu .footer-links{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-menu .footer-links li{
+    margin-bottom: 0;
+}
+
+.footer-brand .footer-icon{
+    align-self: center;
+}
+
+/* responsive */
+/* Footer responsive móvil */
 @media (max-width: 768px){
 
-    .footer-container{
-        /* padding-left: 10px; */
-        /* padding-right: 10px; */
+    .seccion-metalica_2{
+        height: 200px;
+        padding: 70px 20px 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    .footer-row{
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-        gap: .5rem;
+    .footer-zeezton{
+        width: 100%;
+        grid-template-columns: 1fr;
+        justify-items: center;
         text-align: center;
+        margin-bottom: 70px;
     }
 
     .footer-block{
-        flex: 1 1 0;
-        min-width: 0;
+        width: 100%;
+        align-items: center;
+        text-align: center;
     }
 
-    .footer-title{
-        font-size: .62rem;
-        line-height: 1.1;
-        margin-bottom: .45rem;
-    }
-
-    .footer-links{
-        margin: 0;
-        padding: 0;
-        list-style: none;
-    }
-
-    .footer-link{
-        font-size: .60rem;
-        line-height: 1.1;
-    }
-
-    .footer-copy{
-        font-size: .56rem;
-        line-height: 1.1;
-        margin: 0;
-        word-break: break-word;
-    }
-
-    .footer-icon{
-        font-size: .8rem;
-        margin-bottom: .2rem;
+    .footer-newsletter{
+        max-width: 260px;
     }
 
     .footer-input-group{
+        width: 100%;
         display: flex;
-        justify-content: center;
-        gap: 4px;
-        flex-wrap: nowrap;
-        margin-left: 20px;
+        flex-direction: row;
+        gap: 8px;
     }
 
     .footer-input{
-        width: 140px;
-        font-size: .4rem;
-        padding: 4px 20px;
-    }
-
-    .footer-btn{
-        font-size: .4rem;
-        padding: 4px 10px;
-        white-space: nowrap;
-    }
-}
-
-/* =========================
-   MÓVIL MUY PEQUEÑO
-========================= */
-@media (max-width: 480px){
-
-    .footer-row{
-        gap: .35rem;
-    }
-
-    .footer-title{
-        font-size: .4rem;
-    }
-
-    .footer-link{
-        font-size: .4rem;
-    }
-
-    .footer-copy{
-        font-size: .4rem;
-    }
-
-    .footer-input{
-        width: 90px;
-        font-size: .4rem;
-        padding: 3px 5px;
-        height: 22px;
-    }
-
-    .footer-btn{
-        font-size: .4rem;
-        padding: 3px 5px;
-        height: 22px;
-    }
-
-    .footer-icon{
+        min-width: 0;
+        height: 42px;
         font-size: .7rem;
     }
+
+    .footer-btn{
+        width: 76px;
+        height: 42px;
+        padding: 0;
+        font-size: .65rem;
+    }
+
+    .footer-menu,
+    .footer-brand{
+        display: none;
+    }
 }
+
 
 
 /* =====================================================
@@ -973,7 +880,7 @@ body{
  margin: 35px 0;
  /* border-radius: 18px; */
  /*padding: 20px 20px 20px;*/
- box-shadow: 0 14px 40px rgba(0,0,0,.35);
+ /*box-shadow: 0 14px 40px rgba(0,0,0,.35);*/
  position: relative;
  overflow: hidden;
 }
@@ -1037,7 +944,6 @@ body{
 
 .destacados-title {
   font-family: "Michroma", sans-serif;
-  font-weight: 900;
   font-size: 1.0rem;
   color: #00f3ff;
   margin-top: 0 !important;
@@ -1111,7 +1017,7 @@ body{
     height: 100%;
     max-width: 260px;
     margin: 0 auto;
-    border-radius: 14px;
+    border-radius: 10px;
     /* overflow: hidden; */
     /* background: rgba(255,255,255,0.02); */
     backdrop-filter: blur(4px);
@@ -1142,21 +1048,23 @@ body{
 
 /* TITULO */
 .destacados-container .producto-titulo {
-    min-height: 2.6em;
-    line-height: 1.2;
-    margin-bottom: 8px;
 
+    line-height: 1.2;
+    margin-bottom: 0.2rem !important;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-
     transition: color 0.25s ease;
 }
 
+
+.destacados-container .producto-desc {
+    color : white;
+}
 /* PRECIO */
 .destacados-container .producto-precio {
-    margin-top: auto;
+    margin-top: 0.6rem;
     font-weight: 700;
     transition: color 0.25s ease;
 }
@@ -1229,6 +1137,8 @@ body{
   height: 100%;
   background: #fff;
   transition: transform .25s ease, box-shadow .25s ease;
+  overflow: hidden;
+  border-radius: 10px;
 }
 
 
@@ -1241,7 +1151,6 @@ body{
   display: block;
 }
 
-/* Body */
 .card-small .card-body{
   flex: 1;
   padding: 12px 14px;
@@ -1250,17 +1159,35 @@ body{
   overflow: hidden;
 }
 
-/* Título 2 líneas */
+/* Título: 1 línea */
 .producto-titulo{
-    font-family: 'Michroma', sans-serif;
-    margin: 0 0 6px;
-    /* font-weight: 800; */
-    /* line-height: 1.2; */
-    height: calc(1.2em * 1);
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+  font-family: 'Michroma', sans-serif;
+  margin: 0 0 4px;
+  font-size: 0.72rem;
+  line-height: 1.2;
+  width: 100%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Descripción: 1 línea */
+.producto-desc{
+  font-family: 'Michroma', sans-serif;
+  margin: 0 0 8px;
+  font-size: 0.68rem;
+  line-height: 1.2;
+  width: 100%;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Precio */
+.producto-precio{
+  margin-top: auto;
 }
 
 /* Marca */
@@ -1276,15 +1203,15 @@ body{
 /* Descripción 2 líneas */
 .producto-desc{
   font-family: 'Michroma', sans-serif;
-  font-size: .9rem;
+  font-size: .6rem;
   line-height: 1.25;
-  height: calc(1.25em * 2);
+  height: calc(1.25em * 1);
   overflow: hidden;
   margin: 0 0 8px;
-
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+  margin-bottom: 0;
 }
 
 
@@ -1509,7 +1436,6 @@ body{
    Zeezton Filter Bar (Premium)
    =============================== */
 .zfiltro-wrap{
-  padding: 18px 12px;
   font-family: 'Michroma', sans-serif;
 }
 
@@ -1520,10 +1446,9 @@ body{
   grid-template-columns: 1.4fr 0.9fr 160px;
   gap: 8px;
   align-items: center;
-
-  background: linear-gradient(135deg, rgba(10,10,10,.92), rgba(24,24,24,.92));
-  border: 1px solid rgba(15,207,217,.22);
-  border-radius: 5px;
+  background: linear-gradient(182deg, rgb(0 0 0 / 92%), rgb(42 42 43));
+  /* border: 1px solid rgb(0 242 255 / 22%); */
+  border-radius: 35px;
   padding: 12px;
   box-shadow: 0 18px 45px rgba(0,0,0,.35);
   backdrop-filter: blur(8px);
@@ -1534,10 +1459,9 @@ body{
   display: flex;
   align-items: center;
   gap: 10px;
-
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,255,255,.08);
-  border-radius: 4px;
+  /* background: rgb(255 0 0 / 3%); */
+  border: 1px solid rgb(0 0 0 / 74%);
+  border-radius: 25px;
   padding: 10px 12px;
   min-height: 46px;
 }
@@ -1625,17 +1549,18 @@ body{
 .zfiltro-btn{
   height: 46px;
   border: 0;
-  border-radius: 4px;
+  border-radius: 24px;
   /* font-weight: 800; */
   /* letter-spacing: .2px; */
   /* display: inline-flex; */
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background: linear-gradient(2deg, rgb(0 0 0 / 92%), rgb(255 255 255));
-  color: #ffffff;
+  background: linear-gradient(360deg, rgb(37 37 37), rgb(0 0 0));
+  color: #05cfff;
   /* box-shadow: 0 12px 26px rgb(255 0 0 / 18%); */
   transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
+  border: 1px solid rgb(0 220 255 / 74%);
 }
 
 .zfiltro-btn:hover{
@@ -1670,23 +1595,67 @@ body{
 
 /* Responsive */
 @media (max-width: 992px){
-  .zfiltro{
-    grid-template-columns: 1fr;
+  .zfiltro-wrap{
+    padding: 18px 14px;
   }
+
+  .zfiltro{
+    grid-template-columns: 1fr 0.85fr 120px;
+    max-width: 100%;
+    gap: 8px;
+    padding: 10px;
+    border-radius: 34px;
+  }
+
+  .zfiltro-field{
+    min-height: 44px;
+    padding: 8px 10px;
+  }
+
+  .zfiltro-input,
+  .zfiltro-select-input{
+    font-size: 0.78rem;
+  }
+
   .zfiltro-btn{
     width: 100%;
+    height: 44px;
+    font-size: 0.78rem;
   }
 }
 
-@media (max-width: 480px) {
-    .zfiltro-input {
-        font-size: 0.6rem;
-    }
-    .zfiltro-btn{
-        font-size: 0.6rem;
-    }
+@media (max-width: 576px){
+  .zfiltro{
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .zfiltro-field,
+  .zfiltro-btn{
+    width: 100%;
+    height: 46px;
+  }
+
+  .zfiltro-input,
+  .zfiltro-select-input,
+  .zfiltro-btn{
+    font-size: 0.78rem;
+  }
 }
 
+@media (max-width: 380px){
+  .zfiltro-input,
+  .zfiltro-select-input,
+  .zfiltro-btn{
+    font-size: 0.68rem;
+  }
+
+  .zfiltro-field{
+    padding: 8px;
+  }
+}
 
 /* ================================
    DETALLE PRODUCTO
@@ -1702,6 +1671,29 @@ body{
   max-height: 460px;
   object-fit: contain;
   display: block;
+}
+
+.product-detail-thumbs{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:14px;
+}
+
+.product-detail-thumb{
+    width:85px;
+    height:85px;
+    object-fit:cover;
+    border-radius:12px;
+    border:2px solid rgba(0,0,0,.08);
+    cursor:pointer;
+    transition:.25s ease;
+    background:#fff;
+}
+
+.product-detail-thumb:hover{
+    transform:translateY(-2px) scale(1.03);
+    border-color:#09b3d6;
 }
 
 /* Caja info */
@@ -1927,9 +1919,6 @@ body{
 
 
 
-
-
-
 /* ======================================================
    2. BLOQUE PRESENTACIÓN
 ====================================================== */
@@ -2122,8 +2111,8 @@ body{
 
 .whatsapp-float{
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: 24px;
+    right: 24px;
     z-index: 99999;
     width: 90px;
     height: 90px;
@@ -2438,3 +2427,4 @@ body{
         font-size: 0.95rem;
     }
 }
+

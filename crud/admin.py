@@ -1,8 +1,16 @@
 from django.contrib import admin
-from .models import Marca, Producto, Reseña, Cliente, Venta, DetalleVenta
-from .models import Suscriptor
-from .models import Producto, Marca, Categoria, Subcategoria, ImagenProducto
-
+from .models import (
+    Marca,
+    Producto,
+    Categoria,
+    Subcategoria,
+    ImagenProducto,
+    Reseña,
+    Cliente,
+    Venta,
+    DetalleVenta,
+    Suscriptor,
+)
 
 class ImagenProductoInline(admin.TabularInline):
     model = ImagenProducto
@@ -47,7 +55,7 @@ class ProductoAdmin(admin.ModelAdmin):
         "orden",
     )
 
-    list_filter = ("marca", "oferta")
+    list_filter = ("marca", "categoria", "subcategoria", "oferta", "super_oferta", "destacado")
     search_fields = ("nombre", "marca__nombre")
     ordering = ("orden", "nombre")
     list_editable = ("orden", "oferta", "super_oferta", "destacado")

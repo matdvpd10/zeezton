@@ -1,5 +1,5 @@
-from django.db import models
-
+from django.db import models, transaction
+from django.core.exceptions import ValidationError
 
 
 class Marca(models.Model):
@@ -20,7 +20,6 @@ class Categoria(models.Model):
 
     def __str__(self):
         return self.nombre
-
 
 class Subcategoria(models.Model):
     categoria = models.ForeignKey(
@@ -86,11 +85,6 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 
-
-from crud.models import Producto
-from django.db import models, transaction
-from django.core.exceptions import ValidationError
-
 class MovimientoInventario(models.Model):
     COMPRA = "COMPRA"
     VENTA = "VENTA"
@@ -117,7 +111,6 @@ class MovimientoInventario(models.Model):
             total += (d.cantidad * d.precio_unitario)
         self.total = total
         self.save(update_fields=["total"])
-
 
 class DetalleMovimiento(models.Model):
     movimiento = models.ForeignKey(
@@ -206,8 +199,6 @@ class DetalleMovimiento(models.Model):
         super().delete(*args, **kwargs)
         mov.recalcular_total()
 
-
-
 class ImagenProducto(models.Model):
     producto = models.ForeignKey(
         Producto,
@@ -239,7 +230,6 @@ class Reseña(models.Model):
     def __str__(self):
         return f"{self.nombre} - {self.calificacion}★"
 
-
 class Cliente(models.Model):
     numero_documento = models.CharField(max_length=20, unique=True)
     nombre = models.CharField(max_length=100, null=True, blank=True)
@@ -258,7 +248,6 @@ class Cliente(models.Model):
 
     def __str__(self):
         return f"{self.numero_documento} - {self.nombre or ''} {self.apellido or ''}"
-
 
 class Venta(models.Model):
     TIPO_DOCUMENTO_CHOICES = [
@@ -283,7 +272,6 @@ class Venta(models.Model):
     def recalcular_total(self):
         self.total = sum(detalle.subtotal for detalle in self.detalles.all())
         self.save(update_fields=["total"])
-
 
 class Suscriptor(models.Model):
     email = models.EmailField()
