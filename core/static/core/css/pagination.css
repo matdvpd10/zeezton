@@ -1,0 +1,74 @@
+/* ==============================
+   PAGINACIÓN – Estilo Zeezton
+   ============================== */
+
+.z-pagination{
+  gap: 8px;                 /* separación entre botones */
+}
+
+.z-pagination .page-item{
+  margin: 0;                /* evita espacios raros */
+}
+
+.z-pagination .page-link{
+  font-family: "BBH Sans Bartle", sans-serif;
+  font-weight: 800;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+
+  border-radius: 14px;
+  padding: 10px 14px;
+
+  background: linear-gradient(135deg, #0b0b0b, #1b1b1b);
+  color: rgba(255,255,255,.85);
+
+  border: 1px solid rgba(15,207,217,.28);
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease, color .15s ease;
+}
+
+.z-pagination .page-link:hover{
+  color: #fff;
+  border-color: rgba(15,207,217,.65);
+  box-shadow: 0 14px 34px rgba(0,0,0,.45), 0 0 18px rgba(15,207,217,.20);
+  transform: translateY(-1px);
+}
+
+.z-pagination .page-link:focus{
+  box-shadow: 0 0 0 3px rgba(15,207,217,.20);
+}
+
+/* Página activa */
+.z-pagination .page-item.active .page-link{
+  color: #0b0b0b;
+  background: linear-gradient(135deg, rgba(15,207,217,.95), rgba(15,207,217,.55));
+  border-color: rgba(15,207,217,.90);
+  box-shadow: 0 14px 34px rgba(0,0,0,.45), 0 0 22px rgba(15,207,217,.28);
+}
+
+/* Deshabilitados (si algún día los usas) */
+.z-pagination .page-item.disabled .page-link{
+  opacity: .45;
+  pointer-events: none;
+  filter: grayscale(20%);
+}
+
+/* Flechas un poquito más “botón” */
+.z-pagination .page-link{
+  min-width: 44px;
+  text-align: center;
+}
+
+/* Móvil: más compacto */
+@media (max-width: 768px){
+  .z-pagination{
+    gap: 6px;
+  }
+  .z-pagination .page-link{
+    padding: 8px 11px;
+    border-radius: 12px;
+    font-size: 0.78rem;
+    min-width: 40px;
+  }
+}

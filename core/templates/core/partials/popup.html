@@ -1,0 +1,134 @@
+{% load static %}
+
+<div id="popupDescuento" class="popup-overlay">
+  <div class="popup-box">
+
+    <button class="popup-close" onclick="cerrarPopup()">×</button>
+
+    <div class="popup-image">
+      <img src="{% static 'core/img/bmw-popup.jpg' %}" alt="BMW Zeezton">
+    </div>
+
+    <div class="popup-content">
+      <h4>Únete a Zeezton</h4>
+      <h1>$25 OFF</h1>
+      <p>en tu próxima compra sobre $250.000 al suscribirte</p>
+
+      <form method="POST" action="#">
+        {% csrf_token %}
+
+        <div class="popup-row">
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="text" name="nombre" placeholder="Nombre">
+        </div>
+
+        <h3>Información del vehículo</h3>
+
+        <label>Marca</label>
+        <select name="marca" required>
+          <option value="">Selecciona</option>
+          <option value="BMW">BMW</option>
+          <option value="Mini">Mini</option>
+          <option value="Audi">Audi</option>
+          <option value="Mercedes">Mercedes</option>
+        </select>
+
+        <label>Modelo</label>
+        <input type="text" name="modelo" placeholder="Ej: 335i E92">
+
+        <button type="button" class="popup-btn" onclick="enviarPopup()">
+          Siguiente
+        </button>
+
+        <button type="button" class="popup-no" onclick="cerrarPopup()">
+          No, gracias
+        </button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.getElementById("popupDescuento");
+
+  if (!popup) return;
+
+  if (!localStorage.getItem("popupZeeztonCerrado")) {
+    setTimeout(function () {
+      popup.style.display = "flex";
+    }, 1000);
+  }
+});
+
+function cerrarPopup() {
+  const popup = document.getElementById("popupDescuento");
+
+  if (popup) {
+    popup.style.display = "none";
+  }
+
+  localStorage.setItem("popupZeeztonCerrado", "true");
+}
+
+function enviarPopup() {
+  const popup = document.getElementById("popupDescuento");
+
+  const email = popup.querySelector('[name="email"]').value;
+  const nombre = popup.querySelector('[name="nombre"]').value;
+  const marca = popup.querySelector('[name="marca"]').value;
+  const modelo = popup.querySelector('[name="modelo"]').value;
+
+  if (email.trim() === "") {
+    alert("Ingresa tu email");
+    return;
+  }
+
+  fetch("/crud/guardar-suscriptor/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+      "X-CSRFToken": getCookie("csrftoken")
+    },
+    body: new URLSearchParams({
+      email: email,
+      nombre: nombre,
+      marca: marca,
+      modelo: modelo
+    })
+  })
+  .then(response => {
+    if (response.ok) {
+      cerrarPopup();
+      localStorage.setItem("popupZeeztonCerrado", "true");
+      alert("Gracias por suscribirte");
+    } else {
+      alert("No se pudo guardar");
+    }
+  })
+  .catch(error => {
+    console.log(error);
+    alert("Error al enviar el formulario");
+  });
+}
+
+function getCookie(name) {
+  let cookieValue = null;
+
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+
+    for (let cookie of cookies) {
+      cookie = cookie.trim();
+
+      if (cookie.startsWith(name + "=")) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+
+  return cookieValue;
+}
+</script>

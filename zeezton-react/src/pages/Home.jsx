@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from "framer-motion";
+import '../styles/home.css'
 
 import fondoBMW from "../assets/home/fondo.jpg";
 import coilovers from "../assets/home/coilovers.png";

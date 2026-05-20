@@ -1,112 +1,114 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Zeezton Store | Repuestos y accesorios premium{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/home.css' %}?v=3">
+{% endblock %}
 
 {% block main_content %}
 
-<!-- 🖼️ Carrusel principal -->
-<div id="carouselExampleIndicators"
-     class="carousel slide"
-     data-bs-ride="carousel"
-     data-bs-interval="2500">
+<section class="home-hero">
 
-    <!-- Indicadores -->
+  <div id="carouselHomeZeezton"
+       class="carousel slide home-carousel"
+       data-bs-ride="carousel"
+       data-bs-interval="3500">
+
     <div class="carousel-indicators">
-        <!--<button type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="Slide 1"></button>-->
+      <button type="button"
+              data-bs-target="#carouselHomeZeezton"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"></button>
 
-        <button type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="Slide 1"></button>
+      <button type="button"
+              data-bs-target="#carouselHomeZeezton"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
 
-        <button type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-
-        <button type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-
-        <!--<button type="button"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="4"
-                aria-label="Slide 5"></button>-->
+      <button type="button"
+              data-bs-target="#carouselHomeZeezton"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
     </div>
 
-    <!-- Imágenes -->
-    <div class="carousel-inner shadow-lg">
-        <!--<div class="carousel-item active">
-            <img src="/media/recursos/imagen1.jpg"
-                 class="d-block w-100 img-fluid"
-                 alt="Imagen 1">
-        </div>-->
+    <div class="carousel-inner">
 
-        <div class="carousel-item active">
-            <img src="/media/recursos/BMW-M2C.jpg"
-                 class="d-block w-100 img-fluid"
-                 alt="Imagen 2">
-        </div>
+      <div class="carousel-item active">
+        <img src="/media/recursos/BMW-M2C.jpg"
+             class="home-carousel-img"
+             alt="BMW Zeezton Store">
+      </div>
 
-        <div class="carousel-item">
-            <img src="/media/recursos/imagen3.jpg"
-                 class="d-block w-100 img-fluid"
-                 alt="Imagen 3">
-        </div>
+      <div class="carousel-item">
+        <img src="/media/recursos/imagen3.jpg"
+             class="home-carousel-img"
+             alt="Accesorios premium Zeezton">
+      </div>
 
-        <div class="carousel-item">
-            <img src="/media/recursos/imagen4.jpg"
-                 class="d-block w-100 img-fluid"
-                 alt="Imagen 4">
-        </div>
+      <div class="carousel-item">
+        <img src="/media/recursos/imagen4.jpg"
+             class="home-carousel-img"
+             alt="Repuestos y estética automotriz">
+      </div>
 
-        <!--<div class="carousel-item">
-            <img src="/media/recursos/imagen5.jpg"
-                 class="d-block w-100 img-fluid"
-                 alt="Imagen 5">
-        </div>-->
     </div>
 
-    <!-- Controles -->
     <button class="carousel-control-prev"
             type="button"
-            data-bs-target="#carouselExampleIndicators"
+            data-bs-target="#carouselHomeZeezton"
             data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"
-              aria-hidden="true"></span>
-        <span class="visually-hidden">Anterior</span>
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
     </button>
 
     <button class="carousel-control-next"
             type="button"
-            data-bs-target="#carouselExampleIndicators"
+            data-bs-target="#carouselHomeZeezton"
             data-bs-slide="next">
-        <span class="carousel-control-next-icon"
-              aria-hidden="true"></span>
-        <span class="visually-hidden">Siguiente</span>
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Siguiente</span>
     </button>
-</div>
 
-<!-- 🏎️ Bloque de presentación -->
-<div class="contenedor-maestro-presentacion">
-    <section class="bloque-presentacion-compacto">
-        <!--<h2 class="hero-titulo" style="color: #000000 !important;">
-            Rendimiento y diseño que marcan la diferencia
-        </h2>-->
+  </div>
 
-        <p class="hero-subtitle" style="color: #000000 !important;">
-            En Zeezton nos diferenciamos por la atencion al cliente, entendemos que cada cliente requiere una explicacion es por esto que ofrecemos atencion personalizada.
-        </p>
-    </section>
-</div>
+  <div class="home-hero-overlay"></div>
+
+  <div class="home-hero-content">
+    <span class="home-badge">Repuestos • Accesorios • Estética automotriz</span>
+
+    <h1 class="home-title">
+      Zeezton Store
+    </h1>
+
+    <p class="home-subtitle">
+      Productos seleccionados para mejorar la estética, comodidad y personalización de tu vehículo.
+    </p>
+
+    <div class="home-actions">
+      <a href="{% url 'product' %}" class="home-btn-primary">
+        Ver catálogo
+      </a>
+
+      <a href="{% url 'contact' %}" class="home-btn-secondary">
+        Contactar
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<section class="home-presentation">
+  <div class="home-presentation-box">
+    <h2>Atención personalizada</h2>
+
+    <p>
+      En Zeezton nos diferenciamos por la atención al cliente. Entendemos que cada persona necesita una explicación clara antes de comprar, por eso ofrecemos asesoría personalizada y productos seleccionados con enfoque premium.
+    </p>
+  </div>
+</section>
 
 {% endblock %}

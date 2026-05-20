@@ -1,88 +1,111 @@
-{% extends 'core/base.html' %}
-{% load static %}
-{% load currency_filters %}
+import { useEffect, useState } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import { obtenerProductos } from '../services/api'
+import '../styles/detalleProducto.css'
 
-{% block title %}{{ producto.nombre }}{% endblock %}
+function DetalleProducto() {
+  const { id } = useParams()
+  const [producto, setProducto] = useState(null)
+  const [cargando, setCargando] = useState(true)
+  const [error, setError] = useState(null)
 
-{% block main_content %}
-<div class="product-detail-mobile">
+  useEffect(() => {
+    obtenerProductos()
+      .then(data => {
+        const productoEncontrado = data.find(p => String(p.id) === String(id))
 
-  <div class="product-gallery-box">
-    {% if imagen_principal %}
-      <img src="{{ imagen_principal.imagen.url }}" alt="{{ producto.nombre }}" class="product-main-image">
-    {% elif producto.imagen %}
-      <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" class="product-main-image">
-    {% else %}
-      <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen" class="product-main-image">
-    {% endif %}
-  </div>
+        if (!productoEncontrado) {
+          setError('Producto no encontrado')
+        } else {
+          setProducto(productoEncontrado)
+        }
 
-  {% if imagenes %}
-  <div class="product-thumbs">
-    {% for img in imagenes %}
-      {% if img.imagen %}
-        <img src="{{ img.imagen.url }}" alt="{{ producto.nombre }}" class="product-thumb">
-      {% endif %}
-    {% endfor %}
-  </div>
-  {% endif %}
+        setCargando(false)
+      })
+      .catch(error => {
+        setError(error.message)
+        setCargando(false)
+      })
+  }, [id])
 
-  <section class="product-info-premium">
-    <span class="product-status">Disponible</span>
+  if (cargando) {
+    return <div className="container py-5">Cargando producto...</div>
+  }
 
-    <h1>{{ producto.nombre }}</h1>
+  if (error) {
+    return <div className="container py-5 text-danger">{error}</div>
+  }
 
-    <p class="product-brand">
-      Marca: <span>{{ producto.marca }}</span>
-    </p>
+  return (
+    <div className="product-detail-mobile">
 
-    <div class="product-price">
-      ${{ producto.precio|clp }} CLP
+      <div className="product-gallery-box">
+        <img
+          src={producto.imagen || '/image_not_found.jpg'}
+          alt={producto.nombre}
+          className="product-main-image"
+        />
+      </div>
+
+      <section className="product-info-premium">
+        <span className="product-status">Disponible</span>
+
+        <h1>{producto.nombre}</h1>
+
+        <p className="product-brand">
+          Marca: <span>{producto.marca}</span>
+        </p>
+
+        <div className="product-price">
+          ${Number(producto.precio).toLocaleString('es-CL')} CLP
+        </div>
+
+        <div className="product-stock">
+          Stock disponible: {producto.stock}
+        </div>
+
+        <div className="product-benefits">
+          <div>
+            <i className="fa fa-shield"></i>
+            <span>Calidad premium</span>
+          </div>
+          <div>
+            <i className="fa fa-wrench"></i>
+            <span>Fácil instalación</span>
+          </div>
+          <div>
+            <i className="fa fa-star"></i>
+            <span>Acabado elegante</span>
+          </div>
+          <div>
+            <i className="fa fa-check-circle"></i>
+            <span>Compra segura</span>
+          </div>
+        </div>
+
+        <a
+          href={`https://zeezton.cl/pagar/${producto.id}/`}
+          className="btn-buy-premium"
+        >
+          <i className="fa fa-bolt"></i> Comprar ahora
+        </a>
+
+        <Link to="/productos" className="btn-back-premium">
+          <i className="fa fa-arrow-left"></i> Volver a productos
+        </Link>
+      </section>
+
+      <section className="product-description-premium">
+        <h3>Descripción del producto</h3>
+
+        <p>
+          {producto.descripcion ||
+            'Producto seleccionado especialmente para mejorar la estética, comodidad y personalización de tu vehículo.'}
+        </p>
+      </section>
+
     </div>
+  )
+}
 
-    <div class="product-stock">
-      Stock disponible: {{ producto.stock }}
-    </div>
-
-    <div class="product-benefits">
-      <div>
-        <i class="fa fa-shield"></i>
-        <span>Calidad premium</span>
-      </div>
-      <div>
-        <i class="fa fa-wrench"></i>
-        <span>Fácil instalación</span>
-      </div>
-      <div>
-        <i class="fa fa-star"></i>
-        <span>Acabado elegante</span>
-      </div>
-      <div>
-        <i class="fa fa-check-circle"></i>
-        <span>Compra segura</span>
-      </div>
-    </div>
-
-    <a href="{% url 'pagar_producto' producto.id %}" class="btn-buy-premium">
-      <i class="fa fa-bolt"></i> Comprar ahora
-    </a>
-
-    <a href="{% url 'product' %}" class="btn-back-premium">
-      <i class="fa fa-arrow-left"></i> Volver a productos
-    </a>
-  </section>
-
-  <section class="product-description-premium">
-    <h3>Descripción del producto</h3>
-
-    <p>
-      {% if producto.descripcion %}
-        {{ producto.descripcion }}
-      {% else %}
-        Producto seleccionado especialmente para mejorar la estética, comodidad y personalización de tu vehículo.
-      {% endif %}
-    </p>
-  </section>
-
-</div>
-{% endblock %}
+export default DetalleProducto

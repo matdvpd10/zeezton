@@ -1,80 +1,212 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Contacto | Zeezton Store{% endblock %}
 
-{% block contenido_metalico %}
-<section class="seccion-metalica">
-  <div class="container-fluid text-center text-white">
-    <h1 class="hero-titulo">Ayúdanos a mejorar</h1>
-    <!--<p class="hero-subtitle">
-      Cuéntanos tu experiencia y ayúdanos a crecer con tu opinión 💬
-    </p>-->
-  </div>
-</section>
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/contacto.css' %}?v=2">
 {% endblock %}
 
 {% block main_content %}
-<div class="container my-5">
 
-  <form method="POST" class="zf-form">
-    {% csrf_token %}
+<section class="contact-hero">
 
-    <h3 class="zf-form__title">Envíanos tu opinión</h3>
+  <div class="contact-hero-content">
 
-    <div class="zf-field">
-      <label for="{{ form.nombre.id_for_label }}">{{ form.nombre.label }}</label>
-      {{ form.nombre }}
-      {% if form.nombre.errors %}
-        <div class="zf-error">{{ form.nombre.errors }}</div>
-      {% endif %}
-    </div>
+    <span class="contact-badge">
+      Zeezton Feedback
+    </span>
 
-    <div class="zf-field">
-      <label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
-      {{ form.email }}
-      {% if form.email.errors %}
-        <div class="zf-error">{{ form.email.errors }}</div>
-      {% endif %}
-    </div>
+    <h1 class="contact-title">
+      Ayúdanos a mejorar
+    </h1>
 
-    <div class="zf-field">
-      <label for="{{ form.calificacion.id_for_label }}">{{ form.calificacion.label }}</label>
-      {{ form.calificacion }}
-      {% if form.calificacion.errors %}
-        <div class="zf-error">{{ form.calificacion.errors }}</div>
-      {% endif %}
-    </div>
+    <p class="contact-subtitle">
+      Tu experiencia es importante para nosotros.
+      Cada comentario nos ayuda a seguir evolucionando.
+    </p>
 
-    <div class="zf-field">
-      <label for="{{ form.comentario.id_for_label }}">{{ form.comentario.label }}</label>
-      {{ form.comentario }}
-      {% if form.comentario.errors %}
-        <div class="zf-error">{{ form.comentario.errors }}</div>
-      {% endif %}
-    </div>
-
-    <button type="submit" class="zf-btn">
-      <i class="fa fa-paper-plane"></i> Enviar reseña
-    </button>
-  </form>
-
-  <div class="mt-5">
-    <h3 class="fw-bold mb-4 text-center fuente-titulo">Últimas reseñas</h3>
-
-    {% if reseñas %}
-      <ul class="list-group zf-resenas-list">
-        {% for r in reseñas %}
-          <li class="list-group-item shadow-sm mb-2 zf-resena-item">
-            <strong>{{ r.nombre }}</strong> - {{ r.calificacion }}★<br>
-            {{ r.comentario }}
-          </li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p class="text-center text-muted">No hay reseñas todavía.</p>
-    {% endif %}
   </div>
 
-</div>
+</section>
+
+<section class="contact-section">
+
+  <div class="contact-grid">
+
+    <div class="contact-info-card">
+
+      <span class="contact-mini-badge">
+        Atención personalizada
+      </span>
+
+      <h2>Conectamos pasión automotriz y experiencia premium.</h2>
+
+      <p>
+        En Zeezton buscamos entregar una experiencia moderna,
+        cercana y enfocada en calidad. Tu opinión nos ayuda
+        a seguir mejorando cada detalle.
+      </p>
+
+      <div class="contact-feature-list">
+
+        <div class="contact-feature">
+          <i class="fa fa-shield-halved"></i>
+          <span>Compra segura</span>
+        </div>
+
+        <div class="contact-feature">
+          <i class="fa fa-car"></i>
+          <span>Productos seleccionados</span>
+        </div>
+
+        <div class="contact-feature">
+          <i class="fa fa-bolt"></i>
+          <span>Atención personalizada</span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <form method="POST" class="zf-form">
+
+      {% csrf_token %}
+
+      <div class="form-header">
+        <span class="contact-mini-badge">
+          Formulario
+        </span>
+
+        <h3>
+          Envíanos tu reseña
+        </h3>
+      </div>
+
+      <div class="zf-field">
+        <label for="{{ form.nombre.id_for_label }}">
+          {{ form.nombre.label }}
+        </label>
+
+        {{ form.nombre }}
+
+        {% if form.nombre.errors %}
+          <div class="zf-error">
+            {{ form.nombre.errors }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="zf-field">
+        <label for="{{ form.email.id_for_label }}">
+          {{ form.email.label }}
+        </label>
+
+        {{ form.email }}
+
+        {% if form.email.errors %}
+          <div class="zf-error">
+            {{ form.email.errors }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="zf-field">
+        <label for="{{ form.calificacion.id_for_label }}">
+          {{ form.calificacion.label }}
+        </label>
+
+        {{ form.calificacion }}
+
+        {% if form.calificacion.errors %}
+          <div class="zf-error">
+            {{ form.calificacion.errors }}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="zf-field">
+        <label for="{{ form.comentario.id_for_label }}">
+          {{ form.comentario.label }}
+        </label>
+
+        {{ form.comentario }}
+
+        {% if form.comentario.errors %}
+          <div class="zf-error">
+            {{ form.comentario.errors }}
+          </div>
+        {% endif %}
+      </div>
+
+      <button type="submit" class="zf-btn">
+        <i class="fa fa-paper-plane"></i>
+        <span>Enviar reseña</span>
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<section class="reviews-section">
+
+  <div class="reviews-header">
+
+    <span class="contact-mini-badge">
+      Comunidad Zeezton
+    </span>
+
+    <h2>Últimas reseñas</h2>
+
+  </div>
+
+  {% if reseñas %}
+
+    <div class="reviews-grid">
+
+      {% for r in reseñas %}
+
+      <article class="review-card">
+
+        <div class="review-top">
+
+          <div class="review-avatar">
+            {{ r.nombre|slice:":1" }}
+          </div>
+
+          <div>
+
+            <h4>{{ r.nombre }}</h4>
+
+            <div class="review-stars">
+              {{ r.calificacion }} ★
+            </div>
+
+          </div>
+
+        </div>
+
+        <p class="review-text">
+          {{ r.comentario }}
+        </p>
+
+      </article>
+
+      {% endfor %}
+
+    </div>
+
+  {% else %}
+
+    <div class="reviews-empty">
+      <h3>No hay reseñas todavía</h3>
+      <p>Sé el primero en compartir tu experiencia.</p>
+    </div>
+
+  {% endif %}
+
+</section>
+
 {% endblock %}

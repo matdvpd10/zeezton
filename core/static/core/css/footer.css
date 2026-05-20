@@ -1,0 +1,115 @@
+.z-footer{
+  padding: 70px 22px 28px;
+  background:
+    radial-gradient(circle at top left, rgba(15,207,217,.14), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(120,14,106,.35), transparent 34%),
+    linear-gradient(180deg, #050505, #000);
+  color: #fff;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.z-footer-grid{
+  width: min(1180px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.2fr .8fr 1fr;
+  gap: 44px;
+}
+
+.z-footer-brand h3{
+  margin: 0 0 18px;
+  font-family: "Michroma", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+}
+
+.z-footer-brand p,
+.z-footer-contact p{
+  max-width: 360px;
+  color: rgba(255,255,255,.66);
+  font-family: "Michroma", sans-serif;
+  font-size: .75rem;
+  line-height: 1.8;
+}
+
+.z-footer-links,
+.z-footer-contact{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.z-footer h4{
+  margin-bottom: 12px;
+  color: #0fcfd9;
+  font-family: "Michroma", sans-serif;
+  font-size: .8rem;
+  text-transform: uppercase;
+}
+
+.z-footer-links a{
+  width: fit-content;
+  color: rgba(255,255,255,.68);
+  text-decoration: none;
+  font-family: "Michroma", sans-serif;
+  font-size: .72rem;
+  transition: .25s ease;
+}
+
+.z-footer-links a:hover{
+  color: #fff;
+  transform: translateX(4px);
+}
+
+.z-footer-contact i{
+  color: #0fcfd9;
+  margin-right: 8px;
+}
+
+.z-footer-bottom{
+  width: min(1180px, 100%);
+  margin: 45px auto 0;
+  padding-top: 22px;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.z-footer-bottom span{
+  color: rgba(255,255,255,.48);
+  font-family: "Michroma", sans-serif;
+  font-size: .68rem;
+}
+
+@media(max-width: 768px){
+  .z-footer{
+    padding: 52px 18px 28px;
+  }
+
+  .z-footer-grid{
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: center;
+  }
+
+  .z-footer-brand p,
+  .z-footer-contact p{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .z-footer-links{
+    align-items: center;
+  }
+
+  .z-footer-bottom{
+    flex-direction: column;
+    text-align: center;
+  }
+}
+

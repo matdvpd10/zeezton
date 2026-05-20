@@ -2,142 +2,173 @@
 {% load static %}
 {% load currency_filters %}
 
-{% block title %}{{ producto.nombre }}{% endblock %}
+{% block title %}{{ producto.nombre }} | Zeezton Store{% endblock %}
 
-{% block contenido_metalico %}
-<section class="seccion-metalica">
-  <div class="container-fluid text-center text-white">
-    <h1 class="hero-titulo">Detalle del Producto</h1>
-  </div>
-</section>
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/detalle_producto.css' %}?v=2">
 {% endblock %}
 
 {% block main_content %}
-<div class="container my-5 product-detail-page">
-  <div class="row g-4 align-items-start">
 
-    <!-- Imagen -->
-    <div class="col-lg-6">
+<section class="detail-page">
 
-      <div class="product-detail-image-box">
+  <div class="detail-container">
+
+    <div class="detail-gallery">
+
+      <div class="detail-image-main">
         {% if imagen_principal %}
           <img id="mainProductImage"
                src="{{ imagen_principal.imagen.url }}"
-               alt="{{ producto.nombre }}"
-               class="product-detail-image">
-
+               alt="{{ producto.nombre }}">
         {% elif producto.imagen %}
           <img id="mainProductImage"
                src="{{ producto.imagen.url }}"
-               alt="{{ producto.nombre }}"
-               class="product-detail-image">
-
+               alt="{{ producto.nombre }}">
         {% else %}
           <img id="mainProductImage"
                src="{% static 'core/img/image_not_found.jpg' %}"
-               alt="Sin imagen"
-               class="product-detail-image">
+               alt="Sin imagen">
         {% endif %}
       </div>
 
       {% if imagenes %}
-        <div class="product-detail-thumbs mt-3">
-          {% for img in imagenes %}
-            {% if img.imagen %}
-              <img src="{{ img.imagen.url }}"
-                   alt="{{ producto.nombre }}"
-                   class="product-detail-thumb"
-                   onclick="document.getElementById('mainProductImage').src=this.src">
-            {% endif %}
-          {% endfor %}
-        </div>
+      <div class="detail-thumbs">
+        {% for img in imagenes %}
+          {% if img.imagen %}
+            <button type="button"
+                    class="detail-thumb"
+                    onclick="document.getElementById('mainProductImage').src='{{ img.imagen.url }}'">
+              <img src="{{ img.imagen.url }}" alt="{{ producto.nombre }}">
+            </button>
+          {% endif %}
+        {% endfor %}
+      </div>
       {% endif %}
 
     </div>
 
-    <!-- Info -->
-    <div class="col-lg-6">
-      <div class="product-detail-info-box">
+    <article class="detail-info">
 
-        <span class="product-detail-badge">Disponible</span>
+      <span class="detail-badge">
+        Disponible
+      </span>
 
-        <h1 class="product-detail-title">{{ producto.nombre }}</h1>
+      <h1 class="detail-title">
+        {{ producto.nombre }}
+      </h1>
 
-        <p class="product-detail-brand">
-          Marca: <span>{{ producto.marca }}</span>
-        </p>
+      <div class="detail-brand">
+        Marca <span>{{ producto.marca }}</span>
+      </div>
 
-        <h2 class="product-detail-price">
-          ${{ producto.precio|clp }} CLP
-        </h2>
+      <div class="detail-price">
+        <span>$</span>{{ producto.precio|clp }}
+        <small>CLP</small>
+      </div>
 
-        <p class="product-detail-stock">
-          <strong>Stock disponible:</strong> {{ producto.stock }}
-        </p>
+      <div class="detail-stock">
+        Stock disponible: <strong>{{ producto.stock }}</strong>
+      </div>
 
-        <div class="product-detail-benefits">
-          <div>
-            <i class="fa fa-shield"></i>
-            <strong>Calidad premium</strong>
-            <span>Material de alta resistencia</span>
-          </div>
+      <div class="detail-benefits">
 
-          <div>
-            <i class="fa fa-wrench"></i>
-            <strong>Fácil instalación</strong>
-            <span>Compatible con la mayoría</span>
-          </div>
-
-          <div>
-            <i class="fa fa-star"></i>
-            <strong>Acabado elegante</strong>
-            <span>Mejora el interior</span>
-          </div>
-
-          <div>
-            <i class="fa fa-check-circle"></i>
-            <strong>Compra segura</strong>
-            <span>Respaldo Zeezton</span>
-          </div>
+        <div>
+          <i class="fa fa-shield-halved"></i>
+          <strong>Calidad premium</strong>
+          <span>Selección Zeezton</span>
         </div>
 
-        <div class="product-detail-actions">
-          <a href="{% url 'pagar_producto' producto.id %}"
-             class="btn btn-comprar">
-            <i class="fa fa-bolt"></i> Comprar ahora
-          </a>
+        <div>
+          <i class="fa fa-wrench"></i>
+          <strong>Fácil instalación</strong>
+          <span>Diseñado para mejorar</span>
+        </div>
 
-          <a href="{% url 'product' %}"
-             class="btn product-detail-btn product-detail-btn-secondary">
-            <i class="fa fa-arrow-left"></i> Volver a productos
-          </a>
+        <div>
+          <i class="fa fa-star"></i>
+          <strong>Acabado elegante</strong>
+          <span>Estética superior</span>
+        </div>
+
+        <div>
+          <i class="fa fa-check-circle"></i>
+          <strong>Compra segura</strong>
+          <span>Atención personalizada</span>
         </div>
 
       </div>
-    </div>
 
-  </div>
+      <div class="detail-actions">
 
-  <!-- Descripción -->
-  <div class="row mt-4">
-    <div class="col-12">
-      <div class="product-detail-description-box">
+        <a href="{% url 'pagar_producto' producto.id %}"
+           class="detail-btn detail-btn-primary">
+          <i class="fa fa-bolt"></i>
+          Comprar ahora
+        </a>
 
-        <h3 class="product-detail-section-title">
-          Descripción del producto
-        </h3>
-
-        <p class="product-detail-description">
-          {% if producto.descripcion %}
-            {{ producto.descripcion }}
-          {% else %}
-            Producto seleccionado especialmente para mejorar la estética, comodidad y personalización de tu vehículo.
-          {% endif %}
-        </p>
+        <a href="{% url 'product' %}"
+           class="detail-btn detail-btn-secondary">
+          <i class="fa fa-arrow-left"></i>
+          Volver al catálogo
+        </a>
 
       </div>
-    </div>
+
+    </article>
+
   </div>
 
-</div>
+  <section class="detail-description">
+
+    <div class="detail-description-content">
+
+      <span class="detail-section-badge">
+        Detalles
+      </span>
+
+      <h2>Descripción del producto</h2>
+
+      <p>
+        {% if producto.descripcion %}
+          {{ producto.descripcion }}
+        {% else %}
+          Producto seleccionado especialmente para mejorar la estética, comodidad y personalización de tu vehículo.
+        {% endif %}
+      </p>
+
+      <div class="detail-specs-grid">
+
+        <div class="detail-spec">
+          <i class="fa fa-car"></i>
+          <span>Material</span>
+          <strong>Alcantara</strong>
+        </div>
+
+        <div class="detail-spec">
+          <i class="fa fa-palette"></i>
+          <span>Color</span>
+          <strong>Negro</strong>
+        </div>
+
+        <div class="detail-spec">
+          <i class="fa fa-ruler-horizontal"></i>
+          <span>Ancho</span>
+          <strong>1.40 m</strong>
+        </div>
+
+        <div class="detail-spec">
+          <i class="fa fa-scroll"></i>
+          <span>Largo</span>
+          <strong>1.5 m</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</section>
+
 {% endblock %}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { obtenerProductos } from '../services/api'
+import '../styles/productos.css'
 
 function Productos() {
   const [productos, setProductos] = useState([])

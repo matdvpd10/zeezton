@@ -2,86 +2,93 @@
 {% load static %}
 {% load currency_filters %}
 
-{% block title %}Productos{% endblock %}
+{% block title %}Catálogo | Zeezton Store{% endblock %}
 
-{% block contenido_metalico %}
-<section class="seccion-metalica">
-  <div class="container-fluid text-center text-white">
-    <h1 class="hero-titulo">Nuestros Productos</h1>
-  </div>
-</section>
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/producto.css' %}?v=2">
+<link rel="stylesheet" href="{% static 'core/css/filtros.css' %}?v=2">
+<link rel="stylesheet" href="{% static 'core/css/pagination.css' %}?v=2">
 {% endblock %}
 
 {% block main_content %}
 
+<section class="catalogo-hero">
+  <div class="catalogo-hero-content">
+    <span class="catalogo-badge">Zeezton Store</span>
+
+    <h1 class="catalogo-title">
+      Catálogo Premium
+    </h1>
+
+    <p class="catalogo-subtitle">
+      Repuestos, accesorios y estética automotriz seleccionada para llevar tu vehículo al siguiente nivel.
+    </p>
+  </div>
+</section>
+
 {% if productos_destacados %}
-<section class="destacados">
+<section class="destacados-section">
   <div class="destacados-container">
-    <div class="destacados-header text-center mb-4">
-      <h1 class="destacados-title">Lo mas destacado 🤖</h1>
+
+    <div class="destacados-header">
+      <span class="section-badge">Selección Zeezton</span>
+      <h2 class="destacados-title">Productos destacados</h2>
     </div>
 
     <div class="d-none d-md-block">
       <div id="carouselDestacados" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
+
           {% for p in productos_destacados %}
             {% if forloop.first or forloop.counter0|divisibleby:5 %}
               <div class="carousel-item {% if forloop.first %}active{% endif %}">
                 <div class="row g-4 justify-content-center px-4">
             {% endif %}
 
-<div class="col-xl-2 col-lg-3 col-md-4 col-6 mb-3 d-flex">
-  <a href="{% url 'detalle_producto' p.pk %}" class="text-decoration-none w-100">
+            <div class="col-xl-2 col-lg-3 col-md-4 col-6 d-flex">
+              <a href="{% url 'detalle_producto' p.pk %}" class="producto-link w-100">
+                <article class="producto-card-inner destacado-card">
 
-    <div class="card-small h-100">
+                  <div class="producto-img-wrap">
+                    {% with img=p.imagenes.first %}
+                      {% if img %}
+                        <img src="{{ img.imagen.url }}" class="producto-img" alt="{{ p.nombre }}">
+                      {% elif p.imagen %}
+                        <img src="{{ p.imagen.url }}" class="producto-img" alt="{{ p.nombre }}">
+                      {% else %}
+                        <img src="{% static 'core/img/image_not_found.jpg' %}" class="producto-img" alt="Sin imagen">
+                      {% endif %}
+                    {% endwith %}
+                  </div>
 
-{% with img=p.imagenes.first %}
-    {% if img %}
-        <img src="{{ img.imagen.url }}" class="card-img-top3" alt="{{ p.nombre }}">
-    {% elif p.imagen %}
-        <img src="{{ p.imagen.url }}" class="card-img-top3" alt="{{ p.nombre }}">
-    {% else %}
-        <img src="{% static 'core/img/image_not_found.jpg' %}" class="card-img-top3" alt="Sin imagen">
-    {% endif %}
-{% endwith %}
+                  <div class="producto-info">
+                    <h3 class="producto-titulo">{{ p.nombre }}</h3>
+                    <p class="producto-desc">{{ p.descripcion|truncatewords:10 }}</p>
 
-      <div class="card-body">
+                    <div class="producto-bottom">
+                      <strong class="producto-precio">
+                        <span>$</span>{{ p.precio|clp }}
+                      </strong>
+                    </div>
+                  </div>
 
-        <!-- Título -->
-        <h5 class="producto-titulo">
-          {{ p.nombre }}
-        </h5>
-
-        <!-- Descripción -->
-        <p class="producto-desc">
-          {{ p.descripcion }}
-        </p>
-
-        <!-- Precio -->
-        <div class="producto-precio">
-          <span class="moneda">$</span>
-          {{ p.precio|clp }}
-          <span class="moneda">CLP</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </a>
-</div>
+                </article>
+              </a>
+            </div>
 
             {% if forloop.counter|divisibleby:5 or forloop.last %}
                 </div>
               </div>
             {% endif %}
           {% endfor %}
+
         </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselDestacados" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Anterior</span>
         </button>
+
         <button class="carousel-control-next" type="button" data-bs-target="#carouselDestacados" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Siguiente</span>
@@ -92,102 +99,154 @@
     <div class="d-block d-md-none">
       <div id="carouselDestacadosMobile" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true">
         <div class="carousel-inner">
+
           {% for p in productos_destacados %}
             {% if forloop.first or forloop.counter0|divisibleby:2 %}
               <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                <div class="row g-2 px-3">
+                <div class="row g-3 px-3">
             {% endif %}
 
             <div class="col-6">
-              <a href="{% url 'detalle_producto' p.pk %}" class="text-decoration-none">
-                <div class="card-small h-100">
-                  {% if p.imagen %}
-                    <img src="{{ p.imagen.url }}" class="card-img-top3" alt="{{ p.nombre }}">
-                  {% else %}
-                    <img src="{% static 'core/img/image_not_found.jpg' %}" class="card-img-top3" alt="Sin imagen">
-                  {% endif %}
-                  <div class="card-body p-2">
-                    <p class="producto-titulo mb-1" style="font-size: 0.9rem;">{{ p.nombre }}</p>
-                    <div class="producto-precio" style="font-size: 0.85rem;">
-                      <span class="moneda">$</span>{{ p.precio|clp }}
-                    </div>
+              <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
+                <article class="producto-card-inner destacado-card">
+
+                  <div class="producto-img-wrap">
+                    {% with img=p.imagenes.first %}
+                      {% if img %}
+                        <img src="{{ img.imagen.url }}" class="producto-img" alt="{{ p.nombre }}">
+                      {% elif p.imagen %}
+                        <img src="{{ p.imagen.url }}" class="producto-img" alt="{{ p.nombre }}">
+                      {% else %}
+                        <img src="{% static 'core/img/image_not_found.jpg' %}" class="producto-img" alt="Sin imagen">
+                      {% endif %}
+                    {% endwith %}
                   </div>
-                </div>
+
+                  <div class="producto-info">
+                    <h3 class="producto-titulo">{{ p.nombre }}</h3>
+                    <strong class="producto-precio">
+                      <span>$</span>{{ p.precio|clp }}
+                    </strong>
+                  </div>
+
+                </article>
               </a>
             </div>
 
             {% if forloop.counter|divisibleby:2 or forloop.last %}
-                </div> </div> {% endif %}
+                </div>
+              </div>
+            {% endif %}
           {% endfor %}
+
         </div>
       </div>
     </div>
+
   </div>
 </section>
 {% endif %}
 
-<form method="get" action="" class="zfiltro-wrap">
-  <div class="zfiltro">
-    <div class="zfiltro-field zfiltro-search">
-      <i class="fa fa-magnifying-glass zfiltro-ico" aria-hidden="true"></i>
-      <input type="text" class="zfiltro-input" name="buscar" placeholder="Buscar producto…" value="{{ request.GET.buscar }}" autocomplete="off">
-    </div>
+<section class="catalogo-main">
 
-    <div class="zfiltro-field zfiltro-select">
-      <i class="fa fa-tags zfiltro-ico" aria-hidden="true"></i>
-      <select class="zfiltro-input zfiltro-select-input" name="marca">
-        <option value="">Filtrar por marca</option>
-        {% for marca in marcas %}
-          <option value="{{ marca.id }}" {% if request.GET.marca == marca.id|stringformat:"s" %}selected{% endif %}>
-            {{ marca.nombre }}
-          </option>
-        {% endfor %}
-      </select>
-    </div>
+  <form method="get" action="" class="zfiltro-wrap">
+    <div class="zfiltro">
 
-    <button type="submit" class="zfiltro-btn">
-      <i class="fa fa-search"></i>
-      <span>Buscar</span>
-    </button>
+      <div class="zfiltro-field">
+        <i class="fa fa-magnifying-glass zfiltro-ico"></i>
+        <input type="text"
+               class="zfiltro-input"
+               name="buscar"
+               placeholder="Buscar producto..."
+               value="{{ request.GET.buscar }}"
+               autocomplete="off">
+      </div>
+
+      <div class="zfiltro-field">
+        <i class="fa fa-tags zfiltro-ico"></i>
+        <select class="zfiltro-input zfiltro-select-input" name="marca">
+          <option value="">Todas las marcas</option>
+          {% for marca in marcas %}
+            <option value="{{ marca.id }}" {% if request.GET.marca == marca.id|stringformat:"s" %}selected{% endif %}>
+              {{ marca.nombre }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <button type="submit" class="zfiltro-btn">
+        <i class="fa fa-search"></i>
+        <span>Buscar</span>
+      </button>
+
+    </div>
+  </form>
+
+  <div class="catalogo-header">
+    <span class="section-badge">Explora</span>
+    <h2>Todos los productos</h2>
   </div>
-</form>
 
-<section class="catalogo-wrapper mt-4">
-  <div class="productos-grid catalogo-grid">
-    {# ✅ REPARADO: Se agregó el inicio del ciclo for que faltaba #}
+  <div class="productos-grid">
+
     {% for p in productos %}
       <div class="producto-card">
-        <a href="{% url 'detalle_producto' p.pk %}" class="text-decoration-none text-dark">
-          <div class="card-small">
-            {% if p.imagen %}
-              <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}" class="card-img-top3">
-            {% else %}
-              <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen" class="card-img-top3">
-            {% endif %}
+        <a href="{% url 'detalle_producto' p.pk %}" class="producto-link">
 
-            <div class="card-body">
-              <p class="producto-titulo">{{ p.nombre }}</p>
-              <p class="producto-desc">{{ p.descripcion|truncatewords:15 }}</p>
+          <article class="producto-card-inner">
 
-              <div class="producto-meta">
-                <div class="producto-precio">
-                  <span class="moneda">$</span>{{ p.precio|clp }} <span class="moneda">CLP</span>
-                </div>
-              </div>
+            <div class="producto-img-wrap">
+              {% with img=p.imagenes.first %}
+                {% if img %}
+                  <img src="{{ img.imagen.url }}" alt="{{ p.nombre }}" class="producto-img">
+                {% elif p.imagen %}
+                  <img src="{{ p.imagen.url }}" alt="{{ p.nombre }}" class="producto-img">
+                {% else %}
+                  <img src="{% static 'core/img/image_not_found.jpg' %}" alt="Sin imagen" class="producto-img">
+                {% endif %}
+              {% endwith %}
             </div>
-          </div>
+
+            <div class="producto-info">
+
+              <h3 class="producto-titulo">
+                {{ p.nombre }}
+              </h3>
+
+              <p class="producto-desc">
+                {{ p.descripcion|truncatewords:15 }}
+              </p>
+
+              <div class="producto-bottom">
+                <strong class="producto-precio">
+                  <span>$</span>{{ p.precio|clp }}
+                  <small>CLP</small>
+                </strong>
+
+                <span class="producto-view">
+                  Ver más
+                </span>
+              </div>
+
+            </div>
+
+          </article>
+
         </a>
       </div>
     {% empty %}
-      <div class="text-center py-5 w-100">
-        <h4 style="font-family:'BBH Sans Bartle',sans-serif;">No hay productos para mostrar 😢</h4>
+      <div class="catalogo-empty">
+        <h3>No hay productos para mostrar</h3>
+        <p>Prueba con otra búsqueda o revisa otra marca.</p>
       </div>
     {% endfor %}
+
   </div>
 
   {% if page_obj.paginator.num_pages > 1 %}
     <nav class="mt-5 d-flex justify-content-center">
-        <ul class="pagination z-pagination">
+      <ul class="pagination z-pagination">
+
         {% if page_obj.has_previous %}
           <li class="page-item">
             <a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.buscar %}&buscar={{ request.GET.buscar|urlencode }}{% endif %}{% if request.GET.marca %}&marca={{ request.GET.marca }}{% endif %}">«</a>
@@ -197,7 +256,9 @@
         {% for num in page_obj.paginator.page_range %}
           {% if num >= page_obj.number|add:"-2" and num <= page_obj.number|add:"2" %}
             <li class="page-item {% if num == page_obj.number %}active{% endif %}">
-              <a class="page-link" href="?page={{ num }}{% if request.GET.buscar %}&buscar={{ request.GET.buscar|urlencode }}{% endif %}{% if request.GET.marca %}&marca={{ request.GET.marca }}{% endif %}">{{ num }}</a>
+              <a class="page-link" href="?page={{ num }}{% if request.GET.buscar %}&buscar={{ request.GET.buscar|urlencode }}{% endif %}{% if request.GET.marca %}&marca={{ request.GET.marca }}{% endif %}">
+                {{ num }}
+              </a>
             </li>
           {% endif %}
         {% endfor %}
@@ -207,9 +268,11 @@
             <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.buscar %}&buscar={{ request.GET.buscar|urlencode }}{% endif %}{% if request.GET.marca %}&marca={{ request.GET.marca }}{% endif %}">»</a>
           </li>
         {% endif %}
+
       </ul>
     </nav>
   {% endif %}
+
 </section>
 
 {% endblock %}

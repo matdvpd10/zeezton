@@ -1,0 +1,47 @@
+{% load static %}
+
+<nav class="z-navbar">
+
+  <a href="{% url 'home' %}" class="z-navbar-logo">
+
+    <div class="logo-wrap">
+
+      <div class="logo-text">
+        ZEEZTON
+      </div>
+
+      <div class="logo-barras">
+        <span class="barra barra-celeste"></span>
+        <span class="barra barra-azul"></span>
+        <span class="barra barra-roja"></span>
+      </div>
+
+    </div>
+
+  </a>
+
+  <div class="z-navbar-links">
+
+    <a href="{% url 'home' %}">
+      Inicio
+    </a>
+
+    <a href="{% url 'product' %}">
+      Catálogo
+    </a>
+
+    <a href="{% url 'offers' %}">
+      Ofertas
+    </a>
+
+    <a href="{% url 'about' %}">
+      Nosotros
+    </a>
+
+    <a href="{% url 'contact' %}">
+      Contacto
+    </a>
+
+  </div>
+
+</nav>

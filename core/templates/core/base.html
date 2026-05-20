@@ -1,277 +1,60 @@
 {% load static %}
+
 <!DOCTYPE html>
-<html lang="es-CL">
+<html lang="es">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{% block title %}millwords{% endblock %}</title>
-<!-- Open Graph / Facebook -->
-<meta property="og:title" content="Zeezton Store | Repuestos BMW 🚗🔥">
-<meta property="og:description" content="Repuestos, accesorios y estilo exclusivo para tu BMW.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://zeezton.cl">
-<meta property="og:image" content="https://zeezton.cl/static/core/img//og-zeezton.png">
-<meta property="og:image:secure_url" content="https://zeezton.cl/static/core/img//og-zeezton.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital@1&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="{% static 'core/css/estilos_core.css' %}?v=352"> {% block css %}{% endblock %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% block title %}Zeezton Store{% endblock %}</title>
+
+  <meta property="og:title" content="Zeezton Store | Repuestos BMW 🚗🔥">
+  <meta property="og:description" content="Repuestos, accesorios y estilo exclusivo para tu BMW.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zeezton.cl">
+  <meta property="og:image" content="https://zeezton.cl/static/core/img/og-zeezton.png">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway:ital@1&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'core/css/global.css' %}?v=2">
+  <link rel="stylesheet" href="{% static 'core/css/navbar.css' %}?v=2">
+  <link rel="stylesheet" href="{% static 'core/css/footer.css' %}?v=2">
+  <link rel="stylesheet" href="{% static 'core/css/whatsapp.css' %}?v=2">
+  <link rel="stylesheet" href="{% static 'core/css/popup.css' %}?v=2">
+
+  {% block css %}{% endblock %}
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg sticky-top border-bottom bg-white">
-    <div class="container-fluid">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'home' %}">
-            <div class="zeezton-intro play" id="zeeztonIntro">
-    <div class="logo-wrap">
-    <div class="logo-text">ZEEZTON</div>
-    <div class="logo-barras">
-        <span class="barra barra-celeste"></span>
-        <span class="barra barra-azul"></span>
-        <span class="barra barra-roja"></span>
-    </div>
-</div>
-    </div>
-        </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+  {% include "core/partials/navbar.html" %}
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'product' %}">Productos</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'offers' %}">Ofertas</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-            </ul>
-        </div>
+  <main>
+    {% block main_content %}
+    {% endblock %}
+  </main>
 
-    </div>
-</nav>
+  {% include "core/partials/footer.html" %}
 
-{% block contenido_metalico %}
-<section class="seccion-metalica">
-  <div class="container-fluid text-center text-white">
-    <h1 class="hero-titulo">
-    Componentes Automotrices & Equipamiento Premium
-    </h1>
-  </div>
-</section>
-{% endblock %}
+  <a href="https://wa.me/56964333347"
+     class="whatsapp-float"
+     target="_blank"
+     rel="noopener">
+    <img src="{% static 'core/img/whatsapp.svg' %}" alt="WhatsApp">
+  </a>
 
-    <main style="margin-bottom: 0 !important; padding-bottom: 0 !important; display: block;">
-        {% block main_content %}
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2500" style="margin-bottom: 0 !important;">
-            <div class="carousel-indicators">
-                <!--<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>-->
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
-                <!--<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></button>-->
-            </div>
-            <div class="carousel-inner shadow-lg">
-                <!--<div class="carousel-item active"><img src="/media/recursos/imagen1.jpg" class="d-block w-100 img-fluid"></div>-->
-                <div class="carousel-item active"><img src="/media/recursos/imagen2.jpg" class="d-block w-100 img-fluid"></div>
-                <div class="carousel-item"><img src="/media/recursos/imagen3.jpg" class="d-block w-100 img-fluid"></div>
-                <div class="carousel-item"><img src="/media/recursos/imagen4.jpg" class="d-block w-100 img-fluid"></div>
-                <!--<div class="carousel-item"><img src="/media/recursos/imagen5.jpg" class="d-block w-100 img-fluid"></div>-->
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"></button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="next"></button>
-        </div>
-        {% endblock %}
-    </main>
+  {% include "core/partials/popup.html" %}
 
-{% block metalico_global %}
-<section class="seccion-metalica_2">
-    <div class="footer-zeezton">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-        <div class="footer-block footer-newsletter">
-            <h6 class="footer-title">Suscríbete al Club</h6>
-            <form class="footer-input-group">
-                <input type="email" class="footer-input" placeholder="Tu email">
-                <button type="submit" class="footer-btn">Enviar</button>
-            </form>
-        </div>
-
-        <div class="footer-block footer-menu">
-            <h6 class="footer-title">Mapa del sitio</h6>
-
-            <ul class="footer-links">
-                <li><a href="{% url 'home' %}" class="footer-link">Home</a></li>
-                <li><a href="{% url 'product' %}" class="footer-link">Productos</a></li>
-                <li><a href="{% url 'offers' %}" class="footer-link">Ofertas</a></li>
-                <li><a href="{% url 'about' %}" class="footer-link">About</a></li>
-                <li><a href="{% url 'contact' %}" class="footer-link">Contact</a></li>
-            </ul>
-        </div>
-
-        <div class="footer-block footer-brand">
-            <i class="fa-brands fa-js footer-icon"></i>
-
-            <p class="footer-copy">
-                © 2026 Zeezton Store
-            </p>
-
-            <p class="footer-subcopy">
-                Repuestos · Accesorios · Estilo BMW
-            </p>
-        </div>
-
-    </div>
-</section>
-{% endblock %}
-
-
-    <a href="https://wa.me/56964333347" class="whatsapp-float" target="_blank" rel="noopener">
-        <img src="{% static 'core/img/whatsapp.svg' %}" alt="WS">
-    </a>
-
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    {% block js %}{% endblock %}
-
-
-
-
-
-<div id="popupDescuento" class="popup-overlay">
-  <div class="popup-box">
-
-    <button class="popup-close" onclick="cerrarPopup()">×</button>
-
-    <div class="popup-image">
-      <img src="{% static 'core/img/bmw-popup.jpg' %}" alt="BMW Zeezton">
-    </div>
-
-    <div class="popup-content">
-      <h4>ÚNETE A ZEEZTON</h4>
-      <h1>$25 OFF</h1>
-      <p>en tu próxima compra sobre $250.000 al suscribirte</p>
-
-      <form method="POST" action="#">
-        {% csrf_token %}
-
-        <div class="popup-row">
-          <input type="email" name="email" placeholder="Email" required>
-          <input type="text" name="nombre" placeholder="Nombre">
-        </div>
-
-        <h3>INFORMACIÓN DEL VEHÍCULO</h3>
-
-        <label>Marca</label>
-        <select name="marca" required>
-          <option value="">- Selecciona -</option>
-          <option value="BMW">BMW</option>
-          <option value="Mini">Mini</option>
-          <option value="Audi">Audi</option>
-          <option value="Mercedes">Mercedes</option>
-        </select>
-
-        <label>Modelo</label>
-        <input type="text" name="modelo" placeholder="Ej: 335i E92">
-
-        <button type="button" class="popup-btn" onclick="enviarPopup()">SIGUIENTE</button>
-
-        <button type="button" class="popup-no" onclick="cerrarPopup()">
-          No, gracias
-        </button>
-      </form>
-    </div>
-
-  </div>
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const popup = document.getElementById("popupDescuento");
-
-    if (!popup) return;
-
-    if (!localStorage.getItem("popupZeeztonCerrado")) {
-        setTimeout(function () {
-            popup.style.display = "flex";
-        }, 1000);
-    }
-});
-
-function cerrarPopup() {
-    const popup = document.getElementById("popupDescuento");
-    if (popup) {
-        popup.style.display = "none";
-    }
-
-    localStorage.setItem("popupZeeztonCerrado", "true");
-}
-
-function enviarPopup() {
-    const popup = document.getElementById("popupDescuento");
-
-    const email = popup.querySelector('[name="email"]').value;
-    const nombre = popup.querySelector('[name="nombre"]').value;
-    const marca = popup.querySelector('[name="marca"]').value;
-    const modelo = popup.querySelector('[name="modelo"]').value;
-
-    if (email.trim() === "") {
-        alert("Ingresa tu email");
-        return;
-    }
-
-    fetch("/crud/guardar-suscriptor/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "X-CSRFToken": getCookie("csrftoken")
-        },
-        body: new URLSearchParams({
-            email: email,
-            nombre: nombre,
-            marca: marca,
-            modelo: modelo
-        })
-    })
-    .then(data => {
-        if (data.ok) {
-            cerrarPopup();
-            localStorage.setItem("popupZeeztonCerrado", "true");
-            alert("Gracias por suscribirte");
-        } else {
-        alert("No se pudo guardar");
-        }
-    })
-    .catch(error => {
-        console.log(error);
-        alert("Error al enviar el formulario");
-    });
-}
-
-function getCookie(name) {
-    let cookieValue = null;
-
-    if (document.cookie && document.cookie !== "") {
-        const cookies = document.cookie.split(";");
-
-        for (let cookie of cookies) {
-            cookie = cookie.trim();
-
-            if (cookie.startsWith(name + "=")) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-
-    return cookieValue;
-}
-</script>
+  {% block js %}{% endblock %}
 
 </body>
 </html>

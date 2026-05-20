@@ -1,0 +1,87 @@
+.zfiltro-wrap{
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto 45px;
+  font-family: "Michroma", sans-serif;
+}
+
+.zfiltro{
+  display: grid;
+  grid-template-columns: 1.4fr .8fr 150px;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 55px rgba(0,0,0,.35);
+}
+
+.zfiltro-field{
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.zfiltro-ico{
+  color: #0fcfd9;
+}
+
+.zfiltro-input{
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #fff;
+  font-size: .75rem;
+}
+
+.zfiltro-input::placeholder{
+  color: rgba(255,255,255,.45);
+}
+
+.zfiltro-select-input{
+  appearance: none;
+}
+
+.zfiltro-select-input option{
+  background: #111;
+  color: #fff;
+}
+
+.zfiltro-btn{
+  min-height: 48px;
+  border: 0;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, #0fcfd9, #780e6a);
+  font-size: .72rem;
+  font-weight: 800;
+  transition: .25s ease;
+}
+
+.zfiltro-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(15,207,217,.22);
+}
+
+@media(max-width: 768px){
+  .zfiltro-wrap{
+    width: calc(100% - 20px);
+    margin-bottom: 35px;
+  }
+
+  .zfiltro{
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+  }
+
+  .zfiltro-field,
+  .zfiltro-btn{
+    border-radius: 18px;
+  }
+}

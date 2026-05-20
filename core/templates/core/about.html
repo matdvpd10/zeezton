@@ -1,46 +1,93 @@
 {% extends "core/base.html" %}
 {% load static %}
 
-{% block title %}About{% endblock %}
+{% block title %}Sobre Nosotros | Zeezton Store{% endblock %}
 
-{% block contenido_metalico %}
-<section class="seccion-metalica">
-  <div class="container-fluid text-center text-white">
-
-    <h1 class="hero-titulo">
-      Conoce más sobre nosotros
-    </h1>
-
-    <!--<p class="hero-subtitle">
-      En <strong>zeezton</strong> impulsamos la pasión por el rendimiento automotriz. 🚗💨
-    </p>-->
-
-  </div>
-</section>
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/about.css' %}?v=1">
 {% endblock %}
 
 {% block main_content %}
-<div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-10 col-lg-8 about-container">
-            <p class="fuente-titulo">Nuestra historia</p>
-            <p class="text-secondary about-text">
-                zeezton nace del entusiasmo por volver a reecontrarme con la ingeniería automotriz y la personalización de vehículos.
-                De joven me Hipnotizaban los autos.
-            </p>
 
-            <p class="fuente-titulo">Misión y visión</p>
-            <p class="text-secondary about-text">
-                Buscamos mejorar la experiencia de conducción de nuestros clientes, brindando soluciones innovadoras y confiables.
-                Creemos en la excelencia, el compromiso y la constante evolución del mundo automotoriz.
-            </p>
+<section class="about-hero">
+  <div class="about-hero-content">
+    <span class="about-badge">Zeezton Store</span>
 
-            <p class="fuente-titulo">Nuestro equipo</p>
-            <p class="text-secondary about-text">
-                 soy apasionado. especialista en: diseño, tecnología y mecánica.
-                dedicando lo mejor de uno para cada cliente que confía en nosotros.
-            </p>
-        </div>
+    <h1 class="about-title">
+      Pasión por el detalle automotriz
+    </h1>
+
+    <p class="about-subtitle">
+      Nacimos desde la pasión por los autos, la estética premium y la búsqueda de soluciones que realmente mejoren la experiencia de cada conductor.
+    </p>
+  </div>
+</section>
+
+<section class="about-section">
+  <div class="about-grid">
+
+    <article class="about-card about-card-main">
+      <span class="about-card-number">01</span>
+      <h2>Nuestra historia</h2>
+      <p>
+        Zeezton nace del entusiasmo por volver a conectar con la ingeniería automotriz y la personalización de vehículos.
+        Desde joven, los autos despertaron una fascinación especial por el diseño, el rendimiento y los detalles que hacen único a cada vehículo.
+      </p>
+    </article>
+
+    <article class="about-card">
+      <span class="about-card-number">02</span>
+      <h2>Misión</h2>
+      <p>
+        Buscamos mejorar la experiencia de conducción de nuestros clientes mediante productos seleccionados, atención personalizada y soluciones confiables para cada necesidad automotriz.
+      </p>
+    </article>
+
+    <article class="about-card">
+      <span class="about-card-number">03</span>
+      <h2>Visión</h2>
+      <p>
+        Queremos posicionarnos como una tienda especializada en estética, accesorios y repuestos automotrices, combinando tecnología, diseño y confianza en cada compra.
+      </p>
+    </article>
+
+    <article class="about-card about-card-main">
+      <span class="about-card-number">04</span>
+      <h2>Nuestro enfoque</h2>
+      <p>
+        Somos apasionados por el diseño, la tecnología y la mecánica. Cada producto es elegido con dedicación, buscando entregar una experiencia clara, moderna y cercana para cada cliente que confía en Zeezton.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<section class="about-values">
+  <div class="about-values-content">
+    <span class="about-badge">Nuestro sello</span>
+
+    <h2>Más que vender productos, buscamos entregar confianza.</h2>
+
+    <div class="about-values-grid">
+      <div>
+        <i class="fa fa-shield-halved"></i>
+        <h3>Confianza</h3>
+        <p>Atención clara y cercana antes de cada compra.</p>
+      </div>
+
+      <div>
+        <i class="fa fa-car"></i>
+        <h3>Pasión</h3>
+        <p>Productos pensados para quienes disfrutan cuidar su vehículo.</p>
+      </div>
+
+      <div>
+        <i class="fa fa-bolt"></i>
+        <h3>Evolución</h3>
+        <p>Mejora constante en diseño, experiencia y tecnología.</p>
+      </div>
     </div>
-</div>
+  </div>
+</section>
+
 {% endblock %}

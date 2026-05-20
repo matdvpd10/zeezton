@@ -1,0 +1,204 @@
+.about-hero{
+  min-height: 380px;
+  padding: 150px 20px 85px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background:
+    radial-gradient(circle at top left, rgba(15,207,217,.22), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(120,14,106,.58), transparent 36%),
+    linear-gradient(180deg, #050505 0%, #111 100%);
+}
+
+.about-hero-content{
+  max-width: 980px;
+}
+
+.about-badge{
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: #0fcfd9;
+  border: 1px solid rgba(15,207,217,.35);
+  background: rgba(15,207,217,.08);
+  font-family: "Michroma", sans-serif;
+  font-size: .7rem;
+  letter-spacing: .7px;
+}
+
+.about-title{
+  margin: 0;
+  font-family: "Michroma", sans-serif;
+  font-size: clamp(2.1rem, 6vw, 4.8rem);
+  line-height: 1;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.about-subtitle{
+  max-width: 780px;
+  margin: 22px auto 0;
+  color: rgba(255,255,255,.72);
+  font-family: "Michroma", sans-serif;
+  font-size: .9rem;
+  line-height: 1.8;
+}
+
+.about-section{
+  padding: 80px 20px;
+  background:
+    radial-gradient(circle at top right, rgba(15,207,217,.12), transparent 30%),
+    linear-gradient(180deg, #050505, #101010);
+}
+
+.about-grid{
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 22px;
+}
+
+.about-card{
+  position: relative;
+  min-height: 280px;
+  padding: 34px;
+  border-radius: 28px;
+  overflow: hidden;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(14px);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.about-card:hover{
+  transform: translateY(-5px);
+  border-color: rgba(15,207,217,.42);
+  box-shadow: 0 22px 55px rgba(0,0,0,.45), 0 0 22px rgba(15,207,217,.12);
+}
+
+.about-card-main{
+  min-height: 340px;
+}
+
+.about-card-number{
+  display: inline-block;
+  margin-bottom: 18px;
+  color: rgba(15,207,217,.75);
+  font-family: "Michroma", sans-serif;
+  font-size: .8rem;
+}
+
+.about-card h2{
+  margin-bottom: 18px;
+  color: #fff;
+  font-family: "Michroma", sans-serif;
+  font-size: clamp(1.1rem, 2.4vw, 2rem);
+  text-transform: uppercase;
+}
+
+.about-card p{
+  color: rgba(255,255,255,.68);
+  font-family: "Michroma", sans-serif;
+  font-size: .82rem;
+  line-height: 1.8;
+}
+
+.about-values{
+  padding: 80px 20px 100px;
+  background:
+    radial-gradient(circle at bottom right, rgba(120,14,106,.35), transparent 34%),
+    linear-gradient(180deg, #101010, #050505);
+}
+
+.about-values-content{
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-values-content > h2{
+  max-width: 850px;
+  margin: 0 auto 40px;
+  color: #fff;
+  font-family: "Michroma", sans-serif;
+  font-size: clamp(1.4rem, 3vw, 2.6rem);
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.about-values-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.about-values-grid div{
+  padding: 30px;
+  border-radius: 26px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(14px);
+}
+
+.about-values-grid i{
+  color: #0fcfd9;
+  font-size: 1.8rem;
+  margin-bottom: 18px;
+}
+
+.about-values-grid h3{
+  color: #fff;
+  font-family: "Michroma", sans-serif;
+  font-size: 1rem;
+  margin-bottom: 12px;
+}
+
+.about-values-grid p{
+  color: rgba(255,255,255,.65);
+  font-family: "Michroma", sans-serif;
+  font-size: .75rem;
+  line-height: 1.6;
+}
+
+@media(max-width: 768px){
+  .about-hero{
+    min-height: 320px;
+    padding: 120px 18px 60px;
+  }
+
+  .about-title{
+    font-size: 2rem;
+  }
+
+  .about-subtitle{
+    font-size: .68rem;
+  }
+
+  .about-section,
+  .about-values{
+    padding: 55px 14px;
+  }
+
+  .about-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .about-card,
+  .about-card-main{
+    min-height: auto;
+    padding: 24px;
+    border-radius: 22px;
+  }
+
+  .about-card p{
+    font-size: .68rem;
+  }
+
+  .about-values-grid{
+    grid-template-columns: 1fr;
+  }
+}

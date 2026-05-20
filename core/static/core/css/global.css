@@ -1,0 +1,23 @@
+section,
+main{
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+html,
+body{
+    background-color: #ffffff !important;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body{
+    overflow-x: hidden;
+}
+
+/* evita scroll fantasma en móvil */
+body{
+    min-height: 100vh;
+}

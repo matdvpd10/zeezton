@@ -1,0 +1,132 @@
+/* =========================
+   Catalogo Grid
+   ========================= */
+
+.catalogo-page{
+    background: #f5f6f800;
+    min-height: 100vh;
+    padding-top: 140px;
+    color: #061124;
+}
+
+.catalogo-header{
+    padding: 30px 0 24px;
+}
+
+.catalogo-header h1{
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.catalogo-header p{
+    color: #04c4ff;
+    margin-bottom: 24px;
+}
+
+.catalogo-grid-section{
+    padding-bottom: 70px;
+}
+
+.catalogo-card{
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 100%;
+    /*box-shadow: 0 8px 24px rgb(255, 255, 255);*/
+    transition: .25s ease;
+}
+
+.catalogo-card:hover{
+    transform: translateY(-4px);
+}
+
+.catalogo-img-wrap{
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+}
+
+.catalogo-img-wrap img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.catalogo-info{
+    padding: 16px;
+}
+
+.catalogo-info h5{
+    font-size: 1rem;
+    color: #000000;
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+
+.catalogo-info p{
+    font-size: .85rem;
+    color: #000000;
+    line-height: 1.45;
+    margin-bottom: 14px;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 40px;
+}
+
+.catalogo-bottom{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.catalogo-bottom strong{
+    color: #123f8c;
+    font-size: 1rem;
+}
+
+.catalogo-cart{
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: #123f8c;
+    color: #fff;
+    display: grid;
+    place-items: center;
+}
+
+.catalogo-filtros{
+    display: grid;
+    grid-template-columns: 1fr 230px;
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.catalogo-filtros input,
+.catalogo-filtros select{
+    border: 1px solid #d8dde7;
+    border-radius: 8px;
+    padding: 11px 13px;
+}
+
+@media (max-width: 768px){
+    .catalogo-page{
+        padding-top: 110px;
+    }
+
+    .catalogo-filtros{
+        grid-template-columns: 1fr;
+    }
+
+    .catalogo-img-wrap{
+        height: 150px;
+    }
+
+    .catalogo-info{
+        padding: 12px;
+    }
+}
